@@ -1,4 +1,12 @@
-import { Server, TransactionBuilder, Networks, Operation, Asset, Keypair } from 'stellar-sdk';
+import {
+  Asset,
+  Horizon,
+  Keypair,
+  Memo,
+  Networks,
+  Operation,
+  TransactionBuilder,
+} from '@stellar/stellar-sdk';
 import logger from '../utils/logger.js';
 
 interface PaymentResult {
@@ -14,11 +22,11 @@ interface RefundResult {
 }
 
 export class StellarService {
-  private server: Server;
+  private server: Horizon.Server;
   private treasuryKeypair: Keypair;
 
   constructor() {
-    this.server = new Server(
+    this.server = new Horizon.Server(
       process.env.STELLAR_HORIZON_URL || 'https://horizon-testnet.stellar.org'
     );
     this.treasuryKeypair = Keypair.fromSecret(process.env.STELLAR_TREASURY_SECRET || '');
@@ -35,7 +43,7 @@ export class StellarService {
 
       // Create payment transaction
       const transaction = new TransactionBuilder(sourceAccount, {
-        fee: await this.server.fetchBaseFee(),
+        fee: String(await this.server.fetchBaseFee()),
         networkPassphrase: Networks.TESTNET,
       })
         .addOperation(
@@ -45,9 +53,7 @@ export class StellarService {
             amount: (data.amount / 10000000).toString(), // Convert from stroops to XLM
           })
         )
-        .addMemo(
-          `Subscription payment for user ${data.userId}, subscription ${data.subscriptionId}`
-        )
+        .addMemo(Memo.text(`Subscription payment ${data.subscriptionId}`))
         .setTimeout(30)
         .build();
 
@@ -83,7 +89,7 @@ export class StellarService {
 
       // Create refund transaction (in real implementation, this would send to user's wallet)
       const transaction = new TransactionBuilder(sourceAccount, {
-        fee: await this.server.fetchBaseFee(),
+        fee: String(await this.server.fetchBaseFee()),
         networkPassphrase: Networks.TESTNET,
       })
         .addOperation(
@@ -93,9 +99,7 @@ export class StellarService {
             amount: (data.amount / 10000000).toString(),
           })
         )
-        .addMemo(
-          `Refund for user ${data.userId}, original transaction ${data.originalTransactionId}`
-        )
+        .addMemo(Memo.text(`Refund for ${data.userId}`))
         .setTimeout(30)
         .build();
 
@@ -123,7 +127,7 @@ export class StellarService {
   async getAccountBalance(accountId: string): Promise<string> {
     try {
       const account = await this.server.loadAccount(accountId);
-      const balance = account.balances.find((b) => b.asset_type === 'native');
+      const balance = account.balances.find((b: Horizon.HorizonApi.BalanceLine) => b.asset_type === 'native');
       return balance?.balance || '0';
     } catch (error) {
       logger.error('Error fetching account balance:', error);

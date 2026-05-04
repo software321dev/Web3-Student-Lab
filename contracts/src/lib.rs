@@ -36,7 +36,6 @@ pub mod sybil_resistance;
 pub mod quadratic_voting;
 pub mod token_buyback;
 pub mod crowdfunding;
-pub mod blogging_platform;
 // Fuzz module uses `std` and legacy Soroban test patterns; keep out of the default test build
 // until it is refreshed for the current SDK (`sequence_number`, token `mint` arity, etc.).
 // #[cfg(test)]
@@ -45,19 +44,14 @@ pub mod token;
 pub mod upgrade;
 pub mod airdrop_manager;
 pub mod merkle_distributor;
-pub mod content_monetization;
 pub mod milestone_release;
 
 pub mod savings_wallet;
 pub mod interest_accrual;
 pub mod carbon_credit_platform;
 pub mod verification_system;
-pub mod job_board;
-pub mod skill_verification;
 pub mod timestamping;
 pub mod file_notarization;
-pub mod reward_points;
-pub mod points_conversion;
 
 use crate::revocation::{CertificateState, CertificateStatus, RevocationReason, RevocationRecord};
 use crate::token::RsTokenContractClient;
@@ -70,10 +64,6 @@ use soroban_sdk::{
     Env, String, Symbol, Vec,
 };
 
-use crate::blogging_platform::{BlogPost, Comment, ReactionType, PostMetrics, BloggingPlatform};
-use crate::content_monetization::{AccessType, Earnings, ContentMonetization};
-use crate::job_board::{Job, JobApplication, Milestone, JobBoard};
-use crate::skill_verification::{SkillAttestation, SkillVerification};
 
 /// Issued certificate record.
 #[contracttype]
@@ -2244,103 +2234,6 @@ impl CertificateContract {
     pub fn process_refund(env: Env, contributor: Address, campaign_id: u64) {
         milestone_release::process_refund(&env, contributor, campaign_id)
     }
-    // --- Blogging Platform Functions ---
-
-    pub fn create_post(env: Env, author: Address, title: String, content_hash: BytesN<32>, metadata: String) -> u64 {
-        BloggingPlatform::create_post(&env, author, title, content_hash, metadata)
-    }
-
-    pub fn get_post(env: Env, id: u64) -> Option<BlogPost> {
-        BloggingPlatform::get_post(&env, id)
-    }
-
-    pub fn get_latest_posts(env: Env) -> Vec<BlogPost> {
-        BloggingPlatform::get_latest_posts(&env)
-    }
-
-    pub fn get_posts_range(env: Env, start_id: u64, count: u64) -> Vec<BlogPost> {
-        BloggingPlatform::get_posts_range(&env, start_id, count)
-    }
-
-    pub fn add_comment(env: Env, post_id: u64, author: Address, content: String) {
-        BloggingPlatform::add_comment(&env, post_id, author, content)
-    }
-
-    pub fn react_to_post(env: Env, post_id: u64, reader: Address, reaction: ReactionType) {
-        BloggingPlatform::react_to_post(&env, post_id, reader, reaction)
-    }
-
-    pub fn get_post_metrics(env: Env, post_id: u64) -> PostMetrics {
-        BloggingPlatform::get_post_metrics(&env, post_id)
-    }
-
-    pub fn get_comments(env: Env, post_id: u64) -> Vec<Comment> {
-        BloggingPlatform::get_comments(&env, post_id)
-    }
-
-    // --- Monetization Functions ---
-
-    pub fn set_post_access(env: Env, author: Address, post_id: u64, access_type: AccessType) {
-        ContentMonetization::set_post_access(&env, author, post_id, access_type)
-    }
-
-    pub fn tip_creator(env: Env, reader: Address, creator: Address, token_addr: Address, amount: i128) {
-        ContentMonetization::tip_creator(&env, reader, creator, token_addr, amount)
-    }
-
-    pub fn subscribe_to_creator(env: Env, subscriber: Address, creator: Address, token_addr: Address, amount: i128) {
-        ContentMonetization::subscribe_to_creator(&env, subscriber, creator, token_addr, amount)
-    }
-
-    pub fn get_creator_earnings(env: Env, creator: Address) -> Earnings {
-        ContentMonetization::get_earnings(&env, &creator)
-    }
-
-    pub fn has_access(env: Env, reader: Address, post_id: u64, author: Address) -> bool {
-        ContentMonetization::has_access(&env, &reader, post_id, &author)
-    }
-
-    // --- Job Board Functions ---
-
-    pub fn create_job(
-        env: Env,
-        employer: Address,
-        title: String,
-        description: String,
-        budget: i128,
-        milestones: Vec<Milestone>,
-        required_skills: Vec<String>,
-        token_addr: Address
-    ) -> u64 {
-        JobBoard::create_job(&env, employer, title, description, budget, milestones, required_skills, token_addr)
-    }
-
-    pub fn apply_for_job(env: Env, applicant: Address, job_id: u64, proposal: String) {
-        JobBoard::apply_for_job(&env, applicant, job_id, proposal)
-    }
-
-    pub fn hire_freelancer(env: Env, employer: Address, job_id: u64, freelancer: Address) {
-        JobBoard::hire_freelancer(&env, employer, job_id, freelancer)
-    }
-
-    pub fn complete_milestone(env: Env, employer: Address, job_id: u64, milestone_idx: u32, token_addr: Address) {
-        JobBoard::complete_milestone(&env, employer, job_id, milestone_idx, token_addr)
-    }
-
-    // --- Skill Verification Functions ---
-
-    pub fn add_verifier(env: Env, admin: Address, verifier: Address) {
-        SkillVerification::add_verifier(&env, admin, verifier)
-    }
-
-    pub fn attest_skill(env: Env, verifier: Address, user: Address, skill_name: String, level: u32) {
-        SkillVerification::attest_skill(&env, verifier, user, skill_name, level)
-    }
-
-    pub fn get_user_skills(env: Env, user: Address) -> Vec<SkillAttestation> {
-        SkillVerification::get_user_skills(&env, user)
-    }
-
     // --- File Notarization System ---
 
     /// Notarizes a file hash on-chain with a timestamp.

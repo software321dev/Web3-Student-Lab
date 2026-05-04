@@ -26,13 +26,11 @@ class CacheService {
 
   async get<T>(key: string): Promise<T | null> {
     const client = redisClient.getClient();
-    if (!client) {
-      this.metrics.misses++;
-      return null;
-    }
 
     try {
-      const data = await client.get(key);
+      const data = client
+        ? await client.get(key)
+        : (redisClient.getMemoryStore().get(key) ?? null);
       if (data) {
         this.metrics.hits++;
         return JSON.parse(data) as T;
@@ -48,10 +46,13 @@ class CacheService {
 
   async set(key: string, value: unknown, ttl: number): Promise<void> {
     const client = redisClient.getClient();
-    if (!client) return;
 
     try {
-      await client.setex(key, ttl, JSON.stringify(value));
+      if (client) {
+        await client.setex(key, ttl, JSON.stringify(value));
+      } else {
+        redisClient.getMemoryStore().set(key, JSON.stringify(value));
+      }
     } catch (error) {
       logger.error(`Cache set error for key ${key}:`, error);
     }
@@ -59,10 +60,14 @@ class CacheService {
 
   async del(key: string | string[]): Promise<void> {
     const client = redisClient.getClient();
-    if (!client) return;
+    const keys = Array.isArray(key) ? key : [key];
 
     try {
-      await client.del(...(Array.isArray(key) ? key : [key]));
+      if (client) {
+        await client.del(...keys);
+      } else {
+        keys.forEach((item) => redisClient.getMemoryStore().delete(item));
+      }
     } catch (error) {
       logger.error(`Cache delete error:`, error);
     }
@@ -70,12 +75,19 @@ class CacheService {
 
   async delPattern(pattern: string): Promise<void> {
     const client = redisClient.getClient();
-    if (!client) return;
 
     try {
-      const keys = await client.keys(pattern);
+      const keys = client
+        ? await client.keys(pattern)
+        : Array.from(redisClient.getMemoryStore().keys()).filter((key) =>
+            key.includes(pattern.replace(/\*/g, ''))
+          );
       if (keys.length > 0) {
-        await client.del(...keys);
+        if (client) {
+          await client.del(...keys);
+        } else {
+          keys.forEach((key) => redisClient.getMemoryStore().delete(key));
+        }
       }
     } catch (error) {
       logger.error(`Cache delete pattern error for ${pattern}:`, error);

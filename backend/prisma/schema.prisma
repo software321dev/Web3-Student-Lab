@@ -8,8 +8,8 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url = "file:./dev.db"
 }
 
 model Student {
@@ -33,9 +33,6 @@ model Student {
   @@index([firstName, lastName])
   @@index([email])
   @@index([createdAt])
-  workspaceId String @default("default")
-
-  @@index([workspaceId])
 }
 
 model Course {
@@ -57,9 +54,6 @@ model Course {
   @@index([instructor])
   @@index([credits])
   @@index([createdAt])
-  workspaceId String @default("default")
-
-  @@index([workspaceId])
 }
 
 model Certificate {
@@ -91,9 +85,6 @@ model Certificate {
   @@index([issuedAt])
   @@index([studentId])
   @@index([courseId])
-  workspaceId String @default("default")
-
-  @@index([workspaceId])
 }
 
 model Enrollment {
@@ -108,9 +99,6 @@ model Enrollment {
 
   @@unique([studentId, courseId])
   @@map("enrollments")
-  workspaceId String @default("default")
-
-  @@index([workspaceId])
 }
 
 model Feedback {
@@ -127,9 +115,6 @@ model Feedback {
 
   @@unique([studentId, courseId]) // One review per student per course
   @@map("feedback")
-  workspaceId String @default("default")
-
-  @@index([workspaceId])
 }
 
 model LearningProgress {
@@ -150,9 +135,6 @@ model LearningProgress {
 
   @@unique([studentId, courseId])
   @@map("learning_progress")
-  workspaceId String @default("default")
-
-  @@index([workspaceId])
 }
 
 model AuditLog {
@@ -168,9 +150,6 @@ model AuditLog {
   createdAt DateTime @default(now())
 
   @@map("audit_logs")
-  workspaceId String @default("default")
-
-  @@index([workspaceId])
 }
 
 model AuthNonce {
@@ -219,7 +198,4 @@ model Canvas {
   @@index([roomId])
   @@index([studentId])
   @@index([createdAt])
-  workspaceId String @default("default")
-
-  @@index([workspaceId])
 }

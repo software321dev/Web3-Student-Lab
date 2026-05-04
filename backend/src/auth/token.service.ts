@@ -15,7 +15,7 @@ export const generateAccessToken = (payload: TokenPayload): string => {
   return jwt.sign(payload, ACCESS_TOKEN_SECRET, { expiresIn: ACCESS_TOKEN_EXPIRY });
 };
 
-export const generateRefreshToken = async (payload: TokenPayload): string => {
+export const generateRefreshToken = async (payload: TokenPayload): Promise<string> => {
   const refreshToken = jwt.sign(payload, REFRESH_TOKEN_SECRET, {
     expiresIn: `${REFRESH_TOKEN_EXPIRY_DAYS}d`,
   });

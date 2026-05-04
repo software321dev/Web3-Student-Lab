@@ -1,15 +1,21 @@
 import freelanceRoute from './routes/freelance';
+import cacheMetrics from './cache/CacheMetrics.js';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express, { Request, Response } from 'express';
 import { rateLimit } from 'express-rate-limit';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
+import { requireWorkspaceMiddleware } from './middleware/WorkspaceContext.js';
 import prisma from './db/index.js';
+import redisClient from './cache/RedisClient.js';
 import { dbRoutingMiddleware } from './middleware/dbRouting.js';
+import { decryptionMiddleware } from './middleware/encryptionMiddleware.js';
+import { apiRateLimiter } from './middleware/rateLimiter.js';
 import { requestLogger } from './middleware/requestLogger.js';
 import routes from './routes/index.js';
 import { validateEnvironment } from './utils/checkEnv.js';
+import { pubClient, redisConnection, subClient } from './utils/redis.js';
 import logger from './utils/logger.js';
 import { initializeWebSocket } from './websocket/WebSocketServer.js';
 
@@ -29,26 +35,14 @@ if (process.env.NODE_ENV !== 'test') {
   });
 }
 
-import { decryptionMiddleware } from './middleware/encryptionMiddleware.js';
-
 export const app = express();
 const httpServer = createServer(app);
-const io = new Server(httpServer, {
-  cors: {
-    origin: '*', // In production, replace with actual frontend URL
-    methods: ['GET', 'POST'],
-  },
-});
-
 const port = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(express.json());
 app.use(decryptionMiddleware);
 app.use(dbRoutingMiddleware);
-
-// Initialize WebSocket Gateway
-initWebSocketGateway(io);
 
 // Global Rate Limiting
 const limiter = rateLimit({
@@ -64,6 +58,7 @@ const limiter = rateLimit({
 
 // Global Rate Limiting - now using sliding window
 app.use(apiRateLimiter);
+app.use(limiter);
 app.use(requestLogger);
 
 // Health check endpoint
@@ -76,8 +71,6 @@ app.get('/health', (_req: Request, res: Response) => {
     redis: redisClient.isHealthy() ? 'connected' : 'disconnected',
   });
 });
-
-import { requireWorkspaceMiddleware } from './middleware/WorkspaceContext.js';
 
 // Cache metrics endpoint
 app.use('/api/v1/cache', cacheMetrics);

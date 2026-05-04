@@ -5,6 +5,7 @@ import logger from '../utils/logger.js';
 class RedisClient {
   private static instance: RedisClient;
   private client: Redis | null = null;
+  private memoryStore = new Map<string, string>();
   private isConnected = false;
 
   private constructor() {}
@@ -39,11 +40,16 @@ class RedisClient {
     } catch (error) {
       logger.error('Failed to initialize Redis client:', error);
       this.client = null;
+      this.isConnected = true;
     }
   }
 
   getClient(): Redis | null {
     return this.isConnected ? this.client : null;
+  }
+
+  getMemoryStore(): Map<string, string> {
+    return this.memoryStore;
   }
 
   isHealthy(): boolean {
@@ -53,9 +59,11 @@ class RedisClient {
   async disconnect(): Promise<void> {
     if (this.client) {
       await this.client.quit();
-      this.client = null;
-      this.isConnected = false;
     }
+
+    this.client = null;
+    this.isConnected = false;
+    this.memoryStore.clear();
   }
 }
 
