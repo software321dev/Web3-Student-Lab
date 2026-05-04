@@ -32,12 +32,14 @@ pub mod gaming_asset_exchange;
 pub mod rarity_validator;
 pub mod subscription_service;
 pub mod recurring_payments;
-pub mod token_buyback;
 pub mod burn_mechanism;
-pub mod subscription_service;
-pub mod recurring_payments;
+pub mod payment_scheduler;
+pub mod execution_engine;
 pub mod sybil_resistance;
 pub mod quadratic_voting;
+pub mod token_buyback;
+pub mod crowdfunding;
+pub mod blogging_platform;
 // Fuzz module uses `std` and legacy Soroban test patterns; keep out of the default test build
 // until it is refreshed for the current SDK (`sequence_number`, token `mint` arity, etc.).
 // #[cfg(test)]
@@ -46,17 +48,11 @@ pub mod token;
 pub mod upgrade;
 pub mod airdrop_manager;
 pub mod merkle_distributor;
-pub mod blogging_platform;
 pub mod content_monetization;
-pub mod airdrop_manager;
-pub mod merkle_distributor;
-pub mod crowdfunding;
 pub mod milestone_release;
 
 pub mod savings_wallet;
 pub mod interest_accrual;
-pub mod blogging_platform;
-pub mod content_monetization;
 pub mod carbon_credit_platform;
 pub mod verification_system;
 pub mod subscription_manager;
@@ -1928,7 +1924,7 @@ impl CertificateContract {
         );
     }
 
-    /// Enforce a max byte length and reject non-printable ASCII characters (< 0x20 or == 0x7F).
+    /// Enforce a max byte length and reject non-printable ASCII characters (< 0x20 or
     fn validate_string(env: &Env, s: &String, max_len: u32) {
         if s.len() > max_len {
             panic_with_error!(env, CertError::StringTooLong);
@@ -1974,7 +1970,7 @@ impl CertificateContract {
         }
     }
 
-    // ==================== REVOCATION & VERIFICATION FUNCTIONS ====================
+    //
 
     /// Revoke a certificate with detailed reason tracking and audit trail.
     ///
