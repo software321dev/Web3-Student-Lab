@@ -19,6 +19,8 @@ function EnrollmentContent() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    if (!searchParams) return;
+    
     const id = searchParams.get('courseId');
     const title = searchParams.get('courseTitle');
     const credits = searchParams.get('credits');
