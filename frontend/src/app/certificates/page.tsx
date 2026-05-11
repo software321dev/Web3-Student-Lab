@@ -2,6 +2,7 @@
 
 import { useAuth } from '@/contexts/AuthContext';
 import { Certificate, certificatesAPI } from '@/lib/api';
+import { truncateHash } from '@/lib/certificate-generator';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
