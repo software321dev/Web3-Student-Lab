@@ -267,118 +267,152 @@ impl<'a> StatisticsManager<'a> {
 
 #[cfg(test)]
 mod tests {
+    extern crate std;
     use super::*;
     use soroban_sdk::{testutils::Address as _, Address, BytesN, Env, Symbol};
 
-    fn setup() -> (Env, StatisticsManager<'static>) {
-        let env = Env::default();
-        let stats_mgr = StatisticsManager::new(&env);
-        (env, stats_mgr)
-    }
-
     #[test]
     fn test_initial_statistics_are_zero() {
-        let (_env, stats_mgr) = setup();
-        let stats = stats_mgr.get_statistics();
+        std::env::remove_var("SOROBAN_TEST_SNAPSHOT_FILE");
+        let env = Env::default();
+        let contract_id = env.register(crate::CertificateContract, ());
+        env.as_contract(&contract_id, || {
+            let stats_mgr = StatisticsManager::new(&env);
+            let stats = stats_mgr.get_statistics();
 
-        assert_eq!(stats.total_minted, 0);
-        assert_eq!(stats.total_revoked, 0);
-        assert_eq!(stats.active_certificates, 0);
-        assert_eq!(stats.unique_holders, 0);
+            assert_eq!(stats.total_minted, 0);
+            assert_eq!(stats.total_revoked, 0);
+            assert_eq!(stats.active_certificates, 0);
+            assert_eq!(stats.unique_holders, 0);
+        });
     }
 
     #[test]
     fn test_increment_minted_updates_stats_and_holder_count() {
-        let (env, stats_mgr) = setup();
-        let recipient = Address::generate(&env);
-        let course_id = BytesN::from_array(&env, &[1u8; 32]);
+        std::env::remove_var("SOROBAN_TEST_SNAPSHOT_FILE");
+        let env = Env::default();
+        let contract_id = env.register(crate::CertificateContract, ());
+        env.as_contract(&contract_id, || {
+            let stats_mgr = StatisticsManager::new(&env);
+            let recipient = Address::generate(&env);
+            let course_id = BytesN::from_array(&env, &[1u8; 32]);
 
-        stats_mgr.increment_minted(1, &recipient, &course_id);
+            stats_mgr.increment_minted(1, &recipient, &course_id);
 
-        let stats = stats_mgr.get_statistics();
-        assert_eq!(stats.total_minted, 1);
-        assert_eq!(stats.unique_holders, 1);
-        assert_eq!(stats.active_certificates, 1);
+            let stats = stats_mgr.get_statistics();
+            assert_eq!(stats.total_minted, 1);
+            assert_eq!(stats.unique_holders, 1);
+            assert_eq!(stats.active_certificates, 1);
 
-        // Mint another to same recipient - unique holders should not increase
-        stats_mgr.increment_minted(2, &recipient, &course_id);
-        let stats2 = stats_mgr.get_statistics();
-        assert_eq!(stats2.total_minted, 2);
-        assert_eq!(stats2.unique_holders, 1); // same holder
+            // Mint another to same recipient - unique holders should not increase
+            stats_mgr.increment_minted(2, &recipient, &course_id);
+            let stats2 = stats_mgr.get_statistics();
+            assert_eq!(stats2.total_minted, 2);
+            assert_eq!(stats2.unique_holders, 1); // same holder
+        });
     }
 
     #[test]
     fn test_multiple_holders_increase_unique_count() {
-        let (env, stats_mgr) = setup();
-        let course_id = BytesN::from_array(&env, &[1u8; 32]);
+        std::env::remove_var("SOROBAN_TEST_SNAPSHOT_FILE");
+        let env = Env::default();
+        let contract_id = env.register(crate::CertificateContract, ());
+        env.as_contract(&contract_id, || {
+            let stats_mgr = StatisticsManager::new(&env);
+            let course_id = BytesN::from_array(&env, &[1u8; 32]);
 
-        let holder1 = Address::generate(&env);
-        let holder2 = Address::generate(&env);
+            let holder1 = Address::generate(&env);
+            let holder2 = Address::generate(&env);
 
-        stats_mgr.increment_minted(1, &holder1, &course_id);
-        stats_mgr.increment_minted(2, &holder2, &course_id);
+            stats_mgr.increment_minted(1, &holder1, &course_id);
+            stats_mgr.increment_minted(2, &holder2, &course_id);
 
-        let stats = stats_mgr.get_statistics();
-        assert_eq!(stats.unique_holders, 2);
-        assert_eq!(stats.total_minted, 2);
+            let stats = stats_mgr.get_statistics();
+            assert_eq!(stats.unique_holders, 2);
+            assert_eq!(stats.total_minted, 2);
+        });
     }
 
     #[test]
     fn test_increment_revoked_updates_stats() {
-        let (env, stats_mgr) = setup();
-        let course_id = BytesN::from_array(&env, &[1u8; 32]);
+        std::env::remove_var("SOROBAN_TEST_SNAPSHOT_FILE");
+        let env = Env::default();
+        let contract_id = env.register(crate::CertificateContract, ());
+        env.as_contract(&contract_id, || {
+            let stats_mgr = StatisticsManager::new(&env);
+            let course_id = BytesN::from_array(&env, &[1u8; 32]);
 
-        stats_mgr.increment_minted(100, &Address::generate(&env), &course_id);
-        stats_mgr.increment_revoked(100);
+            stats_mgr.increment_minted(100, &Address::generate(&env), &course_id);
+            stats_mgr.increment_revoked();
 
-        let stats = stats_mgr.get_statistics();
-        assert_eq!(stats.total_minted, 1);
-        assert_eq!(stats.total_revoked, 1);
-        assert_eq!(stats.active_certificates, 0);
+            let stats = stats_mgr.get_statistics();
+            assert_eq!(stats.total_minted, 1);
+            assert_eq!(stats.total_revoked, 1);
+            assert_eq!(stats.active_certificates, 0);
+        });
     }
 
     #[test]
     fn test_course_statistics_tracking() {
-        let (env, stats_mgr) = setup();
-        let course_id = BytesN::from_array(&env, &[1u8; 32]);
+        std::env::remove_var("SOROBAN_TEST_SNAPSHOT_FILE");
+        let env = Env::default();
+        let contract_id = env.register(crate::CertificateContract, ());
+        env.as_contract(&contract_id, || {
+            let stats_mgr = StatisticsManager::new(&env);
+            let course_id = BytesN::from_array(&env, &[1u8; 32]);
 
-        stats_mgr.increment_minted(1, &Address::generate(&env), &course_id);
-        stats_mgr.increment_minted(2, &Address::generate(&env), &course_id);
-        stats_mgr.increment_revoked(2);
+            stats_mgr.increment_minted(1, &Address::generate(&env), &course_id);
+            stats_mgr.increment_minted(2, &Address::generate(&env), &course_id);
+            stats_mgr.increment_course_revoked(&course_id);
 
-        let course_stats = stats_mgr.get_course_statistics(&course_id).unwrap();
-        assert_eq!(course_stats.certificates_issued, 2);
-        assert_eq!(course_stats.certificates_revoked, 1);
+            let course_stats = stats_mgr.get_course_statistics(&course_id).unwrap();
+            assert_eq!(course_stats.certificates_issued, 2);
+            assert_eq!(course_stats.certificates_revoked, 1);
+        });
     }
 
     #[test]
     fn test_renewal_increments_renewed_counter() {
-        let (env, stats_mgr) = setup();
-        stats_mgr.increment_renewed();
-        let stats = stats_mgr.get_statistics();
-        assert_eq!(stats.total_renewed, 1);
+        std::env::remove_var("SOROBAN_TEST_SNAPSHOT_FILE");
+        let env = Env::default();
+        let contract_id = env.register(crate::CertificateContract, ());
+        env.as_contract(&contract_id, || {
+            let stats_mgr = StatisticsManager::new(&env);
+            stats_mgr.increment_renewed();
+            let stats = stats_mgr.get_statistics();
+            assert_eq!(stats.total_renewed, 1);
+        });
     }
 
     #[test]
     fn test_transfer_increments_counter() {
-        let (env, stats_mgr) = setup();
-        stats_mgr.increment_transferred();
-        let stats = stats_mgr.get_statistics();
-        assert_eq!(stats.total_transferred, 1);
+        std::env::remove_var("SOROBAN_TEST_SNAPSHOT_FILE");
+        let env = Env::default();
+        let contract_id = env.register(crate::CertificateContract, ());
+        env.as_contract(&contract_id, || {
+            let stats_mgr = StatisticsManager::new(&env);
+            stats_mgr.increment_transferred();
+            let stats = stats_mgr.get_statistics();
+            assert_eq!(stats.total_transferred, 1);
+        });
     }
 
     #[test]
     fn test_statistics_persist_across_instances() {
+        std::env::remove_var("SOROBAN_TEST_SNAPSHOT_FILE");
         let env = Env::default();
-        let stats_mgr1 = StatisticsManager::new(&env);
-        stats_mgr1.increment_minted(
-            1,
-            &Address::generate(&env),
-            &BytesN::from_array(&env, &[1u8; 32]),
-        );
+        let contract_id = env.register(crate::CertificateContract, ());
+        env.as_contract(&contract_id, || {
+            let stats_mgr1 = StatisticsManager::new(&env);
+            stats_mgr1.increment_minted(
+                1,
+                &Address::generate(&env),
+                &BytesN::from_array(&env, &[1u8; 32]),
+            );
 
-        let stats_mgr2 = StatisticsManager::new(&env);
-        let stats = stats_mgr2.get_statistics();
-        assert_eq!(stats.total_minted, 1);
+            let stats_mgr2 = StatisticsManager::new(&env);
+            let stats = stats_mgr2.get_statistics();
+            assert_eq!(stats.total_minted, 1);
+        });
     }
 }

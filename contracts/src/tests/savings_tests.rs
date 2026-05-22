@@ -1,4 +1,4 @@
-#![cfg(test)]
+// Savings wallet tests
 
 use crate::savings_wallet::{SavingsWalletContract, SavingsWalletContractClient};
 use soroban_sdk::{testutils::Address as _, Address, Env};
@@ -6,6 +6,7 @@ use soroban_sdk::{testutils::Address as _, Address, Env};
 #[test]
 fn test_create_savings_account() {
     let env = Env::default();
+    env.mock_all_auths();
     let contract_id = env.register_contract(None, SavingsWalletContract);
     let client = SavingsWalletContractClient::new(&env, &contract_id);
 
@@ -29,6 +30,7 @@ fn test_create_savings_account() {
 #[test]
 fn test_deposit() {
     let env = Env::default();
+    env.mock_all_auths();
     let contract_id = env.register_contract(None, SavingsWalletContract);
     let client = SavingsWalletContractClient::new(&env, &contract_id);
 
@@ -47,6 +49,7 @@ fn test_deposit() {
 #[test]
 fn test_early_withdrawal_penalty() {
     let env = Env::default();
+    env.mock_all_auths();
     let contract_id = env.register_contract(None, SavingsWalletContract);
     let client = SavingsWalletContractClient::new(&env, &contract_id);
 
@@ -67,9 +70,10 @@ fn test_early_withdrawal_penalty() {
 }
 
 #[test]
-#[should_panic(expected = "AccountLocked")]
+#[should_panic(expected = "Error(Contract, #3)")]
 fn test_matured_withdrawal_before_maturity() {
     let env = Env::default();
+    env.mock_all_auths();
     let contract_id = env.register_contract(None, SavingsWalletContract);
     let client = SavingsWalletContractClient::new(&env, &contract_id);
 

@@ -41,7 +41,7 @@ export default function QuizEngine() {
           const next = currentLeft - 1;
           if (next <= 0) {
             window.clearInterval(interval);
-            send('TIMEOUT');
+            send({ type: 'TIMEOUT' });
             return 0;
           }
           return next;
@@ -59,11 +59,11 @@ export default function QuizEngine() {
 
   const dragItemKey = (segment: string) => segment.replace(/\s+/g, '-').toLowerCase();
 
-  const handleDragStart = (event: DragEvent<HTMLButtonElement>, index: number) => {
+  const handleDragStart = (event: React.DragEvent<HTMLButtonElement>, index: number) => {
     event.dataTransfer.setData('text/plain', index.toString());
   };
 
-  const handleDrop = (event: DragEvent<HTMLButtonElement>, index: number) => {
+  const handleDrop = (event: React.DragEvent<HTMLButtonElement>, index: number) => {
     event.preventDefault();
     const sourceIndex = Number(event.dataTransfer.getData('text/plain'));
     if (Number.isNaN(sourceIndex)) return;
@@ -74,7 +74,7 @@ export default function QuizEngine() {
     send({ type: 'UPDATE_ORDER', order: nextOrder });
   };
 
-  const handleDragOver = (event: DragEvent<HTMLButtonElement>) => {
+  const handleDragOver = (event: React.DragEvent<HTMLButtonElement>) => {
     event.preventDefault();
   };
 
@@ -128,7 +128,7 @@ export default function QuizEngine() {
                   strategically to improve your recall and confidence.
                 </p>
                 <button
-                  onClick={() => send('START')}
+                  onClick={() => send({ type: 'START' })}
                   className="inline-flex items-center justify-center rounded-full bg-red-600 px-8 py-4 font-bold tracking-[0.25em] text-white uppercase shadow-[0_12px_30px_rgba(220,38,38,0.25)] transition hover:bg-red-700"
                 >
                   Launch Quiz

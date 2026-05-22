@@ -1,4 +1,4 @@
-import type * as monaco from 'monaco-editor';
+import * as monaco from 'monaco-editor';
 import { SOROBAN_LANGUAGE_ID, detectSorobanContext } from './SorobanLanguage';
 
 let completionRegistered = false;
@@ -149,7 +149,8 @@ const sorobanCompletions: CompletionTemplate[] = [
 
 function createCompletionItem(
   monacoApi: typeof monaco,
-  item: CompletionTemplate
+  item: CompletionTemplate,
+  range: monaco.IRange
 ): monaco.languages.CompletionItem {
   return {
     label: item.label,
@@ -159,6 +160,7 @@ function createCompletionItem(
     detail: item.detail,
     documentation: item.documentation,
     sortText: item.label,
+    range,
   };
 }
 
@@ -177,14 +179,22 @@ export function registerSorobanCompletion(monacoApi: typeof monaco) {
       const source = model.getValue();
       const context = detectSorobanContext(source);
       const suggestions: monaco.languages.CompletionItem[] = [];
+      const range = {
+        startLineNumber: position.lineNumber,
+        endLineNumber: position.lineNumber,
+        startColumn: wordUntil.startColumn,
+        endColumn: wordUntil.endColumn,
+      };
 
       if (/env\.$/.test(linePrefix)) {
-        suggestions.push(...envCompletions.map((item) => createCompletionItem(monacoApi, item)));
+        suggestions.push(
+          ...envCompletions.map((item) => createCompletionItem(monacoApi, item, range))
+        );
       }
 
       if (/env\.storage\(\)\.$/.test(linePrefix) || /storage\(\)\.$/.test(linePrefix)) {
         suggestions.push(
-          ...storageCompletions.map((item) => createCompletionItem(monacoApi, item))
+          ...storageCompletions.map((item) => createCompletionItem(monacoApi, item, range))
         );
       }
 
@@ -194,32 +204,28 @@ export function registerSorobanCompletion(monacoApi: typeof monaco) {
         context.looksLikeContract
       ) {
         suggestions.push(
-          ...sorobanCompletions.map((item) => createCompletionItem(monacoApi, item))
+          ...sorobanCompletions.map((item) => createCompletionItem(monacoApi, item, range))
         );
       }
 
       if (suggestions.length === 0) {
         suggestions.push(
-          createCompletionItem(monacoApi, {
-            label: 'storage()',
-            insertText: 'storage()',
-            detail: 'Access contract storage',
-            documentation: 'Suggested when working with `env.` in Soroban contracts.',
-            kind: 'Method',
-          })
+          createCompletionItem(
+            monacoApi,
+            {
+              label: 'storage()',
+              insertText: 'storage()',
+              detail: 'Access contract storage',
+              documentation: 'Suggested when working with `env.` in Soroban contracts.',
+              kind: 'Method',
+            },
+            range
+          )
         );
       }
 
       return {
-        suggestions: suggestions.map((suggestion) => ({
-          ...suggestion,
-          range: {
-            startLineNumber: position.lineNumber,
-            endLineNumber: position.lineNumber,
-            startColumn: wordUntil.startColumn,
-            endColumn: wordUntil.endColumn,
-          },
-        })),
+        suggestions,
       };
     },
   });

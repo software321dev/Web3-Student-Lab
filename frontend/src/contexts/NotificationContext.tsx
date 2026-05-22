@@ -4,7 +4,7 @@ import React, { createContext, useCallback, useContext, useReducer, useRef } fro
 
 export type NotificationType = 'signature' | 'enrollment' | 'certificate' | 'system' | 'error';
 
-export interface Nion {
+export interface AppNotification {
   id: string;
   type: NotificationType;
   title: string;
@@ -23,12 +23,12 @@ export interface NotificationGroup {
 }
 
 interface State {
-  notifications: Notification[];
-  toasts: Notification[]; // capped queue for storm prevention
+  notifications: AppNotification[];
+  toasts: AppNotification[]; // capped queue for storm prevention
 }
 
 type Action =
-  | { type: 'ADD'; payload: Notification }
+  | { type: 'ADD'; payload: AppNotification }
   | { type: 'MARK_READ'; id: string }
   | { type: 'MARK_ALL_READ' }
   | { type: 'DISMISS_TOAST'; id: string };
@@ -67,7 +67,7 @@ function reducer(state: State, action: Action): State {
 }
 
 /** Group notifications by type, returning sorted groups (most recent first) */
-export function groupNotifications(notifications: Notification[]): NotificationGroup[] {
+export function groupNotifications(notifications: AppNotification[]): NotificationGroup[] {
   const map = new Map<NotificationType, NotificationGroup>();
   for (const n of notifications) {
     const existing = map.get(n.type);
@@ -104,10 +104,10 @@ function typeLabel(type: NotificationType): string {
 }
 
 interface NotificationContextValue {
-  notifications: Notification[];
-  toasts: Notification[];
+  notifications: AppNotification[];
+  toasts: AppNotification[];
   unreadCount: number;
-  push: (n: Omit<Notification, 'id' | 'timestamp' | 'read'>) => void;
+  push: (n: Omit<AppNotification, 'id' | 'timestamp' | 'read'>) => void;
   markRead: (id: string) => void;
   markAllRead: () => void;
   dismissToast: (id: string) => void;
@@ -120,13 +120,13 @@ export function NotificationProvider({ children }: { children: React.ReactNode }
   // Rate-limit: track last push time per type to batch storms
   const lastPushRef = useRef<Map<NotificationType, number>>(new Map());
 
-  const push = useCallback((n: Omit<Notification, 'id' | 'timestamp' | 'read'>) => {
+  const push = useCallback((n: Omit<AppNotification, 'id' | 'timestamp' | 'read'>) => {
     const now = Date.now();
     const last = lastPushRef.current.get(n.type) ?? 0;
     // Throttle same-type notifications to max 1 toast per 200ms
     if (now - last < 200) {
       // Still add to list but skip toast by dispatching without toast
-      const notification: Notification = {
+      const notification: AppNotification = {
         ...n,
         id: `${now}-${Math.random().toString(36).slice(2)}`,
         timestamp: now,
@@ -136,7 +136,7 @@ export function NotificationProvider({ children }: { children: React.ReactNode }
       return;
     }
     lastPushRef.current.set(n.type, now);
-    const notification: Notification = {
+    const notification: AppNotification = {
       ...n,
       id: `${now}-${Math.random().toString(36).slice(2)}`,
       timestamp: now,

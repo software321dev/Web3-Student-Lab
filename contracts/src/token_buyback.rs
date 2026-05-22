@@ -438,28 +438,32 @@ impl TokenBuyback {
 #[cfg(test)]
 mod test {
     use super::*;
-    use soroban_sdk::testutils::{Address as _, Env as _};
+    use soroban_sdk::testutils::Address as _;
 
     #[test]
     fn test_buyback_init() {
         let env = Env::default();
-        let admin = Address::random(&env);
-        let dex = Address::random(&env);
-        let treasury = Address::random(&env);
+        env.mock_all_auths();
+        let admin = Address::generate(&env);
+        let dex = Address::generate(&env);
+        let treasury = Address::generate(&env);
 
-        TokenBuyback::init(
-            env.clone(),
-            admin.clone(),
-            dex,
-            treasury,
-            10,    // 10% revenue
-            86400, // Daily frequency
-            1000,
-            10000,
-        );
+        let contract_id = env.register(TokenBuyback, ());
+        env.as_contract(&contract_id, || {
+            TokenBuyback::init(
+                env.clone(),
+                admin.clone(),
+                dex,
+                treasury,
+                10,    // 10% revenue
+                86400, // Daily frequency
+                1000,
+                10000,
+            );
 
-        let config = TokenBuyback::get_config(env);
-        assert_eq!(config.revenue_percentage, 10);
-        assert_eq!(config.frequency, 86400);
+            let config = TokenBuyback::get_config(env.clone());
+            assert_eq!(config.revenue_percentage, 10);
+            assert_eq!(config.frequency, 86400);
+        });
     }
 }

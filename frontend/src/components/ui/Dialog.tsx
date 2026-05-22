@@ -55,3 +55,23 @@ export function DialogContent({
     </div>
   );
 }
+
+export function DialogDescription({
+  className,
+  children,
+  ...props
+}: React.HTMLAttributes<HTMLParagraphElement>) {
+  return (
+    <p className={cn('text-sm text-muted-foreground', className)} {...props}>
+      {children}
+    </p>
+  );
+}
+
+export const DialogTrigger = React.forwardRef<
+  HTMLButtonElement,
+  React.ButtonHTMLAttributes<HTMLButtonElement> & { asChild?: boolean }
+>(({ className, asChild = false, ...props }, ref) => {
+  return <button ref={ref} className={className} {...props} />;
+});
+DialogTrigger.displayName = 'DialogTrigger';

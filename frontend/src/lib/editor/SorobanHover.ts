@@ -146,8 +146,8 @@ function hoverMarkdown(
   description: string,
   example: string
 ) {
-  return new monacoApi.MarkdownString(
-    [
+  return {
+    value: [
       `### ${title}`,
       '',
       `**Signature:** \`${signature}\``,
@@ -158,8 +158,8 @@ function hoverMarkdown(
       '```rust',
       example,
       '```',
-    ].join('\n')
-  );
+    ].join('\n'),
+  };
 }
 
 export function registerSorobanHover(monacoApi: typeof monaco) {

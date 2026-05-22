@@ -304,31 +304,31 @@ export function AnalyticsDashboard() {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
               <label className="mb-2 block text-sm font-medium">Time Range</label>
-            <select
-              value={timeRange}
-              onChange={(e) => setTimeRange(e.target.value as any)}
-              className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-            >
-              <option value="24h">Last 24 Hours</option>
-              <option value="7d">Last 7 Days</option>
-              <option value="30d">Last 30 Days</option>
-              <option value="all">All Time</option>
-            </select>
+              <select
+                value={timeRange}
+                onChange={(e) => setTimeRange(e.target.value as any)}
+                className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+              >
+                <option value="24h">Last 24 Hours</option>
+                <option value="7d">Last 7 Days</option>
+                <option value="30d">Last 30 Days</option>
+                <option value="all">All Time</option>
+              </select>
             </div>
 
             <div>
               <label className="mb-2 block text-sm font-medium">Event Type</label>
-            <select
-              value={eventType}
-              onChange={(e) => setEventType(e.target.value)}
-              className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-            >
-              <option value="all">All Events</option>
-              <option value="cert_minted">Certificates Minted</option>
-              <option value="cert_revoked">Certificates Revoked</option>
-              <option value="student_enrolled">Student Enrolled</option>
-              <option value="certs_staked">Certificates Staked</option>
-            </select>
+              <select
+                value={eventType}
+                onChange={(e) => setEventType(e.target.value)}
+                className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+              >
+                <option value="all">All Events</option>
+                <option value="cert_minted">Certificates Minted</option>
+                <option value="cert_revoked">Certificates Revoked</option>
+                <option value="student_enrolled">Student Enrolled</option>
+                <option value="certs_staked">Certificates Staked</option>
+              </select>
             </div>
           </div>
         </CardContent>

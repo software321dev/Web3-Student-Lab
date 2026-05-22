@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { List } from 'react-window';
 import { PresenceIndicator } from '@/components/explorer/PresenceIndicator';
 import { FilePresenceManager } from '@/lib/explorer/FilePresence';
+import React, { useEffect, useMemo, useRef, useState, useCallback } from 'react';
+import { List, ListImperativeAPI } from 'react-window';
 
 export interface FileTreeNode {
   id: string;
@@ -42,6 +42,85 @@ function flattenTree(nodes: FileTreeNode[], manager: FilePresenceManager, depth 
   return flat;
 }
 
+interface FileTreeRowCustomProps {
+  flatNodes: FlatNode[];
+  activeFilePath?: string;
+  filePresenceManager: FilePresenceManager;
+  onSelectFile: (filePath: string) => void;
+  onMoveFile?: (sourcePath: string, targetFolderPath: string) => void;
+  onToggleFolder: (path: string) => void;
+}
+
+interface FileTreeRowProps extends FileTreeRowCustomProps {
+  index: number;
+  style: React.CSSProperties;
+}
+
+function FileTreeRow({
+  index,
+  style,
+  flatNodes,
+  activeFilePath,
+  filePresenceManager,
+  onSelectFile,
+  onMoveFile,
+  onToggleFolder,
+}: FileTreeRowProps) {
+  const item = flatNodes[index];
+  if (!item) return null;
+
+  const { node, depth } = item;
+  const isActive = node.path === activeFilePath;
+  const users = node.type === 'file' ? filePresenceManager.getUsersForFile(node.path) : [];
+
+  return (
+    <div
+      style={style}
+      className={`flex items-center border-b border-white/5 px-3 text-xs transition-colors ${
+        isActive ? 'bg-red-600/20 text-red-300' : 'text-zinc-300 hover:bg-zinc-900'
+      }`}
+      draggable={node.type === 'file'}
+      onDragStart={(event) => {
+        if (node.type !== 'file') return;
+        event.dataTransfer.setData('text/plain', node.path);
+        event.dataTransfer.effectAllowed = 'move';
+      }}
+      onDragOver={(event) => {
+        if (!onMoveFile || node.type !== 'folder') return;
+        event.preventDefault();
+        event.dataTransfer.dropEffect = 'move';
+      }}
+      onDrop={(event) => {
+        if (!onMoveFile || node.type !== 'folder') return;
+        event.preventDefault();
+        const sourcePath = event.dataTransfer.getData('text/plain');
+        if (!sourcePath || sourcePath === node.path) return;
+        onMoveFile(sourcePath, node.path);
+      }}
+    >
+      <div style={{ marginLeft: depth * INDENT_PX }} className="flex w-full items-center gap-2">
+        {node.type === 'folder' ? (
+          <button
+            className="font-semibold tracking-wide text-zinc-200 uppercase"
+            onClick={() => onToggleFolder(node.path)}
+          >
+            {filePresenceManager.isFolderExpanded(node.path) ? '▾' : '▸'} {node.name}
+          </button>
+        ) : (
+          <button
+            className="flex items-center text-left text-zinc-300"
+            onClick={() => onSelectFile(node.path)}
+          >
+            <span className="mr-1.5 text-zinc-500">•</span>
+            {node.name}
+          </button>
+        )}
+        {node.type === 'file' && <PresenceIndicator users={users} />}
+      </div>
+    </div>
+  );
+}
+
 export function VirtualizedFileTree({
   nodes,
   activeFilePath,
@@ -50,7 +129,7 @@ export function VirtualizedFileTree({
   onSelectFile,
   onMoveFile,
 }: VirtualizedFileTreeProps) {
-  const listRef = useRef<List>(null);
+  const listRef = useRef<ListImperativeAPI>(null);
   const [tick, setTick] = useState(0);
 
   const flatNodes = useMemo(
@@ -68,90 +147,45 @@ export function VirtualizedFileTree({
     };
   }, [filePresenceManager]);
 
-  const getItemSize = (index: number) => {
-    const current = flatNodes[index];
-    if (!current) return FILE_HEIGHT;
-    return current.node.type === 'folder' ? FOLDER_HEIGHT : FILE_HEIGHT;
-  };
+  const getItemSize = useCallback(
+    (index: number) => {
+      const current = flatNodes[index];
+      if (!current) return FILE_HEIGHT;
+      return current.node.type === 'folder' ? FOLDER_HEIGHT : FILE_HEIGHT;
+    },
+    [flatNodes]
+  );
 
-  const handleToggleFolder = (path: string) => {
-    const next = !filePresenceManager.isFolderExpanded(path);
-    filePresenceManager.setFolderExpanded(path, next);
-    listRef.current?.resetAfterIndex(0);
-    setTick((value) => value + 1);
-  };
-
-  const renderRow = ({ index, style }: { index: number; style: React.CSSProperties }) => {
-    const item = flatNodes[index];
-    if (!item) return null;
-
-    const { node, depth } = item;
-    const isActive = node.path === activeFilePath;
-    const users = node.type === 'file' ? filePresenceManager.getUsersForFile(node.path) : [];
-
-    return (
-      <div
-        style={style}
-        className={`flex items-center border-b border-white/5 px-3 text-xs transition-colors ${
-          isActive ? 'bg-red-600/20 text-red-300' : 'text-zinc-300 hover:bg-zinc-900'
-        }`}
-        draggable={node.type === 'file'}
-        onDragStart={(event) => {
-          if (node.type !== 'file') return;
-          event.dataTransfer.setData('text/plain', node.path);
-          event.dataTransfer.effectAllowed = 'move';
-        }}
-        onDragOver={(event) => {
-          if (!onMoveFile || node.type !== 'folder') return;
-          event.preventDefault();
-          event.dataTransfer.dropEffect = 'move';
-        }}
-        onDrop={(event) => {
-          if (!onMoveFile || node.type !== 'folder') return;
-          event.preventDefault();
-          const sourcePath = event.dataTransfer.getData('text/plain');
-          if (!sourcePath || sourcePath === node.path) return;
-          onMoveFile(sourcePath, node.path);
-        }}
-      >
-        <div style={{ marginLeft: depth * INDENT_PX }} className="flex w-full items-center gap-2">
-          {node.type === 'folder' ? (
-            <button
-              className="font-semibold tracking-wide text-zinc-200 uppercase"
-              onClick={() => handleToggleFolder(node.path)}
-            >
-              {filePresenceManager.isFolderExpanded(node.path) ? '▾' : '▸'} {node.name}
-            </button>
-          ) : (
-            <button
-              className="flex items-center text-left text-zinc-300"
-              onClick={() => onSelectFile(node.path)}
-            >
-              <span className="mr-1.5 text-zinc-500">•</span>
-              {node.name}
-            </button>
-          )}
-          {node.type === 'file' && <PresenceIndicator users={users} />}
-        </div>
-      </div>
-    );
-  };
+  const handleToggleFolder = useCallback(
+    (path: string) => {
+      const next = !filePresenceManager.isFolderExpanded(path);
+      filePresenceManager.setFolderExpanded(path, next);
+      setTick((value) => value + 1);
+    },
+    [filePresenceManager]
+  );
 
   return (
     <div className="overflow-hidden rounded-xl border border-white/10 bg-black/60">
       <div className="border-b border-white/10 px-3 py-2 text-[10px] font-black tracking-[0.2em] text-zinc-500 uppercase">
         project explorer
       </div>
-      <List
-        ref={listRef}
-        height={height}
-        itemCount={flatNodes.length}
-        itemSize={getItemSize}
-        width="100%"
+      <List<FileTreeRowCustomProps>
+        listRef={listRef}
+        rowCount={flatNodes.length}
+        rowHeight={getItemSize}
         overscanCount={8}
-      >
-        {renderRow}
-      </List>
+        style={{ height, width: '100%' }}
+        rowComponent={FileTreeRow}
+        rowProps={{
+          flatNodes,
+          activeFilePath,
+          filePresenceManager,
+          onSelectFile,
+          onMoveFile,
+          onToggleFolder: handleToggleFolder,
+        }}
+      />
     </div>
   );
 }

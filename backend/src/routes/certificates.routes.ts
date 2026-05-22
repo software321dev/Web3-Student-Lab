@@ -59,8 +59,6 @@ router.post(
 // List/Filter certificates
 router.get('/', certificateController.listCertificates.bind(certificateController));
 
-
-
 // Certificate image generation
 router.get('/:id/image', certificateController.getCertificateImage.bind(certificateController));
 

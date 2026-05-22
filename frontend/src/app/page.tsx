@@ -17,7 +17,7 @@ export default function Home() {
     async function fetchStats() {
       try {
         // Point strictly to the sanitized analytics endpoint
-        const data = await analyticsAPI.getGlobalStats() as any;
+        const data = (await analyticsAPI.getGlobalStats()) as any;
 
         const summary = data.summary || [];
         const studentStat = summary.find((s: any) => s.metricType === 'USER_STAT');

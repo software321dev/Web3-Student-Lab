@@ -5,7 +5,9 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-export default function BrainstormPage() {
+import { Suspense } from 'react';
+
+function BrainstormContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const { user } = useAuth();
@@ -203,5 +205,19 @@ export default function BrainstormPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function BrainstormPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center">
+          <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-blue-600"></div>
+        </div>
+      }
+    >
+      <BrainstormContent />
+    </Suspense>
   );
 }

@@ -1,5 +1,6 @@
 import { AuthProvider } from '@/contexts/AuthContext';
 import { ThemeProvider } from '@/contexts/ThemeContext';
+import { WalletProvider } from '@/contexts/WalletContext';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
@@ -56,31 +57,23 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground min-h-screen antialiased transition-colors duration-200`}
       >
         <ThemeProvider>
-          <AuthProvider>
-            <NotificationProvider>
-              <a href="#main-content" className="skip-to-content">
-                Skip to main content
-              </a>
-              <Navbar />
-              <ResiliencyBanner />
-              <main id="main-content" className="flex-grow">
-                {children}
-              </main>
-              <ToastContainer />
-            </NotificationProvider>
-            <I18nProvider>
-              <NotificationProvider>
-                <a href="#main-content" className="skip-to-content">
-                  Skip to main content
-                </a>
-                <Navbar />
-                <main id="main-content" className="flex-grow">
-                  {children}
-                </main>
-                <ToastContainer />
-              </NotificationProvider>
-            </I18nProvider>
-          </AuthProvider>
+          <WalletProvider>
+            <AuthProvider>
+              <I18nProvider>
+                <NotificationProvider>
+                  <a href="#main-content" className="skip-to-content">
+                    Skip to main content
+                  </a>
+                  <Navbar />
+                  <ResiliencyBanner />
+                  <main id="main-content" className="flex-grow">
+                    {children}
+                  </main>
+                  <ToastContainer />
+                </NotificationProvider>
+              </I18nProvider>
+            </AuthProvider>
+          </WalletProvider>
         </ThemeProvider>
       </body>
     </html>

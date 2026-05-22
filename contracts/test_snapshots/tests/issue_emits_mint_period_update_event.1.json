@@ -127,6 +127,18 @@
                     },
                     {
                       "key": {
+                        "symbol": "did"
+                      },
+                      "val": "void"
+                    },
+                    {
+                      "key": {
+                        "symbol": "grade"
+                      },
+                      "val": "void"
+                    },
+                    {
+                      "key": {
                         "symbol": "issue_date"
                       },
                       "val": {
@@ -230,6 +242,18 @@
                       "val": {
                         "symbol": "EVNT"
                       }
+                    },
+                    {
+                      "key": {
+                        "symbol": "did"
+                      },
+                      "val": "void"
+                    },
+                    {
+                      "key": {
+                        "symbol": "grade"
+                      },
+                      "val": "void"
                     },
                     {
                       "key": {
@@ -397,12 +421,238 @@
                         "key": {
                           "vec": [
                             {
+                              "symbol": "AddressIndex"
+                            },
+                            {
+                              "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAK3IM"
+                            },
+                            {
+                              "u64": 1
+                            }
+                          ]
+                        },
+                        "val": {
+                          "bool": true
+                        }
+                      },
+                      {
+                        "key": {
+                          "vec": [
+                            {
+                              "symbol": "AddressIndex"
+                            },
+                            {
+                              "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDR4"
+                            },
+                            {
+                              "u64": 2
+                            }
+                          ]
+                        },
+                        "val": {
+                          "bool": true
+                        }
+                      },
+                      {
+                        "key": {
+                          "vec": [
+                            {
+                              "symbol": "CourseStats"
+                            },
+                            {
+                              "bytes": "801918f26a8efc5b496cf3de749813ac74e3effb19740ae13ef153779d5adfdc"
+                            }
+                          ]
+                        },
+                        "val": {
+                          "map": [
+                            {
+                              "key": {
+                                "symbol": "certificates_issued"
+                              },
+                              "val": {
+                                "u64": 2
+                              }
+                            },
+                            {
+                              "key": {
+                                "symbol": "certificates_revoked"
+                              },
+                              "val": {
+                                "u64": 0
+                              }
+                            },
+                            {
+                              "key": {
+                                "symbol": "course_id"
+                              },
+                              "val": {
+                                "bytes": "801918f26a8efc5b496cf3de749813ac74e3effb19740ae13ef153779d5adfdc"
+                              }
+                            },
+                            {
+                              "key": {
+                                "symbol": "last_certificate_at"
+                              },
+                              "val": {
+                                "u64": 0
+                              }
+                            },
+                            {
+                              "key": {
+                                "symbol": "unique_graduates"
+                              },
+                              "val": {
+                                "u64": 0
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "key": {
+                          "vec": [
+                            {
                               "symbol": "CurrentPeriod"
                             }
                           ]
                         },
                         "val": {
                           "u32": 0
+                        }
+                      },
+                      {
+                        "key": {
+                          "vec": [
+                            {
+                              "symbol": "Entry"
+                            },
+                            {
+                              "u64": 1
+                            }
+                          ]
+                        },
+                        "val": {
+                          "map": [
+                            {
+                              "key": {
+                                "symbol": "address"
+                              },
+                              "val": {
+                                "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAK3IM"
+                              }
+                            },
+                            {
+                              "key": {
+                                "symbol": "data_hash"
+                              },
+                              "val": {
+                                "bytes": "4e6b326dfab7623ebd00af0e73164b71033418f1232a2e7209b993034eee9985"
+                              }
+                            },
+                            {
+                              "key": {
+                                "symbol": "event_type"
+                              },
+                              "val": {
+                                "u32": 0
+                              }
+                            },
+                            {
+                              "key": {
+                                "symbol": "id"
+                              },
+                              "val": {
+                                "u64": 1
+                              }
+                            },
+                            {
+                              "key": {
+                                "symbol": "timestamp"
+                              },
+                              "val": {
+                                "u64": 0
+                              }
+                            },
+                            {
+                              "key": {
+                                "symbol": "token_id"
+                              },
+                              "val": {
+                                "u128": {
+                                  "hi": 4053901292252366407,
+                                  "lo": 741468270471179167
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "key": {
+                          "vec": [
+                            {
+                              "symbol": "Entry"
+                            },
+                            {
+                              "u64": 2
+                            }
+                          ]
+                        },
+                        "val": {
+                          "map": [
+                            {
+                              "key": {
+                                "symbol": "address"
+                              },
+                              "val": {
+                                "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDR4"
+                              }
+                            },
+                            {
+                              "key": {
+                                "symbol": "data_hash"
+                              },
+                              "val": {
+                                "bytes": "4e6b326dfab7623ebd00af0e73164b71033418f1232a2e7209b993034eee9985"
+                              }
+                            },
+                            {
+                              "key": {
+                                "symbol": "event_type"
+                              },
+                              "val": {
+                                "u32": 0
+                              }
+                            },
+                            {
+                              "key": {
+                                "symbol": "id"
+                              },
+                              "val": {
+                                "u64": 2
+                              }
+                            },
+                            {
+                              "key": {
+                                "symbol": "timestamp"
+                              },
+                              "val": {
+                                "u64": 0
+                              }
+                            },
+                            {
+                              "key": {
+                                "symbol": "token_id"
+                              },
+                              "val": {
+                                "u128": {
+                                  "hi": 636808363567741695,
+                                  "lo": 8743339576026813021
+                                }
+                              }
+                            }
+                          ]
                         }
                       },
                       {
@@ -425,6 +675,36 @@
                               "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAITA4"
                             }
                           ]
+                        }
+                      },
+                      {
+                        "key": {
+                          "vec": [
+                            {
+                              "symbol": "HolderCount"
+                            },
+                            {
+                              "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAK3IM"
+                            }
+                          ]
+                        },
+                        "val": {
+                          "u32": 1
+                        }
+                      },
+                      {
+                        "key": {
+                          "vec": [
+                            {
+                              "symbol": "HolderCount"
+                            },
+                            {
+                              "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDR4"
+                            }
+                          ]
+                        },
+                        "val": {
+                          "u32": 1
                         }
                       },
                       {
@@ -543,6 +823,192 @@
                             }
                           ]
                         }
+                      },
+                      {
+                        "key": {
+                          "vec": [
+                            {
+                              "symbol": "Sequence"
+                            }
+                          ]
+                        },
+                        "val": {
+                          "u64": 2
+                        }
+                      },
+                      {
+                        "key": {
+                          "vec": [
+                            {
+                              "symbol": "StudentCourse"
+                            },
+                            {
+                              "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAK3IM"
+                            },
+                            {
+                              "bytes": "801918f26a8efc5b496cf3de749813ac74e3effb19740ae13ef153779d5adfdc"
+                            }
+                          ]
+                        },
+                        "val": {
+                          "bool": true
+                        }
+                      },
+                      {
+                        "key": {
+                          "vec": [
+                            {
+                              "symbol": "StudentCourse"
+                            },
+                            {
+                              "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDR4"
+                            },
+                            {
+                              "bytes": "801918f26a8efc5b496cf3de749813ac74e3effb19740ae13ef153779d5adfdc"
+                            }
+                          ]
+                        },
+                        "val": {
+                          "bool": true
+                        }
+                      },
+                      {
+                        "key": {
+                          "vec": [
+                            {
+                              "symbol": "TimestampIndex"
+                            },
+                            {
+                              "u64": 0
+                            },
+                            {
+                              "u64": 1
+                            }
+                          ]
+                        },
+                        "val": {
+                          "bool": true
+                        }
+                      },
+                      {
+                        "key": {
+                          "vec": [
+                            {
+                              "symbol": "TimestampIndex"
+                            },
+                            {
+                              "u64": 0
+                            },
+                            {
+                              "u64": 2
+                            }
+                          ]
+                        },
+                        "val": {
+                          "bool": true
+                        }
+                      },
+                      {
+                        "key": {
+                          "vec": [
+                            {
+                              "symbol": "TokenHolder"
+                            },
+                            {
+                              "u128": {
+                                "hi": 636808363567741695,
+                                "lo": 8743339576026813021
+                              }
+                            }
+                          ]
+                        },
+                        "val": {
+                          "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDR4"
+                        }
+                      },
+                      {
+                        "key": {
+                          "vec": [
+                            {
+                              "symbol": "TokenHolder"
+                            },
+                            {
+                              "u128": {
+                                "hi": 4053901292252366407,
+                                "lo": 741468270471179167
+                              }
+                            }
+                          ]
+                        },
+                        "val": {
+                          "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAK3IM"
+                        }
+                      },
+                      {
+                        "key": {
+                          "vec": [
+                            {
+                              "symbol": "TokenIndex"
+                            },
+                            {
+                              "u128": {
+                                "hi": 636808363567741695,
+                                "lo": 8743339576026813021
+                              }
+                            },
+                            {
+                              "u64": 2
+                            }
+                          ]
+                        },
+                        "val": {
+                          "bool": true
+                        }
+                      },
+                      {
+                        "key": {
+                          "vec": [
+                            {
+                              "symbol": "TokenIndex"
+                            },
+                            {
+                              "u128": {
+                                "hi": 4053901292252366407,
+                                "lo": 741468270471179167
+                              }
+                            },
+                            {
+                              "u64": 1
+                            }
+                          ]
+                        },
+                        "val": {
+                          "bool": true
+                        }
+                      },
+                      {
+                        "key": {
+                          "vec": [
+                            {
+                              "symbol": "TotalMinted"
+                            }
+                          ]
+                        },
+                        "val": {
+                          "u64": 2
+                        }
+                      },
+                      {
+                        "key": {
+                          "vec": [
+                            {
+                              "symbol": "UniqueHolders"
+                            }
+                          ]
+                        },
+                        "val": {
+                          "u64": 2
+                        }
                       }
                     ]
                   }
@@ -620,6 +1086,51 @@
           "v0": {
             "topics": [
               {
+                "symbol": "cert_minted"
+              },
+              {
+                "symbol": "v2"
+              }
+            ],
+            "data": {
+              "vec": [
+                {
+                  "u128": {
+                    "hi": 4053901292252366407,
+                    "lo": 741468270471179167
+                  }
+                },
+                {
+                  "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAK3IM"
+                },
+                {
+                  "bytes": "801918f26a8efc5b496cf3de749813ac74e3effb19740ae13ef153779d5adfdc"
+                },
+                {
+                  "bytes": "4e6b326dfab7623ebd00af0e73164b71033418f1232a2e7209b993034eee9985"
+                },
+                {
+                  "u64": 0
+                },
+                {
+                  "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFCT4"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "failed_call": false
+    },
+    {
+      "event": {
+        "ext": "v0",
+        "contract_id": "0000000000000000000000000000000000000000000000000000000000000001",
+        "type_": "contract",
+        "body": {
+          "v0": {
+            "topics": [
+              {
                 "symbol": "v1_cert_issued"
               },
               {
@@ -633,6 +1144,51 @@
                 },
                 {
                   "string": "Event Course"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "failed_call": false
+    },
+    {
+      "event": {
+        "ext": "v0",
+        "contract_id": "0000000000000000000000000000000000000000000000000000000000000001",
+        "type_": "contract",
+        "body": {
+          "v0": {
+            "topics": [
+              {
+                "symbol": "cert_minted"
+              },
+              {
+                "symbol": "v2"
+              }
+            ],
+            "data": {
+              "vec": [
+                {
+                  "u128": {
+                    "hi": 636808363567741695,
+                    "lo": 8743339576026813021
+                  }
+                },
+                {
+                  "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDR4"
+                },
+                {
+                  "bytes": "801918f26a8efc5b496cf3de749813ac74e3effb19740ae13ef153779d5adfdc"
+                },
+                {
+                  "bytes": "4e6b326dfab7623ebd00af0e73164b71033418f1232a2e7209b993034eee9985"
+                },
+                {
+                  "u64": 0
+                },
+                {
+                  "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFCT4"
                 }
               ]
             }

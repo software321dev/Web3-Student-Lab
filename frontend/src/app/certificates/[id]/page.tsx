@@ -20,7 +20,7 @@ export default function CertificateNFTPage() {
 
   useEffect(() => {
     if (!params?.id) return;
-    
+
     async function loadCertificate() {
       try {
         const data = await certificatesAPI.getById(params?.id as string);

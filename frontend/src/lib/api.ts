@@ -6,6 +6,7 @@ export interface User {
   id: string;
   email: string;
   name: string;
+  address?: string;
 }
 
 export interface AuthResponse {
@@ -338,5 +339,20 @@ export const exportAPI = {
     streamUrl.searchParams.set('access_token', token);
 
     return new EventSource(streamUrl.toString());
+  },
+};
+
+export const api = apiClient;
+
+export interface ActivityEntry {
+  date: string;
+  count: number;
+  labs?: number;
+}
+
+export const activityAPI = {
+  getStudentActivity: async (userId: string): Promise<ActivityEntry[]> => {
+    const response = await apiClient.get(`/activity/user/${userId}`);
+    return response.data;
   },
 };

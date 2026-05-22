@@ -190,7 +190,13 @@ export default function NetworkLedgerStreamer() {
       .attr('stroke', '#fff')
       .attr('stroke-width', 2)
       .style('cursor', 'pointer')
-      .call(d3.drag().on('start', dragstarted as any).on('drag', dragged as any).on('end', dragended as any) as any)
+      .call(
+        d3
+          .drag()
+          .on('start', dragstarted as any)
+          .on('drag', dragged as any)
+          .on('end', dragended as any) as any
+      )
       .on('click', (event, d) => {
         setSelectedNode(d);
       });
@@ -389,8 +395,7 @@ export default function NetworkLedgerStreamer() {
 
     setNodes((prev) => {
       const filtered = prev.filter(
-        (n) =>
-          n.data?.timestamp && Date.now() - n.data.timestamp.getTime() < timeWindow * 60 * 1000
+        (n) => n.data?.timestamp && Date.now() - n.data.timestamp.getTime() < timeWindow * 60 * 1000
       );
       return [...filtered.slice(-100), ...newNodes];
     });

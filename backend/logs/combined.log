@@ -2522,3 +2522,1304 @@ Please copy .env.example to .env and fill in the required values.
 2026-05-09 17:10:39 info: Certificate minted on-chain: cert-api-stud-api-cour-1778343039252 -> token 977597
 2026-05-09 17:10:39 info: Certificate minted: cert-api-stud-api-cour-1778343039252
 2026-05-09 17:10:39 info: GET /api/v1/certificates/verify/977597
+2026-05-20 09:43:43 info: ✅ Environment variables validated successfully
+2026-05-20 09:43:43 info: 🌍 Environment: development
+2026-05-20 09:43:43 info: 🔌 Port: 8080
+2026-05-20 09:43:43 info: 🌐 Stellar Network: testnet
+2026-05-20 09:43:43 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Missing required environment variable: DATABASE_URL
+Description: PostgreSQL connection string for database connectivity
+Please check your .env file and .env.example for guidance.
+
+Missing required environment variable: REDIS_URL
+Description: Redis connection URL for background jobs and WebSockets
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:43:43 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Missing required environment variable: JWT_SECRET
+Description: Secret key for JWT token signing and verification
+Please check your .env file and .env.example for guidance.
+
+Missing required environment variable: REDIS_URL
+Description: Redis connection URL for background jobs and WebSockets
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:43:43 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Invalid value for environment variable: JWT_SECRET
+Description: Secret key for JWT token signing and verification
+Current value: "short"
+Please check .env.example for the correct format.
+
+Missing required environment variable: REDIS_URL
+Description: Redis connection URL for background jobs and WebSockets
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:43:43 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Invalid value for environment variable: JWT_SECRET
+Description: Secret key for JWT token signing and verification
+Current value: "short"
+Please check .env.example for the correct format.
+
+Missing required environment variable: REDIS_URL
+Description: Redis connection URL for background jobs and WebSockets
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:43:43 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Invalid value for environment variable: JWT_SECRET
+Description: Secret key for JWT token signing and verification
+Current value: "your-secret-key-change-in-production"
+Please check .env.example for the correct format.
+
+Missing required environment variable: REDIS_URL
+Description: Redis connection URL for background jobs and WebSockets
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:43:43 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Invalid value for environment variable: JWT_SECRET
+Description: Secret key for JWT token signing and verification
+Current value: "your-secret-key-change-in-production"
+Please check .env.example for the correct format.
+
+Missing required environment variable: REDIS_URL
+Description: Redis connection URL for background jobs and WebSockets
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:43:43 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Invalid value for environment variable: DATABASE_URL
+Description: PostgreSQL connection string for database connectivity
+Current value: "invalid-url-format"
+Please check .env.example for the correct format.
+
+Missing required environment variable: REDIS_URL
+Description: Redis connection URL for background jobs and WebSockets
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:43:43 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Invalid value for environment variable: DATABASE_URL
+Description: PostgreSQL connection string for database connectivity
+Current value: "invalid-url-format"
+Please check .env.example for the correct format.
+
+Missing required environment variable: REDIS_URL
+Description: Redis connection URL for background jobs and WebSockets
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:43:43 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Missing required environment variable: STELLAR_ISSUER_SECRET_KEY
+Description: Stellar secret key for certificate issuance (production only)
+Please check your .env file and .env.example for guidance.
+
+Missing required environment variable: STELLAR_ISSUER_PUBLIC_KEY
+Description: Stellar public key for certificate issuance (production only)
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:43:43 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Missing required environment variable: STELLAR_ISSUER_SECRET_KEY
+Description: Stellar secret key for certificate issuance (production only)
+Please check your .env file and .env.example for guidance.
+
+Missing required environment variable: STELLAR_ISSUER_PUBLIC_KEY
+Description: Stellar public key for certificate issuance (production only)
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:43:43 info: ✅ Environment variables validated successfully
+2026-05-20 09:43:43 info: 🌍 Environment: production
+2026-05-20 09:43:43 info: 🔌 Port: 8080
+2026-05-20 09:43:43 info: 🌐 Stellar Network: testnet
+2026-05-20 09:43:43 info: ✅ Environment variables validated successfully
+2026-05-20 09:43:43 info: 🌍 Environment: development
+2026-05-20 09:43:43 info: 🔌 Port: 8080
+2026-05-20 09:43:43 info: 🌐 Stellar Network: testnet
+2026-05-20 09:43:43 info: ✅ Environment variables validated successfully
+2026-05-20 09:43:43 info: 🌍 Environment: development
+2026-05-20 09:43:43 info: 🔌 Port: 3000
+2026-05-20 09:43:43 info: 🌐 Stellar Network: mainnet
+2026-05-20 09:43:45 info: Certificate minted on-chain: cert-student--course-t-1779266625164 -> token 12345
+2026-05-20 09:43:45 info: Certificate minted on-chain: cert-student--course-t-1779266625731 -> token 12345
+2026-05-20 09:43:46 info: Certificate minted on-chain: cert-student--course-t-1779266625938 -> token 12345
+2026-05-20 09:43:46 info: Certificate minted on-chain: cert-student--course-t-1779266626095 -> token 12345
+2026-05-20 09:43:46 info: Certificate minted on-chain: cert-student--course-t-1779266626299 -> token 12345
+2026-05-20 09:43:46 info: Certificate minted on-chain: cert-student--course-t-1779266626459 -> token 12345
+2026-05-20 09:43:46 info: Certificate minted on-chain: cert-student--course-t-1779266626600 -> token 12345
+2026-05-20 09:43:46 info: Certificate minted on-chain: cert-student--course-t-1779266626853 -> token 12345
+2026-05-20 09:43:47 info: Certificate minted on-chain: cert-student--course-t-1779266627013 -> token 12345
+2026-05-20 09:43:47 info: Certificate minted on-chain: cert-student--course-t-1779266627085 -> token 12345
+2026-05-20 09:43:47 info: Certificate minted on-chain: cert-student--course-t-1779266627182 -> token 12345
+2026-05-20 09:43:47 info: Certificate minted on-chain: cert-student--course-t-1779266627275 -> token 12345
+2026-05-20 09:43:47 info: Certificate minted on-chain: cert-student--course-t-1779266627356 -> token 12345
+2026-05-20 09:43:47 info: Certificate minted on-chain: cert-student--course-i-1779266627805 -> token 12345
+2026-05-20 09:43:47 info: Certificate minted on-chain: cert-student--course-i-1779266627836 -> token 12345
+2026-05-20 09:43:47 info: Certificate minted on-chain: cert-student--course-i-1779266627867 -> token 12345
+2026-05-20 09:43:45 info: RSA Key rotated. New Key ID: f3f08d24-1c09-4405-b742-169139627c8f
+2026-05-20 09:43:48 info: Blockchain service initialized in simulation mode
+2026-05-20 09:43:49 info: Redis connected successfully
+2026-05-20 09:43:44 info: RSA Key rotated. New Key ID: 760790c9-2d78-4d73-a7b8-b04c6119fb47
+2026-05-20 09:43:48 info: Blockchain service initialized in simulation mode
+2026-05-20 09:43:50 info: POST /api/v1/students
+2026-05-20 09:43:46 info: RSA Key rotated. New Key ID: e80be0c9-fea3-49d4-8f29-e3e6aa950f64
+2026-05-20 09:43:44 info: RSA Key rotated. New Key ID: a68c3953-3fb6-4172-9c78-73d8d50120c4
+2026-05-20 09:43:48 info: Blockchain service initialized in simulation mode
+2026-05-20 09:43:48 info: Blockchain service initialized in simulation mode
+2026-05-20 09:43:45 info: RSA Key rotated. New Key ID: 3828165f-9f4e-46dd-85b4-a23bef110682
+2026-05-20 09:43:48 info: Blockchain service initialized in simulation mode
+2026-05-20 09:43:45 info: RSA Key rotated. New Key ID: d95dc2e6-9c53-41d8-ab4e-702b677a234a
+2026-05-20 09:43:48 info: Blockchain service initialized in simulation mode
+2026-05-20 09:43:50 info: GET /api/v1/students/cmpdteuag0000ecj9cfagds8d
+2026-05-20 09:43:50 info: GET /api/v1/students
+2026-05-20 09:43:50 info: POST /api/v1/students
+2026-05-20 09:43:50 info: POST /api/v1/certificates
+2026-05-20 09:43:50 info: PUT /api/v1/students/cmpdteukb0001ecj9c88o7vr2
+2026-05-20 09:43:50 info: Simulated mint for token 483543
+2026-05-20 09:43:50 info: POST /api/v1/students
+2026-05-20 09:43:50 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266630505 -> token 483543
+2026-05-20 09:43:50 info: Certificate minted: cert-api-stud-api-cour-1779266630505
+2026-05-20 09:43:50 info: POST /api/v1/certificates
+2026-05-20 09:43:50 info: POST /api/v1/certificates
+2026-05-20 09:43:50 info: DELETE /api/v1/students/cmpdteusv0002ecj9drop6ziq
+2026-05-20 09:43:50 info: POST /api/v1/certificates
+2026-05-20 09:43:50 info: GET /api/v1/students/cmpdteusv0002ecj9drop6ziq
+2026-05-20 09:43:50 error: Mint certificate error: Student with ID non-existent-student not found
+2026-05-20 09:43:50 info: POST /api/v1/certificates
+2026-05-20 09:43:50 error: Mint certificate error: Course with ID non-existent-course not found
+2026-05-20 09:43:50 info: POST /api/v1/certificates
+2026-05-20 09:43:51 info: Simulated mint for token 804131
+2026-05-20 09:43:51 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266630869 -> token 804131
+2026-05-20 09:43:51 info: Certificate minted: cert-api-stud-api-cour-1779266630869
+2026-05-20 09:43:51 info: GET /api/v1/certificates/verify/804131
+2026-05-20 09:43:51 info: GET /api/v1/certificates/verify/nonexistenttoken123
+2026-05-20 09:43:51 info: POST /api/v1/certificates
+2026-05-20 09:43:50 info: RSA Key rotated. New Key ID: c36c5442-f0bc-4600-8f36-17d1d1416bf5
+2026-05-20 09:43:50 info: Blockchain service initialized in simulation mode
+2026-05-20 09:43:51 info: GET /health
+2026-05-20 09:43:51 info: GET /health
+2026-05-20 09:43:51 info: GET /health
+2026-05-20 09:43:51 info: GET /health
+2026-05-20 09:43:51 info: GET /non-existent-route
+2026-05-20 09:43:51 info: Simulated mint for token 760572
+2026-05-20 09:43:51 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266631081 -> token 760572
+2026-05-20 09:43:51 info: Certificate minted: cert-api-stud-api-cour-1779266631081
+2026-05-20 09:43:51 info: POST /api/v1/certificates
+2026-05-20 09:43:51 info: Simulated mint for token batch-token-2
+2026-05-20 09:43:51 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266631351 -> token batch-token-2
+2026-05-20 09:43:51 info: Certificate minted: cert-api-stud-api-cour-1779266631351
+2026-05-20 09:43:51 info: POST /api/v1/certificates/verify/batch
+2026-05-20 09:43:51 info: POST /api/v1/certificates/verify/batch
+2026-05-20 09:43:51 info: POST /api/v1/certificates/verify/batch
+2026-05-20 09:43:51 info: POST /api/v1/certificates
+2026-05-20 09:43:51 info: Simulated mint for token 68021
+2026-05-20 09:43:51 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266631588 -> token 68021
+2026-05-20 09:43:51 info: Certificate minted: cert-api-stud-api-cour-1779266631588
+2026-05-20 09:43:51 info: GET /api/v1/certificates/68021/metadata
+2026-05-20 09:43:51 info: GET /api/v1/certificates/nonexistent/metadata
+2026-05-20 09:43:51 info: POST /api/v1/certificates
+2026-05-20 09:43:51 info: Simulated mint for token 534357
+2026-05-20 09:43:51 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266631764 -> token 534357
+2026-05-20 09:43:51 info: Certificate minted: cert-api-stud-api-cour-1779266631764
+2026-05-20 09:43:51 info: GET /api/v1/certificates/534357/metadata
+2026-05-20 09:43:51 info: POST /api/v1/certificates
+2026-05-20 09:43:52 info: Simulated mint for token 372590
+2026-05-20 09:43:52 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266631936 -> token 372590
+2026-05-20 09:43:52 info: Certificate minted: cert-api-stud-api-cour-1779266631936
+2026-05-20 09:43:52 info: GET /api/v1/certificates/cert-api-stud-api-cour-1779266631936
+2026-05-20 09:43:52 info: GET /api/v1/certificates/nonexistent-id
+2026-05-20 09:43:52 info: POST /api/v1/certificates
+2026-05-20 09:43:52 info: Simulated mint for token 560186
+2026-05-20 09:43:52 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266632129 -> token 560186
+2026-05-20 09:43:52 info: Certificate minted: cert-api-stud-api-cour-1779266632129
+2026-05-20 09:43:52 info: GET /api/v1/certificates/student/api-student-123
+2026-05-20 09:43:52 info: GET /api/v1/certificates/student/nonexistent-student
+2026-05-20 09:43:52 info: POST /api/v1/certificates
+2026-05-20 09:43:52 info: Simulated mint for token 848558
+2026-05-20 09:43:52 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266632317 -> token 848558
+2026-05-20 09:43:52 info: Certificate minted: cert-api-stud-api-cour-1779266632317
+2026-05-20 09:43:52 info: PUT /api/v1/certificates/cert-api-stud-api-cour-1779266632317/revoke
+2026-05-20 09:43:52 info: Certificate revoked successfully
+2026-05-20 09:43:52 info: POST /api/v1/certificates
+2026-05-20 09:43:52 info: Simulated mint for token 268672
+2026-05-20 09:43:52 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266632523 -> token 268672
+2026-05-20 09:43:52 info: Certificate minted: cert-api-stud-api-cour-1779266632523
+2026-05-20 09:43:52 info: PUT /api/v1/certificates/cert-api-stud-api-cour-1779266632523/revoke
+2026-05-20 09:43:52 info: POST /api/v1/certificates
+2026-05-20 09:43:52 info: Simulated mint for token 107817
+2026-05-20 09:43:52 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266632713 -> token 107817
+2026-05-20 09:43:52 info: Certificate minted: cert-api-stud-api-cour-1779266632713
+2026-05-20 09:43:52 info: PUT /api/v1/certificates/cert-api-stud-api-cour-1779266632713/revoke
+2026-05-20 09:43:52 info: POST /api/v1/certificates
+2026-05-20 09:43:53 info: Simulated mint for token 384254
+2026-05-20 09:43:53 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266632904 -> token 384254
+2026-05-20 09:43:53 info: Certificate minted: cert-api-stud-api-cour-1779266632904
+2026-05-20 09:43:53 info: POST /api/v1/certificates/cert-api-stud-api-cour-1779266632904/reissue
+2026-05-20 09:43:53 info: Simulated mint for token 524444
+2026-05-20 09:43:53 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266633101 -> token 524444
+2026-05-20 09:43:53 info: Certificate reissued: cert-api-stud-api-cour-1779266632904 -> cert-api-stud-api-cour-1779266633101
+2026-05-20 09:43:53 info: POST /api/v1/certificates
+2026-05-20 09:43:53 info: Simulated mint for token 560935
+2026-05-20 09:43:53 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266633297 -> token 560935
+2026-05-20 09:43:53 info: Certificate minted: cert-api-stud-api-cour-1779266633297
+2026-05-20 09:43:53 info: POST /api/v1/certificates/cert-api-stud-api-cour-1779266633297/reissue
+2026-05-20 09:43:53 info: Simulated mint for token 720601
+2026-05-20 09:43:53 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266633505 -> token 720601
+2026-05-20 09:43:53 info: Certificate reissued: cert-api-stud-api-cour-1779266633297 -> cert-api-stud-api-cour-1779266633505
+2026-05-20 09:43:53 info: POST /api/v1/certificates
+2026-05-20 09:43:53 info: Simulated mint for token 836806
+2026-05-20 09:43:53 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266633703 -> token 836806
+2026-05-20 09:43:53 info: Certificate minted: cert-api-stud-api-cour-1779266633703
+2026-05-20 09:43:53 info: POST /api/v1/certificates/cert-api-stud-api-cour-1779266633703/reissue
+2026-05-20 09:43:53 info: POST /api/v1/certificates
+2026-05-20 09:43:54 info: Simulated mint for token 309080
+2026-05-20 09:43:54 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266633884 -> token 309080
+2026-05-20 09:43:54 info: Certificate minted: cert-api-stud-api-cour-1779266633884
+2026-05-20 09:43:54 info: POST /api/v1/certificates
+2026-05-20 09:43:54 info: Simulated mint for token 925142
+2026-05-20 09:43:54 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266634065 -> token 925142
+2026-05-20 09:43:54 info: Certificate minted: cert-api-stud-api-cour-1779266634065
+2026-05-20 09:43:54 info: GET /api/v1/certificates/analytics
+2026-05-20 09:43:54 info: POST /api/v1/certificates
+2026-05-20 09:43:54 info: Simulated mint for token 53266
+2026-05-20 09:43:54 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266634291 -> token 53266
+2026-05-20 09:43:54 info: Certificate minted: cert-api-stud-api-cour-1779266634291
+2026-05-20 09:43:54 info: GET /api/v1/certificates/cert-api-stud-api-cour-1779266634291/image
+2026-05-20 09:43:54 info: POST /api/v1/certificates
+2026-05-20 09:43:54 info: Simulated mint for token 251130
+2026-05-20 09:43:54 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266634610 -> token 251130
+2026-05-20 09:43:54 info: Certificate minted: cert-api-stud-api-cour-1779266634610
+2026-05-20 09:43:54 info: GET /api/v1/certificates/cert-api-stud-api-cour-1779266634610/qr
+2026-05-20 09:43:55 info: GET /api/v1/certificates?limit=10&offset=0
+2026-05-20 09:43:55 info: GET /api/v1/certificates?limit=5
+2026-05-20 09:43:55 info: GET /api/v1/certificates?limit=200
+2026-05-20 09:43:55 info: GET /api/etc/passwd
+2026-05-20 09:43:55 info: POST /api/v1/certificates
+2026-05-20 09:43:55 info: Simulated mint for token 97468
+2026-05-20 09:43:55 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266635614 -> token 97468
+2026-05-20 09:43:55 info: Certificate minted: cert-api-stud-api-cour-1779266635614
+2026-05-20 09:43:55 info: GET /api/v1/certificates/verify/97468
+2026-05-20 09:44:52 info: Certificate minted on-chain: cert-student--course-t-1779266692361 -> token 12345
+2026-05-20 09:44:52 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:177:7)
+2026-05-20 09:44:53 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:187:26)
+2026-05-20 09:44:53 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:220:21)
+2026-05-20 09:44:53 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:260:26)
+2026-05-20 09:44:53 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:293:20)
+2026-05-20 09:44:53 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:312:20)
+2026-05-20 09:44:53 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:335:24)
+2026-05-20 09:44:51 info: RSA Key rotated. New Key ID: b3068209-cf4e-4540-aff2-91f3bd0e8b03
+2026-05-20 09:44:53 info: Redis connected successfully
+2026-05-20 09:44:52 info: Blockchain service initialized in simulation mode
+2026-05-20 09:44:53 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:357:20)
+2026-05-20 09:44:53 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:376:9)
+2026-05-20 09:44:52 info: RSA Key rotated. New Key ID: b36a0381-686f-4cf5-9df1-efc80504ca91
+2026-05-20 09:44:53 info: Certificate minted on-chain: cert-student--course-i-1779266693523 -> token 12345
+2026-05-20 09:44:53 info: Certificate revoked successfully
+2026-05-20 09:44:53 info: POST /api/v1/certificates
+2026-05-20 09:44:53 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:463:22)
+2026-05-20 09:44:53 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:487:18)
+2026-05-20 09:44:51 info: RSA Key rotated. New Key ID: b8b4bc2c-db6f-48cb-8d6b-2cef0bb2df2a
+2026-05-20 09:44:53 info: ✅ Environment variables validated successfully
+2026-05-20 09:44:52 info: Blockchain service initialized in simulation mode
+2026-05-20 09:44:53 info: 🌍 Environment: development
+2026-05-20 09:44:53 info: 🔌 Port: 8080
+2026-05-20 09:44:53 info: 🌐 Stellar Network: testnet
+2026-05-20 09:44:53 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Missing required environment variable: DATABASE_URL
+Description: PostgreSQL connection string for database connectivity
+Please check your .env file and .env.example for guidance.
+
+Missing required environment variable: REDIS_URL
+Description: Redis connection URL for background jobs and WebSockets
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:44:53 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Missing required environment variable: JWT_SECRET
+Description: Secret key for JWT token signing and verification
+Please check your .env file and .env.example for guidance.
+
+Missing required environment variable: REDIS_URL
+Description: Redis connection URL for background jobs and WebSockets
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:44:53 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Invalid value for environment variable: JWT_SECRET
+Description: Secret key for JWT token signing and verification
+Current value: "short"
+Please check .env.example for the correct format.
+
+Missing required environment variable: REDIS_URL
+Description: Redis connection URL for background jobs and WebSockets
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:44:53 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Invalid value for environment variable: JWT_SECRET
+Description: Secret key for JWT token signing and verification
+Current value: "short"
+Please check .env.example for the correct format.
+
+Missing required environment variable: REDIS_URL
+Description: Redis connection URL for background jobs and WebSockets
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:44:53 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Invalid value for environment variable: JWT_SECRET
+Description: Secret key for JWT token signing and verification
+Current value: "your-secret-key-change-in-production"
+Please check .env.example for the correct format.
+
+Missing required environment variable: REDIS_URL
+Description: Redis connection URL for background jobs and WebSockets
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:44:53 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Invalid value for environment variable: JWT_SECRET
+Description: Secret key for JWT token signing and verification
+Current value: "your-secret-key-change-in-production"
+Please check .env.example for the correct format.
+
+Missing required environment variable: REDIS_URL
+Description: Redis connection URL for background jobs and WebSockets
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:44:53 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Invalid value for environment variable: DATABASE_URL
+Description: PostgreSQL connection string for database connectivity
+Current value: "invalid-url-format"
+Please check .env.example for the correct format.
+
+Missing required environment variable: REDIS_URL
+Description: Redis connection URL for background jobs and WebSockets
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:44:53 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Invalid value for environment variable: DATABASE_URL
+Description: PostgreSQL connection string for database connectivity
+Current value: "invalid-url-format"
+Please check .env.example for the correct format.
+
+Missing required environment variable: REDIS_URL
+Description: Redis connection URL for background jobs and WebSockets
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:44:53 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Missing required environment variable: STELLAR_ISSUER_SECRET_KEY
+Description: Stellar secret key for certificate issuance (production only)
+Please check your .env file and .env.example for guidance.
+
+Missing required environment variable: STELLAR_ISSUER_PUBLIC_KEY
+Description: Stellar public key for certificate issuance (production only)
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:44:53 error: ❌ Environment Configuration Error: Environment validation failed:
+
+Missing required environment variable: STELLAR_ISSUER_SECRET_KEY
+Description: Stellar secret key for certificate issuance (production only)
+Please check your .env file and .env.example for guidance.
+
+Missing required environment variable: STELLAR_ISSUER_PUBLIC_KEY
+Description: Stellar public key for certificate issuance (production only)
+Please check your .env file and .env.example for guidance.
+
+Please copy .env.example to .env and fill in the required values.
+2026-05-20 09:44:53 info: ✅ Environment variables validated successfully
+2026-05-20 09:44:53 info: 🌍 Environment: production
+2026-05-20 09:44:53 info: 🔌 Port: 8080
+2026-05-20 09:44:53 info: 🌐 Stellar Network: testnet
+2026-05-20 09:44:53 info: ✅ Environment variables validated successfully
+2026-05-20 09:44:53 info: 🌍 Environment: development
+2026-05-20 09:44:53 info: 🔌 Port: 8080
+2026-05-20 09:44:53 info: 🌐 Stellar Network: testnet
+2026-05-20 09:44:53 info: ✅ Environment variables validated successfully
+2026-05-20 09:44:53 info: 🌍 Environment: development
+2026-05-20 09:44:53 info: 🔌 Port: 3000
+2026-05-20 09:44:53 info: 🌐 Stellar Network: mainnet
+2026-05-20 09:44:53 info: Simulated mint for token 781961
+2026-05-20 09:44:53 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266693598 -> token 781961
+2026-05-20 09:44:53 info: Certificate minted: cert-api-stud-api-cour-1779266693598
+2026-05-20 09:44:52 info: RSA Key rotated. New Key ID: aed64810-065d-4686-8a00-88249eb9dded
+2026-05-20 09:44:52 info: Blockchain service initialized in simulation mode
+2026-05-20 09:44:53 info: POST /api/v1/certificates
+2026-05-20 09:44:53 info: POST /api/v1/certificates
+2026-05-20 09:44:53 info: POST /api/v1/certificates
+2026-05-20 09:44:53 error: Mint certificate error: Student with ID non-existent-student not found
+2026-05-20 09:44:52 info: RSA Key rotated. New Key ID: 524e01fa-3c12-4a20-b7c9-5cc925928b7d
+2026-05-20 09:44:53 info: Blockchain service initialized in simulation mode
+2026-05-20 09:44:53 info: POST /api/v1/certificates
+2026-05-20 09:44:53 error: Mint certificate error: Course with ID non-existent-course not found
+2026-05-20 09:44:53 info: POST /api/v1/certificates
+2026-05-20 09:44:52 info: RSA Key rotated. New Key ID: 91944cf9-22da-44b1-964c-8322bef037d1
+2026-05-20 09:44:53 info: Blockchain service initialized in simulation mode
+2026-05-20 09:44:53 info: POST /api/v1/students
+2026-05-20 09:44:54 info: Simulated mint for token 751537
+2026-05-20 09:44:54 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266693917 -> token 751537
+2026-05-20 09:44:54 info: Certificate minted: cert-api-stud-api-cour-1779266693917
+2026-05-20 09:44:54 info: GET /api/v1/certificates/verify/751537
+2026-05-20 09:44:54 info: GET /api/v1/certificates/verify/nonexistenttoken123
+2026-05-20 09:44:54 info: GET /api/v1/students/cmpdtg7m40000ecysp0b96gvr
+2026-05-20 09:44:54 info: POST /api/v1/certificates
+2026-05-20 09:44:54 info: GET /api/v1/students
+2026-05-20 09:44:54 info: POST /api/v1/students
+2026-05-20 09:44:54 info: PUT /api/v1/students/cmpdtg7nm0001ecys9l4a0o3z
+2026-05-20 09:44:54 info: Simulated mint for token 607719
+2026-05-20 09:44:54 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266694066 -> token 607719
+2026-05-20 09:44:54 info: Certificate minted: cert-api-stud-api-cour-1779266694066
+2026-05-20 09:44:54 info: POST /api/v1/certificates
+2026-05-20 09:44:52 info: Blockchain service initialized in simulation mode
+2026-05-20 09:44:53 info: RSA Key rotated. New Key ID: 12af1b4b-d71a-46be-9721-fc0bdd423e5e
+2026-05-20 09:44:54 info: Blockchain service initialized in simulation mode
+2026-05-20 09:44:54 info: GET /health
+2026-05-20 09:44:54 info: GET /health
+2026-05-20 09:44:54 info: GET /health
+2026-05-20 09:44:54 info: Simulated mint for token batch-token-2
+2026-05-20 09:44:54 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266694192 -> token batch-token-2
+2026-05-20 09:44:54 info: Certificate minted: cert-api-stud-api-cour-1779266694192
+2026-05-20 09:44:54 info: GET /health
+2026-05-20 09:44:54 info: POST /api/v1/certificates/verify/batch
+2026-05-20 09:44:54 info: GET /non-existent-route
+2026-05-20 09:44:54 info: POST /api/v1/certificates/verify/batch
+2026-05-20 09:44:54 info: POST /api/v1/certificates/verify/batch
+2026-05-20 09:44:54 info: POST /api/v1/certificates
+2026-05-20 09:44:54 info: POST /api/v1/students
+2026-05-20 09:44:54 info: DELETE /api/v1/students/cmpdtg7vj0002ecyssljxyq8o
+2026-05-20 09:44:54 info: GET /api/v1/students/cmpdtg7vj0002ecyssljxyq8o
+2026-05-20 09:44:54 info: Simulated mint for token 319351
+2026-05-20 09:44:54 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266694337 -> token 319351
+2026-05-20 09:44:54 info: Certificate minted: cert-api-stud-api-cour-1779266694337
+2026-05-20 09:44:54 info: GET /api/v1/certificates/319351/metadata
+2026-05-20 09:44:54 info: GET /api/v1/certificates/nonexistent/metadata
+2026-05-20 09:44:54 info: POST /api/v1/certificates
+2026-05-20 09:44:54 info: Simulated mint for token 654931
+2026-05-20 09:44:54 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266694478 -> token 654931
+2026-05-20 09:44:54 info: Certificate minted: cert-api-stud-api-cour-1779266694478
+2026-05-20 09:44:54 info: GET /api/v1/certificates/654931/metadata
+2026-05-20 09:44:54 info: POST /api/v1/certificates
+2026-05-20 09:44:54 info: Simulated mint for token 400271
+2026-05-20 09:44:54 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266694644 -> token 400271
+2026-05-20 09:44:54 info: Certificate minted: cert-api-stud-api-cour-1779266694644
+2026-05-20 09:44:54 info: GET /api/v1/certificates/cert-api-stud-api-cour-1779266694644
+2026-05-20 09:44:54 info: GET /api/v1/certificates/nonexistent-id
+2026-05-20 09:44:54 info: POST /api/v1/certificates
+2026-05-20 09:44:54 info: Simulated mint for token 909581
+2026-05-20 09:44:54 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266694825 -> token 909581
+2026-05-20 09:44:54 info: Certificate minted: cert-api-stud-api-cour-1779266694825
+2026-05-20 09:44:54 info: GET /api/v1/certificates/student/api-student-123
+2026-05-20 09:44:54 info: GET /api/v1/certificates/student/nonexistent-student
+2026-05-20 09:44:54 info: POST /api/v1/certificates
+2026-05-20 09:44:55 info: Simulated mint for token 903853
+2026-05-20 09:44:55 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266694990 -> token 903853
+2026-05-20 09:44:55 info: Certificate minted: cert-api-stud-api-cour-1779266694990
+2026-05-20 09:44:55 info: PUT /api/v1/certificates/cert-api-stud-api-cour-1779266694990/revoke
+2026-05-20 09:44:55 info: Certificate revoked successfully
+2026-05-20 09:44:55 info: POST /api/v1/certificates
+2026-05-20 09:44:55 info: Simulated mint for token 895098
+2026-05-20 09:44:55 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266695137 -> token 895098
+2026-05-20 09:44:55 info: Certificate minted: cert-api-stud-api-cour-1779266695137
+2026-05-20 09:44:55 info: PUT /api/v1/certificates/cert-api-stud-api-cour-1779266695137/revoke
+2026-05-20 09:44:55 info: POST /api/v1/certificates
+2026-05-20 09:44:55 info: Simulated mint for token 102091
+2026-05-20 09:44:55 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266695288 -> token 102091
+2026-05-20 09:44:55 info: Certificate minted: cert-api-stud-api-cour-1779266695288
+2026-05-20 09:44:55 info: PUT /api/v1/certificates/cert-api-stud-api-cour-1779266695288/revoke
+2026-05-20 09:44:55 info: POST /api/v1/certificates
+2026-05-20 09:44:55 info: Simulated mint for token 935887
+2026-05-20 09:44:55 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266695432 -> token 935887
+2026-05-20 09:44:55 info: Certificate minted: cert-api-stud-api-cour-1779266695432
+2026-05-20 09:44:55 info: POST /api/v1/certificates/cert-api-stud-api-cour-1779266695432/reissue
+2026-05-20 09:44:55 info: Simulated mint for token 566474
+2026-05-20 09:44:55 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266695585 -> token 566474
+2026-05-20 09:44:55 info: Certificate reissued: cert-api-stud-api-cour-1779266695432 -> cert-api-stud-api-cour-1779266695585
+2026-05-20 09:44:55 info: POST /api/v1/certificates
+2026-05-20 09:44:55 info: Simulated mint for token 114685
+2026-05-20 09:44:55 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266695742 -> token 114685
+2026-05-20 09:44:55 info: Certificate minted: cert-api-stud-api-cour-1779266695742
+2026-05-20 09:44:55 info: POST /api/v1/certificates/cert-api-stud-api-cour-1779266695742/reissue
+2026-05-20 09:44:55 info: Simulated mint for token 504835
+2026-05-20 09:44:56 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266695891 -> token 504835
+2026-05-20 09:44:56 info: Certificate reissued: cert-api-stud-api-cour-1779266695742 -> cert-api-stud-api-cour-1779266695891
+2026-05-20 09:44:56 info: POST /api/v1/certificates
+2026-05-20 09:44:56 info: Simulated mint for token 795005
+2026-05-20 09:44:56 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266696042 -> token 795005
+2026-05-20 09:44:56 info: Certificate minted: cert-api-stud-api-cour-1779266696042
+2026-05-20 09:44:56 info: POST /api/v1/certificates/cert-api-stud-api-cour-1779266696042/reissue
+2026-05-20 09:44:56 info: POST /api/v1/certificates
+2026-05-20 09:44:56 info: Simulated mint for token 445953
+2026-05-20 09:44:56 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266696194 -> token 445953
+2026-05-20 09:44:56 info: Certificate minted: cert-api-stud-api-cour-1779266696194
+2026-05-20 09:44:56 info: POST /api/v1/certificates
+2026-05-20 09:44:56 info: Simulated mint for token 942734
+2026-05-20 09:44:56 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266696376 -> token 942734
+2026-05-20 09:44:56 info: Certificate minted: cert-api-stud-api-cour-1779266696376
+2026-05-20 09:44:56 info: GET /api/v1/certificates/analytics
+2026-05-20 09:44:56 info: POST /api/v1/certificates
+2026-05-20 09:44:56 info: Simulated mint for token 781184
+2026-05-20 09:44:56 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266696539 -> token 781184
+2026-05-20 09:44:56 info: Certificate minted: cert-api-stud-api-cour-1779266696539
+2026-05-20 09:44:56 info: GET /api/v1/certificates/cert-api-stud-api-cour-1779266696539/image
+2026-05-20 09:44:56 info: POST /api/v1/certificates
+2026-05-20 09:44:56 info: Simulated mint for token 578629
+2026-05-20 09:44:56 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266696699 -> token 578629
+2026-05-20 09:44:56 info: Certificate minted: cert-api-stud-api-cour-1779266696699
+2026-05-20 09:44:56 info: GET /api/v1/certificates/cert-api-stud-api-cour-1779266696699/qr
+2026-05-20 09:44:57 info: GET /api/v1/certificates?limit=10&offset=0
+2026-05-20 09:44:57 info: GET /api/v1/certificates?limit=5
+2026-05-20 09:44:57 info: GET /api/v1/certificates?limit=200
+2026-05-20 09:44:57 info: GET /api/etc/passwd
+2026-05-20 09:44:57 info: POST /api/v1/certificates
+2026-05-20 09:44:57 info: Simulated mint for token 484771
+2026-05-20 09:44:57 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266697474 -> token 484771
+2026-05-20 09:44:57 info: Certificate minted: cert-api-stud-api-cour-1779266697474
+2026-05-20 09:44:57 info: GET /api/v1/certificates/verify/484771
+2026-05-20 09:46:57 info: RSA Key rotated. New Key ID: 86c48c32-b7cf-4335-b6e3-dd15eeb91cc1
+2026-05-20 09:46:57 info: Blockchain service initialized in simulation mode
+2026-05-20 09:46:57 info: POST /api/v1/certificates
+2026-05-20 09:46:57 info: Simulated mint for token 551455
+2026-05-20 09:46:57 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266817822 -> token 551455
+2026-05-20 09:46:57 info: Certificate minted: cert-api-stud-api-cour-1779266817822
+2026-05-20 09:46:57 info: POST /api/v1/certificates
+2026-05-20 09:46:57 info: POST /api/v1/certificates
+2026-05-20 09:46:57 info: POST /api/v1/certificates
+2026-05-20 09:46:57 error: Mint certificate error: Student with ID non-existent-student not found
+2026-05-20 09:46:57 info: POST /api/v1/certificates
+2026-05-20 09:46:57 error: Mint certificate error: Course with ID non-existent-course not found
+2026-05-20 09:46:57 info: POST /api/v1/certificates
+2026-05-20 09:46:58 info: Simulated mint for token 996515
+2026-05-20 09:46:58 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266818003 -> token 996515
+2026-05-20 09:46:58 info: Certificate minted: cert-api-stud-api-cour-1779266818003
+2026-05-20 09:46:58 info: GET /api/v1/certificates/verify/996515
+2026-05-20 09:46:58 info: GET /api/v1/certificates/verify/nonexistenttoken123
+2026-05-20 09:46:58 info: POST /api/v1/certificates
+2026-05-20 09:46:58 info: Simulated mint for token 489040
+2026-05-20 09:46:58 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266818169 -> token 489040
+2026-05-20 09:46:58 info: Certificate minted: cert-api-stud-api-cour-1779266818169
+2026-05-20 09:46:58 info: POST /api/v1/certificates
+2026-05-20 09:46:58 info: Simulated mint for token batch-token-2
+2026-05-20 09:46:58 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266818308 -> token batch-token-2
+2026-05-20 09:46:58 info: Certificate minted: cert-api-stud-api-cour-1779266818308
+2026-05-20 09:46:58 info: POST /api/v1/certificates/verify/batch
+2026-05-20 09:46:58 info: POST /api/v1/certificates/verify/batch
+2026-05-20 09:46:58 info: POST /api/v1/certificates/verify/batch
+2026-05-20 09:46:58 info: POST /api/v1/certificates
+2026-05-20 09:46:58 info: Simulated mint for token 410285
+2026-05-20 09:46:58 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266818464 -> token 410285
+2026-05-20 09:46:58 info: Certificate minted: cert-api-stud-api-cour-1779266818464
+2026-05-20 09:46:58 info: GET /api/v1/certificates/410285/metadata
+2026-05-20 09:46:58 info: GET /api/v1/certificates/nonexistent/metadata
+2026-05-20 09:46:58 info: POST /api/v1/certificates
+2026-05-20 09:46:58 info: Simulated mint for token 961756
+2026-05-20 09:46:58 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266818629 -> token 961756
+2026-05-20 09:46:58 info: Certificate minted: cert-api-stud-api-cour-1779266818629
+2026-05-20 09:46:58 info: GET /api/v1/certificates/961756/metadata
+2026-05-20 09:46:58 info: POST /api/v1/certificates
+2026-05-20 09:46:58 info: Simulated mint for token 57082
+2026-05-20 09:46:58 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266818785 -> token 57082
+2026-05-20 09:46:58 info: Certificate minted: cert-api-stud-api-cour-1779266818785
+2026-05-20 09:46:58 info: GET /api/v1/certificates/cert-api-stud-api-cour-1779266818785
+2026-05-20 09:46:58 info: GET /api/v1/certificates/nonexistent-id
+2026-05-20 09:46:58 info: POST /api/v1/certificates
+2026-05-20 09:46:59 info: Simulated mint for token 885539
+2026-05-20 09:46:59 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266818921 -> token 885539
+2026-05-20 09:46:59 info: Certificate minted: cert-api-stud-api-cour-1779266818921
+2026-05-20 09:46:59 info: GET /api/v1/certificates/student/api-student-123
+2026-05-20 09:46:59 info: GET /api/v1/certificates/student/nonexistent-student
+2026-05-20 09:46:59 info: POST /api/v1/certificates
+2026-05-20 09:46:59 info: Simulated mint for token 521048
+2026-05-20 09:46:59 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266819069 -> token 521048
+2026-05-20 09:46:59 info: Certificate minted: cert-api-stud-api-cour-1779266819069
+2026-05-20 09:46:59 info: PUT /api/v1/certificates/cert-api-stud-api-cour-1779266819069/revoke
+2026-05-20 09:46:59 info: Certificate revoked successfully
+2026-05-20 09:46:59 info: POST /api/v1/certificates
+2026-05-20 09:46:59 info: Simulated mint for token 221868
+2026-05-20 09:46:59 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266819227 -> token 221868
+2026-05-20 09:46:59 info: Certificate minted: cert-api-stud-api-cour-1779266819227
+2026-05-20 09:46:59 info: PUT /api/v1/certificates/cert-api-stud-api-cour-1779266819227/revoke
+2026-05-20 09:46:59 info: POST /api/v1/certificates
+2026-05-20 09:46:59 info: Simulated mint for token 850802
+2026-05-20 09:46:59 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266819376 -> token 850802
+2026-05-20 09:46:59 info: Certificate minted: cert-api-stud-api-cour-1779266819376
+2026-05-20 09:46:59 info: PUT /api/v1/certificates/cert-api-stud-api-cour-1779266819376/revoke
+2026-05-20 09:46:59 info: POST /api/v1/certificates
+2026-05-20 09:46:59 info: Simulated mint for token 567388
+2026-05-20 09:46:59 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266819513 -> token 567388
+2026-05-20 09:46:59 info: Certificate minted: cert-api-stud-api-cour-1779266819513
+2026-05-20 09:46:59 info: POST /api/v1/certificates/cert-api-stud-api-cour-1779266819513/reissue
+2026-05-20 09:46:59 info: Simulated mint for token 266805
+2026-05-20 09:46:59 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266819659 -> token 266805
+2026-05-20 09:46:59 info: Certificate reissued: cert-api-stud-api-cour-1779266819513 -> cert-api-stud-api-cour-1779266819659
+2026-05-20 09:46:59 info: POST /api/v1/certificates
+2026-05-20 09:46:59 info: Simulated mint for token 910148
+2026-05-20 09:46:59 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266819817 -> token 910148
+2026-05-20 09:46:59 info: Certificate minted: cert-api-stud-api-cour-1779266819817
+2026-05-20 09:46:59 info: POST /api/v1/certificates/cert-api-stud-api-cour-1779266819817/reissue
+2026-05-20 09:47:00 info: Simulated mint for token 688450
+2026-05-20 09:47:00 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266819973 -> token 688450
+2026-05-20 09:47:00 info: Certificate reissued: cert-api-stud-api-cour-1779266819817 -> cert-api-stud-api-cour-1779266819973
+2026-05-20 09:47:00 info: POST /api/v1/certificates
+2026-05-20 09:47:00 info: Simulated mint for token 122087
+2026-05-20 09:47:00 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266820125 -> token 122087
+2026-05-20 09:47:00 info: Certificate minted: cert-api-stud-api-cour-1779266820125
+2026-05-20 09:47:00 info: POST /api/v1/certificates/cert-api-stud-api-cour-1779266820125/reissue
+2026-05-20 09:47:00 info: POST /api/v1/certificates
+2026-05-20 09:47:00 info: Simulated mint for token 563840
+2026-05-20 09:47:00 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266820270 -> token 563840
+2026-05-20 09:47:00 info: Certificate minted: cert-api-stud-api-cour-1779266820270
+2026-05-20 09:47:00 info: POST /api/v1/certificates
+2026-05-20 09:47:00 info: Simulated mint for token 624333
+2026-05-20 09:47:00 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266820401 -> token 624333
+2026-05-20 09:47:00 info: Certificate minted: cert-api-stud-api-cour-1779266820401
+2026-05-20 09:47:00 info: GET /api/v1/certificates/analytics
+2026-05-20 09:47:00 info: POST /api/v1/certificates
+2026-05-20 09:47:00 info: Simulated mint for token 269393
+2026-05-20 09:47:00 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266820549 -> token 269393
+2026-05-20 09:47:00 info: Certificate minted: cert-api-stud-api-cour-1779266820549
+2026-05-20 09:47:00 info: GET /api/v1/certificates/cert-api-stud-api-cour-1779266820549/image
+2026-05-20 09:47:00 info: POST /api/v1/certificates
+2026-05-20 09:47:00 info: Simulated mint for token 197101
+2026-05-20 09:47:00 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266820706 -> token 197101
+2026-05-20 09:47:00 info: Certificate minted: cert-api-stud-api-cour-1779266820706
+2026-05-20 09:47:00 info: GET /api/v1/certificates/cert-api-stud-api-cour-1779266820706/qr
+2026-05-20 09:47:01 info: GET /api/v1/certificates?limit=10&offset=0
+2026-05-20 09:47:01 info: GET /api/v1/certificates?limit=5
+2026-05-20 09:47:01 info: GET /api/v1/certificates?limit=200
+2026-05-20 09:47:01 info: GET /api/etc/passwd
+2026-05-20 09:47:01 info: POST /api/v1/certificates
+2026-05-20 09:47:01 info: Simulated mint for token 864011
+2026-05-20 09:47:01 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266821354 -> token 864011
+2026-05-20 09:47:01 info: Certificate minted: cert-api-stud-api-cour-1779266821354
+2026-05-20 09:47:01 info: GET /api/v1/certificates/verify/864011
+2026-05-20 09:47:15 info: RSA Key rotated. New Key ID: a4126eeb-afdc-42ed-946f-bdb30cacfb17
+2026-05-20 09:47:15 info: Blockchain service initialized in simulation mode
+2026-05-20 09:47:15 info: POST /api/v1/certificates
+2026-05-20 09:47:16 info: Simulated mint for token 408101
+2026-05-20 09:47:16 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266835895 -> token 408101
+2026-05-20 09:47:16 info: Certificate minted: cert-api-stud-api-cour-1779266835895
+2026-05-20 09:47:16 info: POST /api/v1/certificates
+2026-05-20 09:47:16 info: POST /api/v1/certificates
+2026-05-20 09:47:16 info: POST /api/v1/certificates
+2026-05-20 09:47:16 error: Mint certificate error: Student with ID non-existent-student not found
+2026-05-20 09:47:16 info: POST /api/v1/certificates
+2026-05-20 09:47:16 error: Mint certificate error: Course with ID non-existent-course not found
+2026-05-20 09:47:16 info: POST /api/v1/certificates
+2026-05-20 09:47:16 info: Simulated mint for token 407736
+2026-05-20 09:47:16 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266836105 -> token 407736
+2026-05-20 09:47:16 info: Certificate minted: cert-api-stud-api-cour-1779266836105
+2026-05-20 09:47:16 info: GET /api/v1/certificates/verify/407736
+2026-05-20 09:47:16 info: GET /api/v1/certificates/verify/nonexistenttoken123
+2026-05-20 09:47:16 info: POST /api/v1/certificates
+2026-05-20 09:47:16 info: Simulated mint for token 919528
+2026-05-20 09:47:16 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266836264 -> token 919528
+2026-05-20 09:47:16 info: Certificate minted: cert-api-stud-api-cour-1779266836264
+2026-05-20 09:47:16 info: POST /api/v1/certificates
+2026-05-20 09:47:16 info: Simulated mint for token batch-token-2
+2026-05-20 09:47:16 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266836401 -> token batch-token-2
+2026-05-20 09:47:16 info: Certificate minted: cert-api-stud-api-cour-1779266836401
+2026-05-20 09:47:16 info: POST /api/v1/certificates/verify/batch
+2026-05-20 09:47:16 info: POST /api/v1/certificates/verify/batch
+2026-05-20 09:47:16 info: POST /api/v1/certificates/verify/batch
+2026-05-20 09:47:16 info: POST /api/v1/certificates
+2026-05-20 09:47:16 info: Simulated mint for token 410210
+2026-05-20 09:47:16 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266836543 -> token 410210
+2026-05-20 09:47:16 info: Certificate minted: cert-api-stud-api-cour-1779266836543
+2026-05-20 09:47:16 info: GET /api/v1/certificates/410210/metadata
+2026-05-20 09:47:16 info: GET /api/v1/certificates/nonexistent/metadata
+2026-05-20 09:47:16 info: POST /api/v1/certificates
+2026-05-20 09:47:16 info: Simulated mint for token 986846
+2026-05-20 09:47:16 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266836676 -> token 986846
+2026-05-20 09:47:16 info: Certificate minted: cert-api-stud-api-cour-1779266836676
+2026-05-20 09:47:16 info: GET /api/v1/certificates/986846/metadata
+2026-05-20 09:47:16 info: POST /api/v1/certificates
+2026-05-20 09:47:16 info: Simulated mint for token 233814
+2026-05-20 09:47:16 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266836805 -> token 233814
+2026-05-20 09:47:16 info: Certificate minted: cert-api-stud-api-cour-1779266836805
+2026-05-20 09:47:16 info: GET /api/v1/certificates/cert-api-stud-api-cour-1779266836805
+2026-05-20 09:47:16 info: GET /api/v1/certificates/nonexistent-id
+2026-05-20 09:47:16 info: POST /api/v1/certificates
+2026-05-20 09:47:17 info: Simulated mint for token 222184
+2026-05-20 09:47:17 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266836947 -> token 222184
+2026-05-20 09:47:17 info: Certificate minted: cert-api-stud-api-cour-1779266836947
+2026-05-20 09:47:17 info: GET /api/v1/certificates/student/api-student-123
+2026-05-20 09:47:17 info: GET /api/v1/certificates/student/nonexistent-student
+2026-05-20 09:47:17 info: POST /api/v1/certificates
+2026-05-20 09:47:17 info: Simulated mint for token 72164
+2026-05-20 09:47:17 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266837086 -> token 72164
+2026-05-20 09:47:17 info: Certificate minted: cert-api-stud-api-cour-1779266837086
+2026-05-20 09:47:17 info: PUT /api/v1/certificates/cert-api-stud-api-cour-1779266837086/revoke
+2026-05-20 09:47:17 info: Certificate revoked successfully
+2026-05-20 09:47:17 info: POST /api/v1/certificates
+2026-05-20 09:47:17 info: Simulated mint for token 513479
+2026-05-20 09:47:17 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266837215 -> token 513479
+2026-05-20 09:47:17 info: Certificate minted: cert-api-stud-api-cour-1779266837215
+2026-05-20 09:47:17 info: PUT /api/v1/certificates/cert-api-stud-api-cour-1779266837215/revoke
+2026-05-20 09:47:17 info: POST /api/v1/certificates
+2026-05-20 09:47:17 info: Simulated mint for token 659191
+2026-05-20 09:47:17 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266837335 -> token 659191
+2026-05-20 09:47:17 info: Certificate minted: cert-api-stud-api-cour-1779266837335
+2026-05-20 09:47:17 info: PUT /api/v1/certificates/cert-api-stud-api-cour-1779266837335/revoke
+2026-05-20 09:47:17 info: POST /api/v1/certificates
+2026-05-20 09:47:17 info: Simulated mint for token 780404
+2026-05-20 09:47:17 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266837457 -> token 780404
+2026-05-20 09:47:17 info: Certificate minted: cert-api-stud-api-cour-1779266837457
+2026-05-20 09:47:17 info: POST /api/v1/certificates/cert-api-stud-api-cour-1779266837457/reissue
+2026-05-20 09:47:17 info: Simulated mint for token 681098
+2026-05-20 09:47:17 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266837579 -> token 681098
+2026-05-20 09:47:17 info: Certificate reissued: cert-api-stud-api-cour-1779266837457 -> cert-api-stud-api-cour-1779266837579
+2026-05-20 09:47:17 info: POST /api/v1/certificates
+2026-05-20 09:47:17 info: Simulated mint for token 560527
+2026-05-20 09:47:17 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266837701 -> token 560527
+2026-05-20 09:47:17 info: Certificate minted: cert-api-stud-api-cour-1779266837701
+2026-05-20 09:47:17 info: POST /api/v1/certificates/cert-api-stud-api-cour-1779266837701/reissue
+2026-05-20 09:47:17 info: Simulated mint for token 565862
+2026-05-20 09:47:17 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266837822 -> token 565862
+2026-05-20 09:47:17 info: Certificate reissued: cert-api-stud-api-cour-1779266837701 -> cert-api-stud-api-cour-1779266837822
+2026-05-20 09:47:17 info: POST /api/v1/certificates
+2026-05-20 09:47:18 info: Simulated mint for token 572939
+2026-05-20 09:47:18 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266837942 -> token 572939
+2026-05-20 09:47:18 info: Certificate minted: cert-api-stud-api-cour-1779266837942
+2026-05-20 09:47:18 info: POST /api/v1/certificates/cert-api-stud-api-cour-1779266837942/reissue
+2026-05-20 09:47:18 info: POST /api/v1/certificates
+2026-05-20 09:47:18 info: Simulated mint for token 440477
+2026-05-20 09:47:18 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266838064 -> token 440477
+2026-05-20 09:47:18 info: Certificate minted: cert-api-stud-api-cour-1779266838064
+2026-05-20 09:47:18 info: POST /api/v1/certificates
+2026-05-20 09:47:18 info: Simulated mint for token 589390
+2026-05-20 09:47:18 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266838182 -> token 589390
+2026-05-20 09:47:18 info: Certificate minted: cert-api-stud-api-cour-1779266838182
+2026-05-20 09:47:18 info: GET /api/v1/certificates/analytics
+2026-05-20 09:47:18 info: POST /api/v1/certificates
+2026-05-20 09:47:18 info: Simulated mint for token 158449
+2026-05-20 09:47:18 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266838309 -> token 158449
+2026-05-20 09:47:18 info: Certificate minted: cert-api-stud-api-cour-1779266838309
+2026-05-20 09:47:18 info: GET /api/v1/certificates/cert-api-stud-api-cour-1779266838309/image
+2026-05-20 09:47:18 info: POST /api/v1/certificates
+2026-05-20 09:47:18 info: Simulated mint for token 354218
+2026-05-20 09:47:18 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266838445 -> token 354218
+2026-05-20 09:47:18 info: Certificate minted: cert-api-stud-api-cour-1779266838445
+2026-05-20 09:47:18 info: GET /api/v1/certificates/cert-api-stud-api-cour-1779266838445/qr
+2026-05-20 09:47:19 info: GET /api/v1/certificates?limit=10&offset=0
+2026-05-20 09:47:19 info: GET /api/v1/certificates?limit=5
+2026-05-20 09:47:19 info: GET /api/v1/certificates?limit=200
+2026-05-20 09:47:19 info: GET /api/etc/passwd
+2026-05-20 09:47:19 info: POST /api/v1/certificates
+2026-05-20 09:47:19 info: Simulated mint for token 965591
+2026-05-20 09:47:19 info: Certificate minted on-chain: cert-api-stud-api-cour-1779266839118 -> token 965591
+2026-05-20 09:47:19 info: Certificate minted: cert-api-stud-api-cour-1779266839118
+2026-05-20 09:47:19 info: GET /api/v1/certificates/verify/965591
+2026-05-20 09:47:30 info: Certificate minted on-chain: cert-student--course-t-1779266849983 -> token 12345
+2026-05-20 09:47:30 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:177:7)
+2026-05-20 09:47:30 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:187:26)
+2026-05-20 09:47:30 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:220:21)
+2026-05-20 09:47:30 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:260:26)
+2026-05-20 09:47:30 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:293:20)
+2026-05-20 09:47:30 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:312:20)
+2026-05-20 09:47:30 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:335:24)
+2026-05-20 09:47:30 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:357:20)
+2026-05-20 09:47:30 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:376:9)
+2026-05-20 09:47:30 info: Certificate minted on-chain: cert-student--course-i-1779266850653 -> token 12345
+2026-05-20 09:47:30 info: Certificate revoked successfully
+2026-05-20 09:47:30 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:463:22)
+2026-05-20 09:47:30 error: PrismaClientKnownRequestError: 
+Invalid `prisma.certificate.update()` invocation in
+/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:32
+
+  95 const mintResult = await certificateBlockchainService.mintCertificate(metadata);
+  96 
+  97 // Update certificate with blockchain transaction details
+→ 98 await prisma.certificate.update(
+Unique constraint failed on the fields: (`tokenId`)
+    at ei.handleRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+    at ei.request (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+    at a (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:833:24)
+    at CertificateService.mintCertificate (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/src/certificates/CertificateService.ts:98:7)
+    at Object.<anonymous> (/home/knights/Documents/Drips Miantainer Project/Web3-Student-Lab/backend/tests/certificates.test.ts:487:18)
+2026-05-20 09:48:08 info: Certificate minted on-chain: cert-student--course-t-1779266888028 -> token 12345
+2026-05-20 09:48:08 info: Certificate minted on-chain: cert-student--course-t-1779266888138 -> token 973633
+2026-05-20 09:48:08 info: Certificate minted on-chain: cert-student--course-t-1779266888157 -> token 985158
+2026-05-20 09:48:08 info: Certificate minted on-chain: cert-student--course-t-1779266888190 -> token 216818
+2026-05-20 09:48:08 info: Certificate minted on-chain: cert-student--course-t-1779266888202 -> token 67890
+2026-05-20 09:48:08 info: Certificate minted on-chain: cert-student--course-t-1779266888228 -> token 21218
+2026-05-20 09:48:08 info: Certificate minted on-chain: cert-student--course-t-1779266888248 -> token 328749
+2026-05-20 09:48:08 info: Certificate revoked successfully
+2026-05-20 09:48:08 info: Certificate minted on-chain: cert-student--course-t-1779266888270 -> token 218943
+2026-05-20 09:48:08 info: Certificate revoked successfully
+2026-05-20 09:48:08 info: Certificate minted on-chain: cert-student--course-t-1779266888301 -> token 318470
+2026-05-20 09:48:08 info: Certificate minted on-chain: cert-student--course-t-1779266888555 -> token 301173
+2026-05-20 09:48:08 info: Certificate reissued: cert-student--course-t-1779266888301 -> cert-student--course-t-1779266888555
+2026-05-20 09:48:08 info: Certificate minted on-chain: cert-student--course-t-1779266888585 -> token 758823
+2026-05-20 09:48:08 info: Certificate revoked successfully
+2026-05-20 09:48:08 info: Certificate minted on-chain: cert-student--course-t-1779266888606 -> token 403043
+2026-05-20 09:48:08 info: Certificate minted on-chain: cert-student--course-t-1779266888619 -> token 593984
+2026-05-20 09:48:08 info: Certificate minted on-chain: cert-student--course-t-1779266888631 -> token 952024
+2026-05-20 09:48:08 info: Certificate minted on-chain: cert-student--course-i-1779266888678 -> token 615460
+2026-05-20 09:48:08 info: Certificate revoked successfully
+2026-05-20 09:48:08 info: Certificate minted on-chain: cert-student--course-i-1779266888705 -> token 839567
+2026-05-20 09:48:08 info: Certificate minted on-chain: cert-student--course-i-1779266888724 -> token 631102
+2026-05-20 09:48:08 info: Certificate reissued: cert-student--course-i-1779266888705 -> cert-student--course-i-1779266888724
+2026-05-20 09:48:08 info: Certificate minted on-chain: cert-student--course-i-1779266888741 -> token 615860
+2026-05-20 09:55:53 info: Certificate minted on-chain: cert-student--course-t-1779267353833 -> token 12345
+2026-05-20 09:55:53 info: Certificate minted on-chain: cert-student--course-t-1779267353961 -> token 403163
+2026-05-20 09:55:53 info: Certificate minted on-chain: cert-student--course-t-1779267353985 -> token 532133
+2026-05-20 09:55:54 info: Certificate minted on-chain: cert-student--course-t-1779267354021 -> token 412408
+2026-05-20 09:55:54 info: Certificate minted on-chain: cert-student--course-t-1779267354039 -> token 67890
+2026-05-20 09:55:54 info: Certificate minted on-chain: cert-student--course-t-1779267354078 -> token 949767
+2026-05-20 09:55:54 info: Certificate minted on-chain: cert-student--course-t-1779267354104 -> token 687565
+2026-05-20 09:55:54 info: Certificate revoked successfully
+2026-05-20 09:55:54 info: Certificate minted on-chain: cert-student--course-t-1779267354136 -> token 25540
+2026-05-20 09:55:54 info: Certificate revoked successfully
+2026-05-20 09:55:54 info: Certificate minted on-chain: cert-student--course-t-1779267354174 -> token 968157
+2026-05-20 09:55:54 info: Certificate minted on-chain: cert-student--course-t-1779267354196 -> token 965188
+2026-05-20 09:55:54 info: Certificate reissued: cert-student--course-t-1779267354174 -> cert-student--course-t-1779267354196
+2026-05-20 09:55:54 info: Certificate minted on-chain: cert-student--course-t-1779267354219 -> token 492944
+2026-05-20 09:55:54 info: Certificate revoked successfully
+2026-05-20 09:55:54 info: Certificate minted on-chain: cert-student--course-t-1779267354253 -> token 15323
+2026-05-20 09:55:54 info: Certificate minted on-chain: cert-student--course-t-1779267354266 -> token 273564
+2026-05-20 09:55:54 info: Certificate minted on-chain: cert-student--course-t-1779267354284 -> token 821477
+2026-05-20 09:55:54 info: Certificate minted on-chain: cert-student--course-i-1779267354378 -> token 274587
+2026-05-20 09:55:54 info: Certificate revoked successfully
+2026-05-20 09:55:54 info: Certificate minted on-chain: cert-student--course-i-1779267354414 -> token 435146
+2026-05-20 09:55:54 info: Certificate minted on-chain: cert-student--course-i-1779267354435 -> token 200478
+2026-05-20 09:55:54 info: Certificate reissued: cert-student--course-i-1779267354414 -> cert-student--course-i-1779267354435
+2026-05-20 09:55:54 info: Certificate minted on-chain: cert-student--course-i-1779267354460 -> token 485828
+2026-05-20 09:55:53 info: RSA Key rotated. New Key ID: cf9f24bd-2469-405e-b79a-93aeac395d4c
+2026-05-20 09:55:54 info: Blockchain service initialized in simulation mode
+2026-05-20 09:55:54 info: POST /api/v1/certificates
+2026-05-20 09:55:54 info: Simulated mint for token 551457
+2026-05-20 09:55:55 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267354857 -> token 551457
+2026-05-20 09:55:55 info: Certificate minted: cert-api-stud-api-cour-1779267354857
+2026-05-20 09:55:55 info: POST /api/v1/certificates
+2026-05-20 09:55:55 info: POST /api/v1/certificates
+2026-05-20 09:55:55 info: POST /api/v1/certificates
+2026-05-20 09:55:55 error: Mint certificate error: Student with ID non-existent-student not found
+2026-05-20 09:55:55 info: POST /api/v1/certificates
+2026-05-20 09:55:55 error: Mint certificate error: Course with ID non-existent-course not found
+2026-05-20 09:55:55 info: POST /api/v1/certificates
+2026-05-20 09:55:55 info: Simulated mint for token 174575
+2026-05-20 09:55:55 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267355084 -> token 174575
+2026-05-20 09:55:55 info: Certificate minted: cert-api-stud-api-cour-1779267355084
+2026-05-20 09:55:55 info: GET /api/v1/certificates/verify/174575
+2026-05-20 09:55:55 info: GET /api/v1/certificates/verify/nonexistenttoken123
+2026-05-20 09:55:55 info: POST /api/v1/certificates
+2026-05-20 09:55:55 info: Simulated mint for token 914300
+2026-05-20 09:55:55 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267355234 -> token 914300
+2026-05-20 09:55:55 info: Certificate minted: cert-api-stud-api-cour-1779267355234
+2026-05-20 09:55:55 info: POST /api/v1/certificates
+2026-05-20 09:55:55 info: Simulated mint for token batch-token-2
+2026-05-20 09:55:55 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267355358 -> token batch-token-2
+2026-05-20 09:55:55 info: Certificate minted: cert-api-stud-api-cour-1779267355358
+2026-05-20 09:55:55 info: POST /api/v1/certificates/verify/batch
+2026-05-20 09:55:55 info: POST /api/v1/certificates/verify/batch
+2026-05-20 09:55:55 info: POST /api/v1/certificates/verify/batch
+2026-05-20 09:55:55 info: POST /api/v1/certificates
+2026-05-20 09:55:55 info: Simulated mint for token 657925
+2026-05-20 09:55:55 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267355511 -> token 657925
+2026-05-20 09:55:55 info: Certificate minted: cert-api-stud-api-cour-1779267355511
+2026-05-20 09:55:55 info: GET /api/v1/certificates/657925/metadata
+2026-05-20 09:55:55 info: GET /api/v1/certificates/nonexistent/metadata
+2026-05-20 09:55:55 info: POST /api/v1/certificates
+2026-05-20 09:55:55 info: Simulated mint for token 198532
+2026-05-20 09:55:55 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267355660 -> token 198532
+2026-05-20 09:55:55 info: Certificate minted: cert-api-stud-api-cour-1779267355660
+2026-05-20 09:55:55 info: GET /api/v1/certificates/198532/metadata
+2026-05-20 09:55:55 info: POST /api/v1/certificates
+2026-05-20 09:55:55 info: Simulated mint for token 189913
+2026-05-20 09:55:55 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267355787 -> token 189913
+2026-05-20 09:55:55 info: Certificate minted: cert-api-stud-api-cour-1779267355787
+2026-05-20 09:55:55 info: GET /api/v1/certificates/cert-api-stud-api-cour-1779267355787
+2026-05-20 09:55:55 info: GET /api/v1/certificates/nonexistent-id
+2026-05-20 09:55:55 info: POST /api/v1/certificates
+2026-05-20 09:55:56 info: Simulated mint for token 814336
+2026-05-20 09:55:56 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267355933 -> token 814336
+2026-05-20 09:55:56 info: Certificate minted: cert-api-stud-api-cour-1779267355933
+2026-05-20 09:55:56 info: GET /api/v1/certificates/student/api-student-123
+2026-05-20 09:55:56 info: GET /api/v1/certificates/student/nonexistent-student
+2026-05-20 09:55:56 info: POST /api/v1/certificates
+2026-05-20 09:55:56 info: Simulated mint for token 542918
+2026-05-20 09:55:56 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267356087 -> token 542918
+2026-05-20 09:55:56 info: Certificate minted: cert-api-stud-api-cour-1779267356087
+2026-05-20 09:55:56 info: PUT /api/v1/certificates/cert-api-stud-api-cour-1779267356087/revoke
+2026-05-20 09:55:56 info: Certificate revoked successfully
+2026-05-20 09:55:56 info: POST /api/v1/certificates
+2026-05-20 09:55:56 info: Simulated mint for token 383834
+2026-05-20 09:55:56 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267356235 -> token 383834
+2026-05-20 09:55:56 info: Certificate minted: cert-api-stud-api-cour-1779267356235
+2026-05-20 09:55:56 info: PUT /api/v1/certificates/cert-api-stud-api-cour-1779267356235/revoke
+2026-05-20 09:55:56 info: POST /api/v1/certificates
+2026-05-20 09:55:56 info: Simulated mint for token 485321
+2026-05-20 09:55:56 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267356367 -> token 485321
+2026-05-20 09:55:56 info: Certificate minted: cert-api-stud-api-cour-1779267356367
+2026-05-20 09:55:56 info: PUT /api/v1/certificates/cert-api-stud-api-cour-1779267356367/revoke
+2026-05-20 09:55:56 info: POST /api/v1/certificates
+2026-05-20 09:55:56 info: Simulated mint for token 54112
+2026-05-20 09:55:56 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267356504 -> token 54112
+2026-05-20 09:55:56 info: Certificate minted: cert-api-stud-api-cour-1779267356504
+2026-05-20 09:55:56 info: POST /api/v1/certificates/cert-api-stud-api-cour-1779267356504/reissue
+2026-05-20 09:55:56 info: Simulated mint for token 611077
+2026-05-20 09:55:56 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267356655 -> token 611077
+2026-05-20 09:55:56 info: Certificate reissued: cert-api-stud-api-cour-1779267356504 -> cert-api-stud-api-cour-1779267356655
+2026-05-20 09:55:56 info: POST /api/v1/certificates
+2026-05-20 09:55:56 info: Simulated mint for token 580682
+2026-05-20 09:55:56 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267356795 -> token 580682
+2026-05-20 09:55:56 info: Certificate minted: cert-api-stud-api-cour-1779267356795
+2026-05-20 09:55:56 info: POST /api/v1/certificates/cert-api-stud-api-cour-1779267356795/reissue
+2026-05-20 09:55:57 info: Simulated mint for token 25439
+2026-05-20 09:55:57 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267356935 -> token 25439
+2026-05-20 09:55:57 info: Certificate reissued: cert-api-stud-api-cour-1779267356795 -> cert-api-stud-api-cour-1779267356935
+2026-05-20 09:55:57 info: POST /api/v1/certificates
+2026-05-20 09:55:57 info: Simulated mint for token 287051
+2026-05-20 09:55:57 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267357062 -> token 287051
+2026-05-20 09:55:57 info: Certificate minted: cert-api-stud-api-cour-1779267357062
+2026-05-20 09:55:57 info: POST /api/v1/certificates/cert-api-stud-api-cour-1779267357062/reissue
+2026-05-20 09:55:57 info: POST /api/v1/certificates
+2026-05-20 09:55:57 info: Simulated mint for token 203268
+2026-05-20 09:55:57 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267357191 -> token 203268
+2026-05-20 09:55:57 info: Certificate minted: cert-api-stud-api-cour-1779267357191
+2026-05-20 09:55:57 info: POST /api/v1/certificates
+2026-05-20 09:55:57 info: Simulated mint for token 772455
+2026-05-20 09:55:57 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267357312 -> token 772455
+2026-05-20 09:55:57 info: Certificate minted: cert-api-stud-api-cour-1779267357312
+2026-05-20 09:55:57 info: GET /api/v1/certificates/analytics
+2026-05-20 09:55:57 info: POST /api/v1/certificates
+2026-05-20 09:55:57 info: Simulated mint for token 121959
+2026-05-20 09:55:57 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267357448 -> token 121959
+2026-05-20 09:55:57 info: Certificate minted: cert-api-stud-api-cour-1779267357448
+2026-05-20 09:55:57 info: GET /api/v1/certificates/cert-api-stud-api-cour-1779267357448/image
+2026-05-20 09:55:57 info: POST /api/v1/certificates
+2026-05-20 09:55:57 info: Simulated mint for token 832009
+2026-05-20 09:55:57 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267357591 -> token 832009
+2026-05-20 09:55:57 info: Certificate minted: cert-api-stud-api-cour-1779267357591
+2026-05-20 09:55:57 info: GET /api/v1/certificates/cert-api-stud-api-cour-1779267357591/qr
+2026-05-20 09:55:58 info: GET /api/v1/certificates?limit=10&offset=0
+2026-05-20 09:55:58 info: GET /api/v1/certificates?limit=5
+2026-05-20 09:55:58 info: GET /api/v1/certificates?limit=200
+2026-05-20 09:55:58 info: GET /api/etc/passwd
+2026-05-20 09:55:58 info: POST /api/v1/certificates
+2026-05-20 09:55:58 info: Simulated mint for token 295396
+2026-05-20 09:55:58 info: Certificate minted on-chain: cert-api-stud-api-cour-1779267358588 -> token 295396
+2026-05-20 09:55:58 info: Certificate minted: cert-api-stud-api-cour-1779267358588
+2026-05-20 09:55:58 info: GET /api/v1/certificates/verify/295396

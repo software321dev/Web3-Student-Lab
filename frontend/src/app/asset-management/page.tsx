@@ -36,7 +36,9 @@ interface ClawbackForm {
 }
 
 export default function AssetManagementDashboard() {
-  const { connected, address } = useWallet();
+  const { publicKey } = useWallet();
+  const connected = !!publicKey;
+  const address = publicKey;
   const [assets, setAssets] = useState<AssetInfo[]>([]);
   const [selectedAsset, setSelectedAsset] = useState<AssetInfo | null>(null);
   const [loading, setLoading] = useState(false);

@@ -18,7 +18,7 @@ export default function CourseDetailPage() {
 
   useEffect(() => {
     if (!params?.id) return;
-    
+
     async function loadCourse() {
       try {
         const id = typeof params?.id === 'string' ? params.id : params?.id?.[0];

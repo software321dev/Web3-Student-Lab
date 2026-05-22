@@ -10,7 +10,6 @@ const SubscriptionDashboard = dynamic(
 );
 
 export default function SubscriptionsPage() {
-
   return (
     <div className="min-h-screen bg-gray-50">
       <Suspense

@@ -118,6 +118,8 @@ interface WalletContextType {
   publicKey: string | null;
   activeWallet: string | null;
   isConnecting: boolean;
+  isConnected: boolean;
+  connected: boolean;
   error: string | null;
   connect: (providerName: string) => Promise<void>;
   disconnect: () => Promise<void>;
@@ -185,6 +187,8 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
         publicKey,
         activeWallet,
         isConnecting,
+        isConnected: !!publicKey,
+        connected: !!publicKey,
         error,
         connect,
         disconnect,

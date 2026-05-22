@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect, useState, Suspense } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
-import Link from 'next/link';
 import { EnrollmentWizard } from '@/components/enrollment/EnrollmentWizard';
-import { enrollmentsAPI } from '@/lib/api';
 import { useAuth } from '@/contexts/AuthContext';
+import { enrollmentsAPI } from '@/lib/api';
+import Link from 'next/link';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { Suspense, useEffect, useState } from 'react';
 
 function EnrollmentContent() {
   const searchParams = useSearchParams();
@@ -20,7 +20,7 @@ function EnrollmentContent() {
 
   useEffect(() => {
     if (!searchParams) return;
-    
+
     const id = searchParams.get('courseId');
     const title = searchParams.get('courseTitle');
     const credits = searchParams.get('credits');

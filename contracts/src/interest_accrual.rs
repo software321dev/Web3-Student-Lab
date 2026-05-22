@@ -45,14 +45,13 @@ impl InterestAccrualService {
             return 0;
         }
 
-        let rate_per_second = (annual_rate as i128)
-            .checked_div(SECONDS_PER_YEAR as i128)
-            .unwrap_or(0);
+        let divisor = (SECONDS_PER_YEAR as i128)
+            .saturating_mul(BASIS_POINTS as i128);
 
         let interest = principal
-            .saturating_mul(rate_per_second)
+            .saturating_mul(annual_rate as i128)
             .saturating_mul(time_seconds as i128)
-            .checked_div(BASIS_POINTS as i128)
+            .checked_div(divisor)
             .unwrap_or(0);
 
         interest

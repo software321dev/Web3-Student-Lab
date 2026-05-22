@@ -426,7 +426,8 @@ mod tests {
         let contract_id = env.register(ExecutionEngineContract, ());
         let client = ExecutionEngineContractClient::new(&env, &contract_id);
 
-        (env, Address::generate(&env), client)
+        let staker = Address::generate(&env);
+        (env, staker, client)
     }
 
     #[test]

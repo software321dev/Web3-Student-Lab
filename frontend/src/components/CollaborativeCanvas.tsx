@@ -293,10 +293,7 @@ export function CollaborativeCanvas({ roomId, userId, onCanvasReady }: Collabora
             attributionPosition="bottom-left"
             className="h-full"
           >
-            <MiniMap
-              nodeStrokeColor="#888"
-              nodeColor="#888"
-            />
+            <MiniMap nodeStrokeColor="#888" nodeColor="#888" />
             <Controls />
             <Background color="#888" gap={16} size={1} />
           </ReactFlow>

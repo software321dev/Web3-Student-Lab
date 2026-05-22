@@ -244,7 +244,7 @@ export default function CodeReview({
           height={height}
           language={language}
           value={code}
-          onChange={onCodeChange}
+          onChange={(value) => onCodeChange?.(value || '')}
           onMount={handleEditorMount}
           options={{
             readOnly,

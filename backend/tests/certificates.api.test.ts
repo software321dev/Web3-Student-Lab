@@ -65,7 +65,7 @@ describe('Certificate API Endpoints', () => {
       expect(response.body.certificate).toBeDefined();
       expect(response.body.metadata).toBeDefined();
       expect(response.body.certificate.id).toBeDefined();
-      expect(response.body.certificate.tokenId).toBeDefined(); 
+      expect(response.body.certificate.tokenId).toBeDefined();
 
       generatedCertId = response.body.certificate.id;
     });
@@ -456,7 +456,7 @@ describe('Certificate API Endpoints', () => {
     it('should reject limit > 100', async () => {
       const response = await request(app).get('/api/v1/certificates').query({ limit: 200 });
 
-      expect(response.status).toBe(400); 
+      expect(response.status).toBe(400);
     });
   });
 

@@ -1,28 +1,27 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import { Badge } from '@/components/ui/Badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/Tabs';
 import { Alert, AlertDescription } from '@/components/ui/Alert';
+import { Badge } from '@/components/ui/Badge';
+import { Button } from '@/components/ui/Button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Progress } from '@/components/ui/Progress';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/Tabs';
+import { useWebSocket } from '@/hooks/useWebSocket';
+import { useSubscriptionStore } from '@/stores/subscriptionStore';
+import { formatCurrency, formatDate } from '@/utils/format';
 import {
-  CreditCard,
-  Calendar,
-  DollarSign,
-  CheckCircle,
-  XCircle,
   AlertTriangle,
+  Calendar,
+  CheckCircle,
+  Clock,
+  CreditCard,
+  DollarSign,
   RefreshCw,
-  Settings,
   TrendingUp,
   Users,
-  Clock,
+  XCircle,
 } from 'lucide-react';
-import { useSubscriptionStore } from '@/stores/subscriptionStore';
-import { useWebSocket } from '@/hooks/useWebSocket';
-import { formatCurrency, formatDate } from '@/utils/format';
+import React, { useEffect, useState } from 'react';
 
 interface SubscriptionPlan {
   id: string;

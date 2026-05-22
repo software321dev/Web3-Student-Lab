@@ -2,7 +2,7 @@
 
 import {
   groupNotifications,
-  Notification,
+  AppNotification,
   NotificationType,
   useNotifications,
 } from '@/contexts/NotificationContext';
@@ -184,7 +184,7 @@ function NotificationRow({
   notification: n,
   onMarkRead,
 }: {
-  notification: Notification;
+  notification: AppNotification;
   onMarkRead: (id: string) => void;
 }) {
   return (

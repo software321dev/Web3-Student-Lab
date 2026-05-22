@@ -51,10 +51,14 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({ x, y, onClose, onActio
       className="fixed z-[1000] w-56 rounded-2xl border border-white/10 bg-gray-900/95 py-2 shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-2xl"
       style={{ top: y, left: x }}
     >
-      {items.map((item, index) =>
-        item.type === 'separator' ? (
-          <div key={`sep-${index}`} className="mx-2 my-1.5 h-px bg-white/5" />
-        ) : (
+      {items.map((item, index) => {
+        if (item.type === 'separator') {
+          return <div key={`sep-${index}`} className="mx-2 my-1.5 h-px bg-white/5" />;
+        }
+
+        const Icon = item.icon as React.ElementType;
+
+        return (
           <button
             key={item.id}
             onClick={() => {
@@ -67,17 +71,19 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({ x, y, onClose, onActio
             )}
           >
             <div className="flex items-center gap-3">
-              <item.icon className="h-4 w-4 opacity-50 transition-opacity group-hover:opacity-100" />
+              {Icon && (
+                <Icon className="h-4 w-4 opacity-50 transition-opacity group-hover:opacity-100" />
+              )}
               <span>{item.label}</span>
             </div>
-            {item.shortcut && (
+            {'shortcut' in item && item.shortcut && (
               <span className="font-mono text-[10px] tracking-tighter text-gray-600 group-hover:text-gray-400">
                 {item.shortcut}
               </span>
             )}
           </button>
-        )
-      )}
+        );
+      })}
     </motion.div>
   );
 };

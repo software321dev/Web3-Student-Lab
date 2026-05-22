@@ -1985,7 +1985,7 @@ impl CertificateContract {
             RevocationReason::StudentRequest => String::from_str(&env, "StudentRequest"),
             RevocationReason::CourseInvalidated => String::from_str(&env, "CourseInvalidated"),
             RevocationReason::FraudulentActivity => String::from_str(&env, "FraudulentActivity"),
-            RevocationReason::Other(ref s) => s.clone(),
+            RevocationReason::Other => String::from_str(&env, "Other"),
         };
 
         env.events().publish(
@@ -2023,7 +2023,7 @@ impl CertificateContract {
         // Construct appropriate verification result based on state
         let result = match &state.status {
             CertificateStatus::Active => {
-                VerificationResult::active(owner, metadata, current_ledger)
+                VerificationResult::active(&env, owner, metadata, current_ledger)
             }
             CertificateStatus::Revoked => {
                 // Get revocation details from history
@@ -2042,21 +2042,23 @@ impl CertificateContract {
                         token_id,
                         revoked_at: state.revoked_at.unwrap_or(0),
                         revoked_by: env.current_contract_address(),
-                        reason: RevocationReason::Other(String::from_str(&env, "Unknown")),
-                        notes: String::from_str(&env, ""),
+                        reason: RevocationReason::Other,
+                        notes: String::from_str(&env, "Unknown"),
                         original_mint_date: state.minted_at,
                     }
                 };
 
-                VerificationResult::revoked(owner, metadata, revocation_info, current_ledger)
+                VerificationResult::revoked(&env, owner, metadata, revocation_info, current_ledger)
             }
             CertificateStatus::Superseded => VerificationResult::superseded(
+                &env,
                 owner,
                 metadata,
                 state.superseded_by.unwrap_or(0),
                 current_ledger,
             ),
             CertificateStatus::Reissued => VerificationResult::reissued(
+                &env,
                 owner,
                 metadata,
                 state.reissued_token_id.unwrap_or(0),

@@ -1,4 +1,4 @@
-import type * as monaco from 'monaco-editor';
+import * as monaco from 'monaco-editor';
 
 export const SOROBAN_LANGUAGE_ID = 'soroban-rust';
 
@@ -294,12 +294,12 @@ export function registerSorobanCodeActions(monacoApi: typeof monaco) {
             {
               title: 'Replace with #[contract]',
               diagnostics: [marker],
-              kind: monacoApi.languages.CodeActionKind.QuickFix,
+              kind: 'quickfix',
               edit: {
                 edits: [
                   {
                     resource: model.uri,
-                    edit: {
+                    textEdit: {
                       range: new monacoApi.Range(
                         marker.startLineNumber,
                         startColumn,
@@ -328,12 +328,12 @@ export function registerSorobanCodeActions(monacoApi: typeof monaco) {
             {
               title: 'Insert env.storage()',
               diagnostics: [marker],
-              kind: monacoApi.languages.CodeActionKind.QuickFix,
+              kind: 'quickfix',
               edit: {
                 edits: [
                   {
                     resource: model.uri,
-                    edit: {
+                    textEdit: {
                       range: new monacoApi.Range(
                         marker.startLineNumber,
                         startColumn,

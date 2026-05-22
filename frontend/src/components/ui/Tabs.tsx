@@ -2,6 +2,9 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 interface TabsProps extends React.HTMLAttributes<HTMLDivElement> {
+  value?: string;
+  defaultValue?: string;
+  onValueChange?: (value: string) => void;
   children: React.ReactNode;
 }
 

@@ -1,7 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import type { OnMount } from '@monaco-editor/react';
+import type { DiffOnMount } from '@monaco-editor/react';
 
 const DiffEditor = dynamic(() => import('@monaco-editor/react').then((mod) => mod.DiffEditor), {
   ssr: false,
@@ -143,7 +143,7 @@ export default function PeerReviewDashboard() {
     setDraftReply('');
   };
 
-  const handleDiffMount: OnMount = (editor, monaco) => {
+  const handleDiffMount: DiffOnMount = (editor, monaco) => {
     monaco.editor.defineTheme('web3-lab-diff', {
       base: 'vs-dark',
       inherit: true,

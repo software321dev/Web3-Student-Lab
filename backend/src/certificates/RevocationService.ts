@@ -36,7 +36,7 @@ export class RevocationService {
 
     // Check if already revoked
     if (certificate.status === 'REVOKED') {
-      throw new Error('Certificate is already revoked');
+      throw new Error('Certificate already revoked');
     }
 
     // Check if certificate can be revoked
@@ -137,6 +137,8 @@ export class RevocationService {
         previousVersionId: certificateId,
       },
     });
+
+    newCertificate.previousVersionId = certificateId;
 
     logger.info(`Certificate reissued: ${certificateId} -> ${newCertificate.id}`, {
       originalId: certificateId,

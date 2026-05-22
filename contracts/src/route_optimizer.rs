@@ -242,6 +242,8 @@ pub fn price_improvement_bps(pools: &[PoolSnapshot], amount_in: u128, max_splits
 #[cfg(test)]
 mod tests {
     use super::*;
+    extern crate std;
+    use std::vec;
 
     fn pool(id: u32, r_in: u128, r_out: u128, fee: u128, gas: u128) -> PoolSnapshot {
         PoolSnapshot {

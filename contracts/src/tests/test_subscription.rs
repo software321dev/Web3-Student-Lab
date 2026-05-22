@@ -1,5 +1,4 @@
-#![cfg(test)]
-
+extern crate std;
 use super::subscription_service::{
     SubscriptionService, SubscriptionServiceClient, SubscriptionError,
     DataKey, SubscriptionStatus, SubscriptionPlan,
@@ -119,9 +118,9 @@ fn test_unauthorized_cancel() {
     
     let unauthorized = Address::generate(&env);
     
-    let result = std::panic::catch_unwind(|| {
+    let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
         client.cancel_subscription(&unauthorized, &subscription_id);
-    });
+    }));
     
     assert!(result.is_err());
 }
