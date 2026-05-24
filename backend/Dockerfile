@@ -5,11 +5,11 @@ WORKDIR /app
 
 # Install dependencies first (for faster caching)
 COPY package*.json ./
-COPY ./prisma ./prisma/
 
 RUN npm install
 
-# Copy source and build
+# Copy prisma directory and source code
+COPY prisma ./prisma/
 COPY . .
 
 # Generate Prisma client
