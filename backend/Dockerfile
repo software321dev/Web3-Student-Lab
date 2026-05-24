@@ -6,7 +6,8 @@ WORKDIR /app
 # Install dependencies first (for faster caching)
 COPY package*.json ./
 
-RUN npm install
+# Clean npm cache and install dependencies
+RUN npm cache clean --force && npm ci
 
 # Copy source code (includes prisma directory)
 COPY . .
