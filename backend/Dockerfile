@@ -12,8 +12,8 @@ COPY package*.json ./
 # Install dependencies with pnpm
 RUN pnpm install
 
-# Install @prisma/client explicitly
-RUN pnpm add @prisma/client
+# Install @prisma/client and dotenv explicitly
+RUN pnpm add @prisma/client dotenv
 
 # Copy all files including prisma directory
 COPY . .
