@@ -12,14 +12,17 @@ COPY package*.json ./
 # Install dependencies with pnpm
 RUN pnpm install
 
-# Install @prisma/client, dotenv, @prisma/config, and dev dependencies
-RUN pnpm add @prisma/client dotenv @prisma/config && pnpm install --dev
+# Install @prisma/client explicitly before Prisma generation
+RUN pnpm add @prisma/client
 
 # Copy all files including prisma directory
 COPY . .
 
 # Generate Prisma client with workspace root path
 RUN npx prisma generate --schema=backend/prisma/schema.prisma
+
+# Install dotenv, @prisma/config, and dev dependencies
+RUN pnpm add dotenv @prisma/config && pnpm install --dev
 
 # Change to backend directory and build
 WORKDIR /app/backend
