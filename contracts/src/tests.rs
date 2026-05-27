@@ -15,7 +15,6 @@ fn setup() -> (
     Address,
     CertificateContractClient<'static>,
 ) {
-    std::env::remove_var("SOROBAN_TEST_SNAPSHOT_FILE");
     let env = Env::default();
     env.mock_all_auths();
     let contract_id = env.register(CertificateContract, ());
@@ -305,11 +304,15 @@ fn revoke_emits_event() {
     client.revoke(&admin, &course_symbol, &student);
 
     let events = env.events().all();
-    let v1_event = events.iter().find(|e| {
-        e.0 == client.address && 
-        Symbol::from_val(&env, &e.1.get(0).unwrap()) == Symbol::new(&env, "v1_cert_revoked")
-    }).expect("v1_cert_revoked event not found");
-    
+    let v1_event = events
+        .iter()
+        .find(|e| {
+            e.0 == client.address
+                && Symbol::from_val(&env, &e.1.get(0).unwrap())
+                    == Symbol::new(&env, "v1_cert_revoked")
+        })
+        .expect("v1_cert_revoked event not found");
+
     let (_, topics, _) = v1_event;
     assert_eq!(
         Symbol::from_val(&env, &topics.get(1).unwrap()),
@@ -338,7 +341,6 @@ fn non_admin_cannot_revoke_certificate() {
 }
 
 fn setup_session() -> (Env, Address, SessionVerificationContractClient<'static>) {
-    std::env::remove_var("SOROBAN_TEST_SNAPSHOT_FILE");
     let env = Env::default();
     env.mock_all_auths();
     let contract_id = env.register(SessionVerificationContract, ());
