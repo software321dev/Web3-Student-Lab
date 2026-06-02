@@ -199,13 +199,23 @@ cd ..
 
 ### 6. Configure Environment Variables
 
-Create the backend environment file at `backend/.env`:
+Create the backend environment file at `backend/.env`.
+A good starting point is to copy the provided example file:
+
+```bash
+cp backend/.env.example backend/.env
+```
+
+Then update any values as needed:
 
 ```env
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/web3-student-lab?schema=public"
+REDIS_URL="redis://localhost:6379"
 PORT=8080
 NODE_ENV=development
-JWT_SECRET=change-this-in-development
+JWT_SECRET="your-secret-key-change-in-development-123456"
+ACCESS_TOKEN_SECRET="access-secret-change-in-development"
+REFRESH_TOKEN_SECRET="refresh-secret-change-in-development"
 ```
 
 Create the frontend environment file at `frontend/.env.local`:
