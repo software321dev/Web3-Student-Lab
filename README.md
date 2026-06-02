@@ -4,6 +4,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
+
 **Web3 Student Lab** is an open-source educational platform that helps students learn blockchain,
 smart contracts, open-source collaboration, and hackathon project development in one place.
 
