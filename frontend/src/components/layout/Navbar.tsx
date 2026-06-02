@@ -1,5 +1,6 @@
 'use client';
 
+import { LanguageSelector } from '@/components/common/LanguageSelector';
 import NotificationBell from '@/components/notifications/NotificationBell';
 import { useAuth } from '@/contexts/AuthContext';
 import { useWallet } from '@/contexts/WalletContext';
@@ -54,6 +55,7 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <LanguageSelector />
           {user ? (
             <>
               <NotificationBell />
@@ -123,6 +125,9 @@ export default function Navbar() {
               </Link>
             ))}
 
+            <div className="mt-4">
+              <LanguageSelector />
+            </div>
             <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
               {user ? (
                 <>
