@@ -1,5 +1,5 @@
-import React from 'react';
 import { cn } from '@/lib/utils';
+import React from 'react';
 
 interface DialogProps {
   open?: boolean;
@@ -11,7 +11,7 @@ export function Dialog({ open, onOpenChange, children }: DialogProps) {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center" role="dialog" aria-modal="true">
       <div className="fixed inset-0 bg-black/50" onClick={() => onOpenChange?.(false)} />
       <div className="relative mx-4 w-full max-w-md rounded-lg bg-white p-6 shadow-lg">
         {children}

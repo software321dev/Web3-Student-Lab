@@ -10,12 +10,13 @@ export const metadata: Metadata = {
     'An open-source educational platform for blockchain, smart contracts, open-source collaboration, and hackathon project development.',
 };
 
+import { KeyboardShortcutsProvider } from '@/components/keyboard/KeyboardShortcutsProvider';
 import Navbar from '@/components/layout/Navbar';
 import ResiliencyBanner from '@/components/layout/ResiliencyBanner';
 import { ToastContainer } from '@/components/notifications/ToastContainer';
 import { NotificationProvider } from '@/contexts/NotificationContext';
-import { I18nProvider } from '@/i18n';
 import { Web3OnboardingProvider } from '@/contexts/Web3OnboardingContext';
+import { I18nProvider } from '@/i18n';
 
 export default function RootLayout({
   children,
@@ -49,17 +50,19 @@ export default function RootLayout({
             <AuthProvider>
               <I18nProvider>
                 <NotificationProvider>
-                  <Web3OnboardingProvider>
-                    <a href="#main-content" className="skip-to-content">
-                      Skip to main content
-                    </a>
-                    <Navbar />
-                    <ResiliencyBanner />
-                    <main id="main-content" className="flex-grow">
-                      {children}
-                    </main>
-                    <ToastContainer />
-                  </Web3OnboardingProvider>
+                  <KeyboardShortcutsProvider>
+                    <Web3OnboardingProvider>
+                      <a href="#main-content" className="skip-to-content">
+                        Skip to main content
+                      </a>
+                      <Navbar />
+                      <ResiliencyBanner />
+                      <main id="main-content" className="flex-grow">
+                        {children}
+                      </main>
+                      <ToastContainer />
+                    </Web3OnboardingProvider>
+                  </KeyboardShortcutsProvider>
                 </NotificationProvider>
               </I18nProvider>
             </AuthProvider>

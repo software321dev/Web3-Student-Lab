@@ -1,11 +1,12 @@
 'use client';
 
+import { useKeyboardShortcuts } from '@/components/keyboard/KeyboardShortcutsProvider';
 import NotificationBell from '@/components/notifications/NotificationBell';
 import { useAuth } from '@/contexts/AuthContext';
 import { useWallet } from '@/contexts/WalletContext';
 import { useWalletProfileCompletion } from '@/lib/profile-completion';
 import { primaryNav } from '@/lib/site-data';
-import { ArrowRight, Menu, X } from 'lucide-react';
+import { ArrowRight, Keyboard, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -17,6 +18,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const completedProfile = useWalletProfileCompletion(publicKey);
   const profileCompleted = !!completedProfile;
+  const { openShortcutHelp } = useKeyboardShortcuts();
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
@@ -54,6 +56,16 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <button
+            type="button"
+            onClick={openShortcutHelp}
+            className="rounded-full border border-white/12 px-4 py-2 text-sm font-medium text-[var(--text-strong)] transition hover:border-[var(--brand)] hover:bg-white/5"
+          >
+            <span className="inline-flex items-center gap-2">
+              <Keyboard className="h-4 w-4" />
+              Shortcuts
+            </span>
+          </button>
           {user ? (
             <>
               <NotificationBell />
