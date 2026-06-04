@@ -1,5 +1,4 @@
 import { Request } from 'express';
-import crypto from 'crypto';
 import prisma from '../db/index.js';
 import logger, { auditLogger } from './logger.js';
 
@@ -19,16 +18,17 @@ export interface AuditLogData {
  */
 export async function logAudit(data: AuditLogData): Promise<void> {
   try {
-    // 1. Prepare log payload
+    // 1. Prepare log payload with correlation ID for distributed tracing
     const timestamp = new Date().toISOString();
+    const correlationId = getCorrelationId();
     const payload = {
       ...data,
       timestamp,
+      correlationId,
     };
 
     // 2. Generate a cryptographic hash of the payload for verification (Immutability proof)
-    const hash = crypto
-      .createHash('sha256')
+    const hash = createHash('sha256')
       .update(JSON.stringify(payload))
       .digest('hex');
 
@@ -49,16 +49,20 @@ export async function logAudit(data: AuditLogData): Promise<void> {
         entity: data.entity ?? null,
         entityId: data.entityId ?? null,
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        details: typeof data.details === 'object' && data.details !== null ? { ...(data.details as any), _hash: hash } : { _hash: hash },
+        details: typeof data.details === 'object' && data.details !== null ? { ...(data.details as any), _hash: hash, correlationId } : { _hash: hash, correlationId },
         ipAddress: data.ipAddress ?? null,
         userAgent: data.userAgent ?? null,
       },
     });
 
-    // 5. Standard logging
-    logger.info(`Audit Log: ${data.action} by ${data.userEmail || data.userId || 'unknown'}`);
+    // 5. Standard logging with correlation ID
+    logger.info(`Audit Log: ${data.action} by ${data.userEmail || data.userId || 'unknown'}`, {
+      correlationId,
+      action: data.action,
+      entity: data.entity,
+    });
   } catch (error) {
-    logger.error('Failed to create audit log:', error);
+    logger.error('Failed to create audit log:', { error, correlationId: getCorrelationId() });
     // We don't want to fail the main action if logging fails, but we should know about it
   }
 }
@@ -75,7 +79,7 @@ export async function logRequestAudit(
 ): Promise<void> {
   // Try to get user from req.user (authenticated routes)
   const user = req.user as { id?: string; email?: string } | undefined;
-  
+
   // Try to get email from body if it's a login/register request without req.user
   const fallbackEmail = req.body?.email || null;
 
