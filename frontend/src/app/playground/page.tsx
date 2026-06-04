@@ -1,16 +1,16 @@
 'use client';
 
-import { CodeEditor } from '@/components/playground/CodeEditor';
 import { VirtualizedFileTree, type FileTreeNode } from '@/components/explorer/VirtualizedFileTree';
-import { FilePresenceManager } from '@/lib/explorer/FilePresence';
-import { CollaborationProvider } from '@/lib/collaboration/YjsProvider';
+import { CodeEditor } from '@/components/playground/CodeEditor';
 import { OfflineIndicator } from '@/components/storage/OfflineIndicator';
 import { TerminalPanel } from '@/components/terminal/TerminalPanel';
-import { DatabaseManager } from '@/lib/storage/DatabaseManager';
-import { SyncManager } from '@/lib/storage/SyncManager';
-import { useState, useEffect, useMemo } from 'react';
 import { WithSkeleton } from '@/components/ui/WithSkeleton';
 import { EditorSkeleton } from '@/components/ui/skeletons/EditorSkeleton';
+import { CollaborationProvider } from '@/lib/collaboration/YjsProvider';
+import { FilePresenceManager } from '@/lib/explorer/FilePresence';
+import { DatabaseManager } from '@/lib/storage/DatabaseManager';
+import { SyncManager } from '@/lib/storage/SyncManager';
+import { useEffect, useMemo, useState } from 'react';
 
 const INITIAL_TREE: FileTreeNode[] = [
   {
@@ -170,6 +170,19 @@ export default function PlaygroundPage() {
     };
     persistActiveFile();
   }, [activeFilePath, databaseManager]);
+
+  useEffect(() => {
+    const handleShortcutCompile = () => {
+      if (!isCompiling) {
+        handleCompile();
+      }
+    };
+
+    document.addEventListener('playground-compile', handleShortcutCompile as EventListener);
+    return () => {
+      document.removeEventListener('playground-compile', handleShortcutCompile as EventListener);
+    };
+  }, [handleCompile, isCompiling]);
 
   useEffect(() => {
     const restoreActiveFile = async () => {
