@@ -2,29 +2,27 @@ import cors from 'cors';
 import express, { Request, Response } from 'express';
 import { rateLimit } from 'express-rate-limit';
 import { createServer } from 'http';
+import swaggerUi from 'swagger-ui-express';
 import blockHeaderListener from './cache/BlockHeaderListener.js';
 import cacheMetrics from './cache/CacheMetrics.js';
 import cacheWarmer from './cache/CacheWarmer.js';
 import distributedCacheManager from './cache/DistributedCacheManager.js';
 import redisClient from './cache/RedisClient.js';
 import { rpcCacheHeadersMiddleware, rpcCacheMiddleware } from './cache/RPCInterceptor.js';
+import config from './config/env.config.js';
+import { swaggerSpec } from './config/swagger.js';
 import prisma from './db/index.js';
 import { dbRoutingMiddleware } from './middleware/dbRouting.js';
 import { decryptionMiddleware } from './middleware/encryptionMiddleware.js';
+import { errorHandler } from './middleware/errorHandler.js';
 import { apiRateLimiter } from './middleware/rateLimiter.js';
-import { requestLogger } from './middleware/requestLogger.js';
 import { requireWorkspaceMiddleware } from './middleware/WorkspaceContext.js';
 import freelanceRoute from './routes/freelance.js';
 import routes from './routes/index.js';
-import { validateEnvironment } from './utils/checkEnv.js';
 import logger from './utils/logger.js';
 import { pubClient, redisConnection, subClient } from './utils/redis.js';
-import swaggerUi from 'swagger-ui-express';
-import { swaggerSpec } from './config/swagger.js';
-import config from './config/env.config.js';
+import { getSentryErrorHandler, getSentryRequestHandler, initializeSentry } from './utils/sentry.js';
 import { initializeWebSocket } from './websocket/WebSocketServer.js';
-import { initializeSentry, getSentryErrorHandler, getSentryRequestHandler } from './utils/sentry.js';
-import { errorHandler } from './middleware/errorHandler.js';
 
 // Load environment variables
 // dotenv.config(); // Skip in Docker Compose - use environment variables instead
@@ -81,7 +79,7 @@ const limiter = rateLimit({
 // Global Rate Limiting - now using sliding window
 app.use(apiRateLimiter);
 app.use(limiter);
-app.use(requestLogger);
+app.use(detailedRequestLogger);
 app.use(getSentryRequestHandler());
 
 /**
