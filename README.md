@@ -10,6 +10,12 @@ smart contracts, open-source collaboration, and hackathon project development in
 The platform provides **interactive tools, coding environments, and guided learning paths** designed
 for beginners and university students.
 
+## 🟢 Live Deployment
+
+The application is fully deployed and accessible online:
+- **Frontend Application**: [https://web3-student-lab.vercel.app/](https://web3-student-lab.vercel.app/)
+- **Backend Infrastructure**: Hosted securely on Render using PostgreSQL, Redis, and integrated with the Stellar/Soroban Testnet.
+
 ## 🚀 Core Modules
 
 1. **Blockchain Learning Simulator**: Visually learn how blockchains work (create transactions, mine
