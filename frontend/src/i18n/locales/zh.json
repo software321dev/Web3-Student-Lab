@@ -10,7 +10,19 @@
     "verify": "验证",
     "subscriptions": "订阅",
     "notarization": "公证",
-    "devtools": "开发工具"
+    "devtools": "开发工具",
+    "learn": "学习",
+    "dashboard": "仪表板",
+    "open_source_lab": "开源实验室",
+    "web3_student_lab": "Web3 学生实验室",
+    "certificates": "证书",
+    "notifications": "通知",
+    "sign_out": "退出",
+    "wallet_connected": "钱包已连接",
+    "connect_wallet": "连接钱包",
+    "open_wallet_access": "打开钱包访问",
+    "complete_profile": "完善资料",
+    "start_with_wallet": "使用钱包开始"
   },
   "language": {
     "english": "英语",

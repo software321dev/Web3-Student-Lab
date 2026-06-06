@@ -73,14 +73,20 @@ apiClient.interceptors.request.use(async (config) => {
 apiClient.interceptors.response.use(
   (response) => response,
   async (error) => {
+    const isBrowser = typeof window !== 'undefined';
     if (error.response?.status === 401) {
       // Token expired or invalid
       localStorage.removeItem('token');
       localStorage.removeItem('user');
-      window.location.href = '/auth/login';
+      if (isBrowser) {
+        const publicPaths = ['/auth/login', '/auth/register', '/roadmap', '/courses'];
+        const isPublicPath = publicPaths.some(p => window.location.pathname.startsWith(p));
+        if (!isPublicPath) {
+          window.location.href = '/auth/login';
+        }
+      }
     }
 
-    const isBrowser = typeof window !== 'undefined';
     const config = error.config;
     const method = config?.method?.toLowerCase();
     const shouldQueue =

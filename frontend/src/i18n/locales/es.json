@@ -1,5 +1,7 @@
 {
   "nav": {
+    "learn": "Aprender",
+    "dashboard": "Panel",
     "modules": "MÓDULOS",
     "roadmap": "RUTA",
     "quiz": "CUESTIONARIO",
@@ -10,7 +12,17 @@
     "verify": "VERIFICAR",
     "subscriptions": "SUSCRIPCIONES",
     "notarization": "NOTARIZACIÓN",
-    "devtools": "HERRAMIENTAS"
+    "devtools": "HERRAMIENTAS",
+    "open_source_lab": "Laboratorio de Código Abierto",
+    "web3_student_lab": "Laboratorio Estudiantil Web3",
+    "certificates": "Certificados",
+    "notifications": "Notificaciones",
+    "sign_out": "Cerrar sesión",
+    "wallet_connected": "Billetera conectada",
+    "connect_wallet": "Conectar billetera",
+    "open_wallet_access": "Abrir acceso a billetera",
+    "complete_profile": "Completar perfil",
+    "start_with_wallet": "Empezar con billetera"
   },
   "language": {
     "english": "Inglés",

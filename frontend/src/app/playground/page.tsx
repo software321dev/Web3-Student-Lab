@@ -1,12 +1,20 @@
 'use client';
 
 import { VirtualizedFileTree, type FileTreeNode } from '@/components/explorer/VirtualizedFileTree';
-import { CodeEditor } from '@/components/playground/CodeEditor';
+import dynamic from 'next/dynamic';
+const CodeEditor = dynamic(() => import('@/components/playground/CodeEditor').then((mod) => mod.CodeEditor), {
+  ssr: false,
+});
 import { OfflineIndicator } from '@/components/storage/OfflineIndicator';
 import { TerminalPanel } from '@/components/terminal/TerminalPanel';
 import { WithSkeleton } from '@/components/ui/WithSkeleton';
 import { EditorSkeleton } from '@/components/ui/skeletons/EditorSkeleton';
 import { useTutorial } from '@/contexts/TutorialContext';
+import { useState, useEffect, useMemo, useCallback } from 'react';
+import { CollaborationProvider } from '@/lib/collaboration/YjsProvider';
+import { DatabaseManager } from '@/lib/storage/DatabaseManager';
+import { SyncManager } from '@/lib/storage/SyncManager';
+import { FilePresenceManager } from '@/lib/explorer/FilePresence';
 
 const INITIAL_TREE: FileTreeNode[] = [
   {
@@ -168,6 +176,17 @@ export default function PlaygroundPage() {
     persistActiveFile();
   }, [activeFilePath, databaseManager]);
 
+  const handleCompile = useCallback(() => {
+    setIsCompiling(true);
+    // Simulate compilation delay
+    setTimeout(() => {
+      setOutput(
+        `✅ Compilation successful!\n📦 WASM size: 4.2KB\n🗂 Active file: ${activeFilePath}\n🚀 Contract ready for simulation.\n🧾 Notarization: register_hash / verify / history_for_owner\n💳 Gateway: process_payment / refund_payment / open_dispute / resolve_dispute`
+      );
+      setIsCompiling(false);
+    }, 1500);
+  }, [activeFilePath]);
+
   useEffect(() => {
     const handleShortcutCompile = () => {
       if (!isCompiling) {
@@ -190,17 +209,6 @@ export default function PlaygroundPage() {
     };
     restoreActiveFile();
   }, [databaseManager]);
-
-  const handleCompile = () => {
-    setIsCompiling(true);
-    // Simulate compilation delay
-    setTimeout(() => {
-      setOutput(
-        `✅ Compilation successful!\n📦 WASM size: 4.2KB\n🗂 Active file: ${activeFilePath}\n🚀 Contract ready for simulation.\n🧾 Notarization: register_hash / verify / history_for_owner\n💳 Gateway: process_payment / refund_payment / open_dispute / resolve_dispute`
-      );
-      setIsCompiling(false);
-    }, 1500);
-  };
 
   return (
     <div className="min-h-[calc(100vh-80px)] bg-black p-6 font-mono text-white md:p-12">

@@ -15,6 +15,7 @@ import {
 
 interface RoadmapDetailPanelProps {
   node: RoadmapNodeData | null;
+  allNodes: RoadmapNodeData[];
   onNavigate: (nodeId: string) => void;
   onToggleComplete: (nodeId: string, completed: boolean) => void;
   courseTitle: string;
@@ -29,6 +30,7 @@ const STATUS_ICONS = {
 
 export function RoadmapDetailPanel({
   node,
+  allNodes,
   onNavigate,
   onToggleComplete,
   courseTitle,
@@ -136,12 +138,16 @@ export function RoadmapDetailPanel({
             Prerequisites
           </p>
           <ul className="space-y-1">
-            {node.prerequisites.map((prereqId) => (
-              <li key={prereqId} className="flex items-center gap-1.5 text-xs text-gray-400">
-                <ArrowRight size={10} aria-hidden="true" />
-                {prereqId}
-              </li>
-            ))}
+            {node.prerequisites.map((prereqId) => {
+              const prereqNode = allNodes.find(n => n.id === prereqId);
+              const prereqTitle = prereqNode ? prereqNode.title : prereqId;
+              return (
+                <li key={prereqId} className="flex items-center gap-1.5 text-xs text-gray-400">
+                  <ArrowRight size={10} aria-hidden="true" />
+                  {prereqTitle}
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}
@@ -166,14 +172,18 @@ export function RoadmapDetailPanel({
               ? `Review ${node.title}`
               : node.status === 'in_progress'
                 ? `Continue ${node.title}`
-                : `${node.title} is locked`
+                : node.status === 'available'
+                  ? `Start ${node.title}`
+                  : `${node.title} is locked`
           }
         >
           {node.status === 'completed'
             ? 'Review Module'
             : node.status === 'in_progress'
               ? 'Continue'
-              : 'Locked'}
+              : node.status === 'available'
+                ? 'Start Module'
+                : 'Locked'}
           {node.status !== 'locked' && <ArrowRight size={14} aria-hidden="true" />}
         </button>
 

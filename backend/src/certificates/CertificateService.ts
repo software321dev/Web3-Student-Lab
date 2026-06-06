@@ -90,6 +90,8 @@ export class CertificateService {
       },
     });
 
+    let metadata: CertificateMetadata | undefined;
+
     try {
       // Generate and pin the certificate image and metadata to decentralized storage
       const imageBuffer = await certificateImageGenerator.generateCertificateImage({
@@ -108,7 +110,7 @@ export class CertificateService {
         mimeType: 'image/svg+xml',
       });
 
-      const metadata = this.metadataGenerator.generate(certificate, course, student, {
+      metadata = this.metadataGenerator.generate(certificate, course, student, {
         imageUri: imageAsset.ipfsUri,
         externalUrl: `${process.env.API_BASE_URL || 'http://localhost:8080'}/api/v1/certificates/${
           certificate.tokenId || tokenIdValue

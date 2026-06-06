@@ -1,5 +1,7 @@
 {
   "nav": {
+    "learn": "Learn",
+    "dashboard": "Dashboard",
     "modules": "MODULES",
     "roadmap": "ROADMAP",
     "quiz": "QUIZ",
@@ -10,7 +12,17 @@
     "verify": "VERIFY",
     "subscriptions": "SUBSCRIPTIONS",
     "notarization": "NOTARIZATION",
-    "devtools": "DEVTOOLS"
+    "devtools": "DEVTOOLS",
+    "open_source_lab": "Open Source Lab",
+    "web3_student_lab": "Web3 Student Lab",
+    "certificates": "Certificates",
+    "notifications": "Notifications",
+    "sign_out": "Sign out",
+    "wallet_connected": "Wallet connected",
+    "connect_wallet": "Connect wallet",
+    "open_wallet_access": "Open wallet access",
+    "complete_profile": "Complete profile",
+    "start_with_wallet": "Start with wallet"
   },
   "language": {
     "english": "English",

@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 import type { Course } from '@/lib/api';
 import type { RoadmapNodeData } from '@/lib/types/roadmap';
 import { useRoadmapProgress } from '@/hooks/useRoadmapProgress';
@@ -17,6 +18,7 @@ interface RoadmapViewProps {
 }
 
 export function RoadmapView({ course }: RoadmapViewProps) {
+  const router = useRouter();
   const {
     nodes,
     selectedNodeId,
@@ -51,7 +53,9 @@ export function RoadmapView({ course }: RoadmapViewProps) {
   }, [nodes]);
 
   const handleNavigate = (nodeId: string) => {
-    selectNode(nodeId);
+    if (roadmapCourse) {
+      router.push(`/courses/${roadmapCourse.id}?module=${nodeId}`);
+    }
   };
 
   const handleToggleComplete = async (
@@ -122,57 +126,66 @@ export function RoadmapView({ course }: RoadmapViewProps) {
 
       <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
         <div
-          className="relative flex min-h-[500px] items-center justify-center overflow-hidden rounded-2xl border border-white/5 bg-zinc-950/40 p-4"
+          className="relative flex min-h-[500px] items-center justify-center overflow-auto rounded-2xl border border-white/5 bg-zinc-950/40 p-4"
           role="application"
           aria-label="Interactive learning roadmap"
         >
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(#222_1px,transparent_1px)] bg-[size:40px_40px] opacity-30" />
 
-          <svg
-            className="overflow-visible"
-            width={svgWidth}
-            height={svgHeight}
-            viewBox={`${-(svgWidth / 2)} ${-40} ${svgWidth} ${svgHeight}`}
-            aria-hidden="true"
+          <div
+            className="relative"
+            style={{ width: svgWidth, height: svgHeight }}
           >
-            {roadmapCourse.edges.map((edge) => {
-              const srcPos = layout?.positions[edge.source];
-              const tgtPos = layout?.positions[edge.target];
-              if (!srcPos || !tgtPos) return null;
+            <svg
+              className="absolute inset-0 overflow-visible"
+              width={svgWidth}
+              height={svgHeight}
+              viewBox={`${-(svgWidth / 2)} ${-40} ${svgWidth} ${svgHeight}`}
+              aria-hidden="true"
+            >
+              {roadmapCourse.edges.map((edge) => {
+                const srcPos = layout?.positions[edge.source];
+                const tgtPos = layout?.positions[edge.target];
+                if (!srcPos || !tgtPos) return null;
+
+                return (
+                  <RoadmapConnector
+                    key={edge.id}
+                    edge={edge}
+                    sourcePosition={srcPos}
+                    targetPosition={tgtPos}
+                    sourceStatus={statusMap[edge.source] ?? 'locked'}
+                    targetStatus={statusMap[edge.target] ?? 'locked'}
+                  />
+                );
+              })}
+            </svg>
+
+            {nodes.map((node) => {
+              const pos = layout?.positions[node.id];
+              if (!pos) return null;
+
+              // Shift coords to match top-left of the wrapper
+              const shiftedPos = { x: pos.x + svgWidth / 2, y: pos.y + 40 };
 
               return (
-                <RoadmapConnector
-                  key={edge.id}
-                  edge={edge}
-                  sourcePosition={srcPos}
-                  targetPosition={tgtPos}
-                  sourceStatus={statusMap[edge.source] ?? 'locked'}
-                  targetStatus={statusMap[edge.target] ?? 'locked'}
+                <RoadmapNode
+                  key={node.id}
+                  node={node}
+                  position={shiftedPos}
+                  isSelected={selectedNodeId === node.id}
+                  isHovered={hoveredNodeId === node.id}
+                  onSelect={selectNode}
+                  onHover={setHoveredNode}
                 />
               );
             })}
-          </svg>
-
-          {nodes.map((node) => {
-            const pos = layout?.positions[node.id];
-            if (!pos) return null;
-
-            return (
-              <RoadmapNode
-                key={node.id}
-                node={node}
-                position={pos}
-                isSelected={selectedNodeId === node.id}
-                isHovered={hoveredNodeId === node.id}
-                onSelect={selectNode}
-                onHover={setHoveredNode}
-              />
-            );
-          })}
+          </div>
         </div>
 
         <RoadmapDetailPanel
           node={selectedNode}
+          allNodes={nodes}
           onNavigate={handleNavigate}
           onToggleComplete={handleToggleComplete}
           courseTitle={courseTitle}

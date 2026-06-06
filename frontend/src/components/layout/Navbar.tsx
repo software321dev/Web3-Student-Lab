@@ -10,6 +10,7 @@ import { ArrowRight, Keyboard, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import { useI18n } from '@/i18n';
 import { useKeyboardShortcuts } from '@/components/keyboard/KeyboardShortcutsProvider';
 
 export default function Navbar() {
@@ -20,8 +21,15 @@ export default function Navbar() {
   const completedProfile = useWalletProfileCompletion(publicKey);
   const profileCompleted = !!completedProfile;
   const { openShortcutHelp } = useKeyboardShortcuts();
+  const { t } = useI18n();
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+
+  const getNavLabel = (label: string) => {
+    const key = `nav.${label.toLowerCase()}`;
+    const translated = t(key);
+    return translated === key ? label : translated;
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[rgba(10,13,20,0.78)] backdrop-blur-xl">
@@ -32,10 +40,10 @@ export default function Navbar() {
           </div>
           <div>
             <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--muted)]">
-              Open Source Lab
+              {t('nav.open_source_lab')}
             </p>
             <p className="text-base font-semibold tracking-tight text-[var(--text-strong)]">
-              Web3 Student Lab
+              {t('nav.web3_student_lab')}
             </p>
           </div>
         </Link>
@@ -51,7 +59,7 @@ export default function Navbar() {
                   : 'text-[var(--muted)] hover:bg-white/8 hover:text-[var(--text-strong)]'
               }`}
             >
-              {item.label}
+              {getNavLabel(item.label)}
             </Link>
           ))}
         </nav>
@@ -65,13 +73,13 @@ export default function Navbar() {
                 href="/certificates"
                 className="rounded-full border border-white/12 px-4 py-2 text-sm font-medium text-[var(--text-strong)] transition hover:border-[var(--brand)] hover:bg-white/5"
               >
-                Certificates
+                {t('nav.certificates')}
               </Link>
               <button
                 onClick={logout}
                 className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-[var(--brand-soft)]"
               >
-                Sign out
+                {t('nav.sign_out')}
               </button>
             </>
           ) : (
@@ -80,7 +88,7 @@ export default function Navbar() {
                 href="/auth/login"
                 className="rounded-full px-4 py-2 text-sm font-medium text-[var(--muted)] transition hover:text-[var(--text-strong)]"
               >
-                {publicKey ? 'Wallet connected' : 'Connect wallet'}
+                {publicKey ? t('nav.wallet_connected') : t('nav.connect_wallet')}
               </Link>
               <Link
                 href={profileCompleted ? '/auth/login' : '/auth/register'}
@@ -88,9 +96,9 @@ export default function Navbar() {
               >
                 {publicKey
                   ? profileCompleted
-                    ? 'Open wallet access'
-                    : 'Complete profile'
-                  : 'Start with wallet'}
+                    ? t('nav.open_wallet_access')
+                    : t('nav.complete_profile')
+                  : t('nav.start_with_wallet')}
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </>
@@ -122,7 +130,7 @@ export default function Navbar() {
                     : 'bg-white/4 text-[var(--text-strong)]'
                 }`}
               >
-                <span className="block text-sm font-semibold">{item.label}</span>
+                <span className="block text-sm font-semibold">{getNavLabel(item.label)}</span>
                 <span className="mt-1 block text-xs text-inherit/75">{item.description}</span>
               </Link>
             ))}
@@ -138,8 +146,12 @@ export default function Navbar() {
                     onClick={() => setOpen(false)}
                     className="rounded-2xl border border-white/12 px-4 py-3 text-sm font-medium text-[var(--text-strong)]"
                   >
-                    Certificates
+                    {t('nav.certificates')}
                   </Link>
+                  <div className="flex items-center justify-between rounded-2xl border border-white/12 px-4 py-3">
+                    <span className="text-sm font-medium text-[var(--text-strong)]">{t('nav.notifications')}</span>
+                    <NotificationBell />
+                  </div>
                   <button
                     onClick={() => {
                       logout();
@@ -147,7 +159,7 @@ export default function Navbar() {
                     }}
                     className="rounded-2xl bg-white px-4 py-3 text-sm font-semibold text-slate-950"
                   >
-                    Sign out
+                    {t('nav.sign_out')}
                   </button>
                 </>
               ) : (
@@ -157,7 +169,7 @@ export default function Navbar() {
                     onClick={() => setOpen(false)}
                     className="rounded-2xl border border-white/12 px-4 py-3 text-sm font-medium text-[var(--text-strong)]"
                   >
-                    {publicKey ? 'Wallet connected' : 'Connect wallet'}
+                    {publicKey ? t('nav.wallet_connected') : t('nav.connect_wallet')}
                   </Link>
                   <Link
                     href={profileCompleted ? '/auth/login' : '/auth/register'}
@@ -166,9 +178,9 @@ export default function Navbar() {
                   >
                     {publicKey
                       ? profileCompleted
-                        ? 'Open wallet access'
-                        : 'Complete profile'
-                      : 'Start with wallet'}
+                        ? t('nav.open_wallet_access')
+                        : t('nav.complete_profile')
+                      : t('nav.start_with_wallet')}
                   </Link>
                 </>
               )}

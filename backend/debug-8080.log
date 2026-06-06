@@ -47,3 +47,6 @@ It is highly recommended to use a minimum Redis version of 6.2.0
   },
   clientVersion: '7.8.0'
 }
+2026-06-05 13:15:20.297 [32minfo[39m: Cache invalidated for block 1780661720 {"metadata":{"service":"web3-student-lab-backend","environment":"development"}}
+2026-06-05 13:19:13.061 [32minfo[39m: Cache invalidated for block 1780661948 {"metadata":{"service":"web3-student-lab-backend","environment":"development"}}
+2026-06-05 13:20:30.634 [32minfo[39m: Cache invalidated for block 1780662020 {"metadata":{"service":"web3-student-lab-backend","environment":"development"}}

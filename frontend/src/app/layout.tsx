@@ -18,6 +18,7 @@ import ResiliencyBanner from '@/components/layout/ResiliencyBanner';
 import { CourseNotificationListener, ToastContainer } from '@/components/notifications';
 import { NotificationProvider } from '@/contexts/NotificationContext';
 import { Web3OnboardingProvider } from '@/contexts/Web3OnboardingContext';
+import { TutorialProvider } from '@/contexts/TutorialContext';
 import { SkipLink } from '@/components/ui/SkipLink';
 
 export default function RootLayout({
@@ -54,18 +55,20 @@ export default function RootLayout({
                 <NotificationProvider>
                   <Web3OnboardingProvider>
                     <KeyboardShortcutsProvider>
-                      <SkipLink
-                        targets={[
-                          { id: 'main-content', label: 'Skip to main content' },
-                          { id: 'primary-navigation', label: 'Skip to navigation' },
-                        ]}
-                      />
-                      <Navbar />
-                      <ResiliencyBanner />
-                      <main id="main-content" className="flex-grow outline-none" tabIndex={-1}>
-                        {children}
-                      </main>
-                      <ToastContainer />
+                      <TutorialProvider>
+                        <SkipLink
+                          targets={[
+                            { id: 'main-content', label: 'Skip to main content' },
+                            { id: 'primary-navigation', label: 'Skip to navigation' },
+                          ]}
+                        />
+                        <Navbar />
+                        <ResiliencyBanner />
+                        <main id="main-content" className="flex-grow outline-none" tabIndex={-1}>
+                          {children}
+                        </main>
+                        <ToastContainer />
+                      </TutorialProvider>
                     </KeyboardShortcutsProvider>
                   </Web3OnboardingProvider>
                 </NotificationProvider>
