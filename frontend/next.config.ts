@@ -37,6 +37,14 @@ const nextConfig: NextConfig = {
       })
     );
 
+    // Suppress warnings about async/await in external script modules
+    if (config.output) {
+      config.output.environment = {
+        ...config.output.environment,
+        asyncFunction: true,
+      };
+    }
+
     // Split chunks for better caching
     if (!config.optimization.splitChunks) {
       config.optimization.splitChunks = {};
