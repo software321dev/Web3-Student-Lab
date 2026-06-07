@@ -2,7 +2,7 @@
 
 import { useI18n } from '@/i18n';
 import { Course, coursesAPI } from '@/lib/api';
-import { ArrowRight, BookOpen, Search } from 'lucide-react';
+import { ArrowRight, BookOpen, Search, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState, useCallback } from 'react';
 import { ErrorBoundary, ErrorFallback, CourseListSkeleton } from '@/components/ui';
@@ -48,107 +48,123 @@ export default function CoursesPage() {
 
   return (
     <ErrorBoundary>
-    <div className="mx-auto max-w-7xl px-4 pb-20 pt-12 sm:px-6 lg:px-8" aria-busy={loading}>
-      <section className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="space-y-6">
-          <span className="eyebrow">{t('courses.page.eyebrow')}</span>
-          <h1 className="text-4xl font-semibold tracking-tight text-[var(--text-strong)] sm:text-5xl">
-            {t('courses.page.title')}
-          </h1>
-          <p className="max-w-xl text-base leading-8 text-[var(--muted)]">
-            {t('courses.page.description')}
-          </p>
-          <div className="surface-card p-6">
-            <p className="text-sm leading-7 text-[var(--muted)]">
-              {t('courses.page.focus')}
-            </p>
-          </div>
-        </div>
+      <div className="relative min-h-screen bg-black overflow-hidden font-mono selection:bg-red-500/30 pb-24" aria-busy={loading}>
+        {/* Abstract Background Glows */}
+        <div className="absolute top-0 left-[20%] w-[50%] h-[30%] rounded-full bg-[radial-gradient(circle,rgba(220,38,38,0.1),transparent_70%)] blur-[100px] pointer-events-none" />
+        
+        <div className="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8 relative z-10">
+          <section className="grid gap-12 lg:grid-cols-[1fr_1fr] items-end mb-16">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-500/30 bg-red-500/10 text-red-400 text-[10px] font-black tracking-widest uppercase shadow-[0_0_20px_rgba(220,38,38,0.2)]">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>{t('courses.page.eyebrow')}</span>
+              </div>
+              <h1 className="text-5xl sm:text-7xl font-black tracking-tighter text-white uppercase leading-[1.05]">
+                {t('courses.page.title')}
+              </h1>
+              <p className="max-w-xl text-sm sm:text-base leading-relaxed text-gray-400 font-light border-l-2 border-red-500/50 pl-4">
+                {t('courses.page.description')}
+              </p>
+            </div>
 
-        <div className="surface-card p-6 sm:p-8">
-          <label
-            htmlFor="course-search"
-            className="mb-3 block text-sm font-medium text-[var(--text-strong)]"
-          >
-            {t('courses.page.search_label')}
-          </label>
-          <div className="relative">
-            <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--muted)]" />
-            <input
-              id="course-search"
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder={t('courses.page.search_placeholder')}
-              className="w-full rounded-2xl border border-white/12 bg-white/5 px-11 py-3.5 text-sm text-[var(--text-strong)] outline-none transition placeholder:text-[var(--muted)] focus:border-[var(--brand)]"
-            />
-          </div>
-          <p className="mt-3 text-sm text-[var(--muted)]">
-            {loading ? t('courses.page.loading') : countLabel}
-          </p>
-        </div>
-      </section>
-
-      {loading && <CourseListSkeleton />}
-
-      {error && !loading && (
-        <div className="mt-10">
-          <ErrorFallback message={error} onRetry={load} variant="card" />
-        </div>
-      )}
-
-      {!loading && !error && (
-        <section className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {filteredCourses.map((course) => (
-            <Link
-              key={course.id}
-              href={`/courses/${course.id}`}
-              className="surface-card group flex h-full flex-col justify-between p-6 transition hover:translate-y-[-2px] hover:border-[rgba(240,100,45,0.35)]"
-            >
-              <div>
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/6 text-[var(--brand-strong)]">
-                    <BookOpen className="h-5 w-5" />
-                  </div>
-                  <span className="rounded-full bg-white/6 px-3 py-1 text-xs font-medium text-[var(--text-strong)]">
-                    {t('courses.page.credits').replace('{credits}', String(course.credits))}
-                  </span>
-                </div>
-                <h2 className="mt-5 text-xl font-semibold text-[var(--text-strong)]">
-                  {course.title}
-                </h2>
-                <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
-                  {course.description || t('courses.page.description_fallback')}
+            <div className="bg-zinc-950/60 border border-white/5 p-8 rounded-[2rem] backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+              <label
+                htmlFor="course-search"
+                className="mb-4 block text-[10px] font-black uppercase tracking-[0.2em] text-red-500"
+              >
+                {t('courses.page.search_label')}
+              </label>
+              <div className="relative">
+                <Search className="pointer-events-none absolute left-5 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-500" />
+                <input
+                  id="course-search"
+                  value={query}
+                  onChange={(event) => setQuery(event.target.value)}
+                  placeholder={t('courses.page.search_placeholder')}
+                  className="w-full rounded-2xl border border-white/10 bg-white/5 pl-14 pr-6 py-4 text-sm text-white font-medium outline-none transition-all placeholder:text-gray-600 focus:border-red-500/50 focus:bg-white/10 focus:shadow-[0_0_20px_rgba(220,38,38,0.2)]"
+                />
+              </div>
+              <div className="mt-4 flex items-center justify-between">
+                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500">
+                  {loading ? t('courses.page.loading') : countLabel}
                 </p>
+                <div className="flex gap-1">
+                  <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-red-500/50 animate-pulse delay-75" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-red-500/20 animate-pulse delay-150" />
+                </div>
               </div>
+            </div>
+          </section>
 
-              <div className="mt-8 flex items-center justify-between border-t border-white/8 pt-5">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.12em] text-[var(--muted)]">
-                    {t('courses.page.instructor')}
-                  </p>
-                  <p className="mt-1 text-sm font-medium text-[var(--text-strong)]">
-                    {course.instructor}
+          {loading && <CourseListSkeleton />}
+
+          {error && !loading && (
+            <div className="mt-10">
+              <ErrorFallback message={error} onRetry={load} variant="card" />
+            </div>
+          )}
+
+          {!loading && !error && (
+            <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              {filteredCourses.map((course) => (
+                <Link
+                  key={course.id}
+                  href={`/courses/${course.id}`}
+                  className="group relative flex flex-col justify-between bg-zinc-900/40 border border-white/5 p-8 rounded-[2rem] overflow-hidden transition-all hover:-translate-y-2 hover:bg-zinc-900/80 hover:border-red-500/40 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
+                >
+                  <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110">
+                    <BookOpen className="w-32 h-32" />
+                  </div>
+                  <div className="relative z-10 flex-1">
+                    <div className="flex items-start justify-between gap-4 mb-6">
+                      <div className="w-12 h-12 bg-red-500/10 border border-red-500/20 text-red-500 rounded-2xl flex items-center justify-center group-hover:bg-red-500 group-hover:text-white transition-all shadow-[0_0_15px_rgba(220,38,38,0.1)] group-hover:shadow-[0_0_25px_rgba(220,38,38,0.3)]">
+                        <BookOpen className="h-5 w-5" />
+                      </div>
+                      <span className="rounded-full bg-white/5 border border-white/10 px-3 py-1.5 text-[9px] font-black tracking-[0.2em] uppercase text-white">
+                        {t('courses.page.credits').replace('{credits}', String(course.credits))}
+                      </span>
+                    </div>
+                    <h2 className="text-xl font-black text-white uppercase tracking-wider mb-3">
+                      {course.title}
+                    </h2>
+                    <p className="text-sm leading-relaxed text-gray-400 font-light line-clamp-3">
+                      {course.description || t('courses.page.description_fallback')}
+                    </p>
+                  </div>
+
+                  <div className="relative z-10 mt-8 pt-6 border-t border-white/5 flex items-end justify-between">
+                    <div>
+                      <p className="text-[9px] font-black uppercase tracking-[0.2em] text-red-500 mb-1">
+                        {t('courses.page.instructor')}
+                      </p>
+                      <p className="text-xs font-bold text-white uppercase tracking-wider">
+                        {course.instructor}
+                      </p>
+                    </div>
+                    <span className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-white group-hover:text-red-400 transition-colors">
+                      {t('courses.page.open')}
+                      <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </Link>
+              ))}
+
+              {!loading && filteredCourses.length === 0 && (
+                <div className="col-span-full bg-zinc-950/60 border border-white/5 rounded-[2rem] p-16 text-center backdrop-blur-sm">
+                  <div className="w-16 h-16 mx-auto bg-white/5 rounded-2xl flex items-center justify-center mb-6">
+                    <Search className="w-8 h-8 text-gray-500" />
+                  </div>
+                  <h2 className="text-2xl font-black uppercase tracking-widest text-white mb-2">{t('courses.page.no_results_title')}</h2>
+                  <p className="text-sm text-gray-400 font-light">
+                    {t('courses.page.no_results_description')}
                   </p>
                 </div>
-                <span className="inline-flex items-center gap-2 text-sm font-medium text-[var(--text-strong)]">
-                  {t('courses.page.open')}
-                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                </span>
-              </div>
-            </Link>
-          ))}
-
-        {!loading && filteredCourses.length === 0 && (
-          <div className="surface-card col-span-full p-8 text-center">
-            <h2 className="text-xl font-semibold text-[var(--text-strong)]">{t('courses.page.no_results_title')}</h2>
-            <p className="mt-2 text-sm text-[var(--muted)]">
-              {t('courses.page.no_results_description')}
-            </p>
-          </div>
-        )}
-      </section>
-      )}
-    </div>
+              )}
+            </section>
+          )}
+        </div>
+      </div>
     </ErrorBoundary>
   );
 }
