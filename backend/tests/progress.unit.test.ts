@@ -15,7 +15,7 @@ const mockCacheGet = jest.fn();
 const mockCacheSet = jest.fn();
 const mockInvalidateUserProgressCache = jest.fn();
 
-jest.unstable_mockModule('../src/db/index.js', () => ({
+jest.unstable_mockModule('../src/db/index.ts', () => ({
   default: {
     learningProgress: {
       findUnique: mockPrismaFindUnique,
@@ -61,6 +61,11 @@ describe('Progress Service - Unit Tests', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    mockPrismaFindUnique.mockClear();
+    mockPrismaUpsert.mockClear();
+    mockPrismaStudentActivityCreate.mockClear();
+    mockCacheGet.mockClear();
+    mockCacheSet.mockClear();
     // Default: no cache hit
     mockCacheGet.mockResolvedValue(null);
     // Default: activity logging succeeds
@@ -210,9 +215,6 @@ describe('Progress Service - Unit Tests', () => {
 
   describe('updateStudentProgress()', () => {
     it('should throw LESSON_NOT_FOUND for invalid lesson', async () => {
-      // Arrange: No cached progress
-      mockPrismaFindUnique.mockResolvedValueOnce(null);
-
       // Act & Assert: Invalid lesson throws error
       await expect(
         updateStudentProgress('student-1', 'course-1', {
@@ -226,7 +228,7 @@ describe('Progress Service - Unit Tests', () => {
       // Arrange: Existing progress in DB
       const existingProgress = {
         id: 'progress-1',
-        studentId: 'student-1',
+        studentId: 'student-add',
         courseId: 'course-1',
         completedLessons: [],
         currentModuleId: 'course-1-module-1',
@@ -248,7 +250,7 @@ describe('Progress Service - Unit Tests', () => {
       });
 
       // Act: Complete a lesson
-      const result = await updateStudentProgress('student-1', 'course-1', {
+      const result = await updateStudentProgress('student-add', 'course-1', {
         lessonId: 'course-1-lesson-1',
         status: 'completed',
       });
@@ -262,7 +264,7 @@ describe('Progress Service - Unit Tests', () => {
       // Arrange: Progress with completed lesson
       const existingProgress = {
         id: 'progress-1',
-        studentId: 'student-1',
+        studentId: 'student-remove',
         courseId: 'course-1',
         completedLessons: ['course-1-lesson-1'],
         currentModuleId: 'course-1-module-1',
@@ -283,7 +285,7 @@ describe('Progress Service - Unit Tests', () => {
       });
 
       // Act: Mark lesson as not completed
-      const result = await updateStudentProgress('student-1', 'course-1', {
+      const result = await updateStudentProgress('student-remove', 'course-1', {
         lessonId: 'course-1-lesson-1',
         status: 'not_started',
       });
@@ -296,7 +298,7 @@ describe('Progress Service - Unit Tests', () => {
       // Arrange: Lesson already completed
       const existingProgress = {
         id: 'progress-1',
-        studentId: 'student-1',
+        studentId: 'student-nodedup',
         courseId: 'course-1',
         completedLessons: ['course-1-lesson-1'],
         currentModuleId: 'course-1-module-1',
@@ -316,7 +318,7 @@ describe('Progress Service - Unit Tests', () => {
       });
 
       // Act: Complete same lesson again
-      const result = await updateStudentProgress('student-1', 'course-1', {
+      const result = await updateStudentProgress('student-nodedup', 'course-1', {
         lessonId: 'course-1-lesson-1',
         status: 'completed',
       });
@@ -332,7 +334,7 @@ describe('Progress Service - Unit Tests', () => {
       // Arrange: 3 of 4 lessons completed
       const existingProgress = {
         id: 'progress-1',
-        studentId: 'student-1',
+        studentId: 'student-pct100',
         courseId: 'course-1',
         completedLessons: ['course-1-lesson-1', 'course-1-lesson-2', 'course-1-lesson-3'],
         currentModuleId: 'course-1-module-2',
@@ -359,7 +361,7 @@ describe('Progress Service - Unit Tests', () => {
       });
 
       // Act: Complete final lesson
-      const result = await updateStudentProgress('student-1', 'course-1', {
+      const result = await updateStudentProgress('student-pct100', 'course-1', {
         lessonId: 'course-1-lesson-4',
         status: 'completed',
       });
@@ -373,7 +375,7 @@ describe('Progress Service - Unit Tests', () => {
       // Arrange: Existing progress
       const existingProgress = {
         id: 'progress-1',
-        studentId: 'student-1',
+        studentId: 'student-explicit',
         courseId: 'course-1',
         completedLessons: [],
         currentModuleId: null,
@@ -394,7 +396,7 @@ describe('Progress Service - Unit Tests', () => {
       });
 
       // Act: Update with explicit percentage
-      const result = await updateStudentProgress('student-1', 'course-1', {
+      const result = await updateStudentProgress('student-explicit', 'course-1', {
         lessonId: 'course-1-lesson-1',
         status: 'completed',
         percentage: 42,
@@ -441,7 +443,7 @@ describe('Progress Service - Unit Tests', () => {
       // Arrange: Lesson already in completed list
       const existingProgress = {
         id: 'progress-1',
-        studentId: 'student-1',
+        studentId: 'student-dedup',
         courseId: 'course-1',
         completedLessons: ['course-1-lesson-1'],
         currentModuleId: 'course-1-module-1',
@@ -456,7 +458,7 @@ describe('Progress Service - Unit Tests', () => {
       mockPrismaUpsert.mockResolvedValueOnce(existingProgress);
 
       // Act: Re-complete already completed lesson
-      await updateStudentProgress('student-1', 'course-1', {
+      await updateStudentProgress('student-dedup', 'course-1', {
         lessonId: 'course-1-lesson-1',
         status: 'completed',
       });
@@ -469,7 +471,7 @@ describe('Progress Service - Unit Tests', () => {
       // Arrange: DB error during upsert
       const existingProgress = {
         id: 'progress-1',
-        studentId: 'student-1',
+        studentId: 'student-fallback-upsert',
         courseId: 'course-1',
         completedLessons: [],
         currentModuleId: null,
@@ -484,7 +486,7 @@ describe('Progress Service - Unit Tests', () => {
       mockPrismaUpsert.mockRejectedValueOnce(new Error('Upsert failed'));
 
       // Act: Update should still work via fallback
-      const result = await updateStudentProgress('student-1', 'course-1', {
+      const result = await updateStudentProgress('student-fallback-upsert', 'course-1', {
         lessonId: 'course-1-lesson-1',
         status: 'completed',
       });
@@ -530,7 +532,7 @@ describe('Progress Service - Unit Tests', () => {
       // Arrange: 3 of 4 lessons done, completing the last
       const existingProgress = {
         id: 'progress-1',
-        studentId: 'student-1',
+        studentId: 'student-completed-at',
         courseId: 'course-1',
         completedLessons: ['course-1-lesson-1', 'course-1-lesson-2', 'course-1-lesson-3'],
         currentModuleId: 'course-1-module-2',
@@ -556,7 +558,7 @@ describe('Progress Service - Unit Tests', () => {
       });
 
       // Act: Complete last lesson
-      const result = await updateStudentProgress('student-1', 'course-1', {
+      const result = await updateStudentProgress('student-completed-at', 'course-1', {
         lessonId: 'course-1-lesson-4',
         status: 'completed',
       });
@@ -569,7 +571,7 @@ describe('Progress Service - Unit Tests', () => {
       // Arrange: Initial state
       const existingProgress = {
         id: 'progress-1',
-        studentId: 'student-1',
+        studentId: 'student-module-id',
         courseId: 'course-1',
         completedLessons: [],
         currentModuleId: null,
@@ -589,7 +591,7 @@ describe('Progress Service - Unit Tests', () => {
       });
 
       // Act: Complete lesson in module 1
-      const result = await updateStudentProgress('student-1', 'course-1', {
+      const result = await updateStudentProgress('student-module-id', 'course-1', {
         lessonId: 'course-1-lesson-1',
         status: 'completed',
       });

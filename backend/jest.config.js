@@ -2,14 +2,17 @@
 process.env.NODE_ENV = 'test';
 
 export default {
-  setupFiles: ['dotenv/config', '<rootDir>/jest.setup.js'],
+  setupFiles: [
+    'dotenv/config',
+    '<rootDir>/jest.setup.js',
+    '<rootDir>/tests/jest.setup.ts',
+  ],
   preset: 'ts-jest',
   testEnvironment: 'node',
   extensionsToTreatAsEsm: ['.ts'],
   moduleNameMapper: {
     '^(\\.{1,2}/.*)\\.js$': '$1',
   },
-  setupFiles: ['<rootDir>/tests/jest.setup.ts'],
   transform: {
     '^.+\\.tsx?$': [
       'ts-jest',

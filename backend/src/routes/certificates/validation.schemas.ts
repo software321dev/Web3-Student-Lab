@@ -101,7 +101,7 @@ export type ReissueCertificateRequest = z.infer<typeof ReissueCertificateSchema>
 
 // Batch verification schema
 export const BatchVerificationSchema = z.object({
-  tokenIds: z.array(z.string().min(1)).min(1).max(100),
+  tokenIds: z.array(z.string().min(1)).min(1, 'cannot be empty').max(100, 'Maximum 100'),
 });
 
 export type BatchVerificationRequest = z.infer<typeof BatchVerificationSchema>;

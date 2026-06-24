@@ -59,7 +59,7 @@ beforeAll(async () => {
     dbAvailable = true;
     console.log('✓ Database connection established for integration tests');
   } catch (error) {
-    console.warn('⚠ Database not available, skipping integration tests');
+    console.warn('⚠ Database not available, skipping integration tests', error);
   }
 });
 
@@ -69,9 +69,7 @@ afterAll(async () => {
   }
 });
 
-const describeOrSkip = dbAvailable ? describe : describe.skip;
-
-describeOrSkip('Curriculum & Progress Integration Tests', () => {
+describe('Curriculum & Progress Integration Tests', () => {
   // Clean database before each test
   beforeEach(async () => {
     if (!dbAvailable) return;

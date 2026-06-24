@@ -31,6 +31,8 @@ const createTestRedisClient = () => {
     },
     lpush: async (_key: string, ...values: string[]) => values.length,
     brpop: async () => null,
+    publish: async (_channel: string, _message: string) => 0,
+    subscribe: (..._args: any[]) => undefined,
   };
 };
 

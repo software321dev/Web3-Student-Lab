@@ -355,7 +355,7 @@ mod tests {
 
         // Advance ledger past cooldown + enough for non-zero reward
         env.ledger()
-            .with_mut(|l| l.sequence_number += 10_000 + HARVEST_COOL);
+            .with_mut(|l| l.sequence_number += 100 + HARVEST_COOL);
 
         let reward = client.harvest(&user);
         assert!(reward > 0, "expected positive reward");
@@ -370,7 +370,7 @@ mod tests {
         client.deposit(&user, &1_000_000);
         client.stake(&user);
         env.ledger()
-            .with_mut(|l| l.sequence_number += 10_000 + HARVEST_COOL);
+            .with_mut(|l| l.sequence_number += 100 + HARVEST_COOL);
         client.harvest(&user);
 
         // Immediate second harvest should fail cooldown
@@ -385,7 +385,7 @@ mod tests {
         client.deposit(&user, &1_000_000);
         client.stake(&user);
         env.ledger()
-            .with_mut(|l| l.sequence_number += 10_000 + HARVEST_COOL);
+            .with_mut(|l| l.sequence_number += 100 + HARVEST_COOL);
 
         let shares_before = client.shares_of(&user);
         let new_shares = client.compound(&user);
@@ -410,7 +410,7 @@ mod tests {
         client.deposit(&user, &1_000_000);
         client.stake(&user);
         env.ledger()
-            .with_mut(|l| l.sequence_number += 10_000 + HARVEST_COOL);
+            .with_mut(|l| l.sequence_number += 100 + HARVEST_COOL);
         client.harvest(&user);
 
         // user2 deposits same amount but gets fewer shares (price went up)

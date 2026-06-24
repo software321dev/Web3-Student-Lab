@@ -6,7 +6,7 @@
  */
 
 import { jest } from '@jest/globals';
-import type { Course } from '@prisma/client';
+type Course = any;
 
 // Mock dependencies before imports
 const mockPrismaFindMany = jest.fn();
@@ -14,7 +14,7 @@ const mockPrismaFindUnique = jest.fn();
 const mockCacheGet = jest.fn();
 const mockCacheSet = jest.fn();
 
-jest.unstable_mockModule('../src/db/index.js', () => ({
+jest.unstable_mockModule('../src/db/index.ts', () => ({
   default: {
     course: {
       findMany: mockPrismaFindMany,

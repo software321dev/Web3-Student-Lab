@@ -245,3 +245,29 @@ model DecentralizedAsset {
   @@index([workspaceId, resourceType, resourceId])
   @@map("decentralized_assets")
 }
+
+model WebhookSubscription {
+  id          String   @id @default(cuid())
+  workspaceId String   @default("default")
+  url         String
+  secret      String?
+  events      Json     // Array of event names e.g., ["lesson.completed"]
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([workspaceId, url])
+  @@map("webhook_subscriptions")
+}
+
+model StudentActivity {
+  id        String   @id @default(cuid())
+  studentId String
+  courseId  String
+  lessonId  String
+  action    String
+  timestamp DateTime @default(now())
+
+  @@map("student_activities")
+}
+

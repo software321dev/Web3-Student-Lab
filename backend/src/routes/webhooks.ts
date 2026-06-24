@@ -1,5 +1,6 @@
 import { Request, Response, Router } from 'express';
 import logger from '../utils/logger.js';
+import prisma from '../db/index.js';
 import {
   canonicalizeWebhookPayload,
   enqueueWebhookDeliveries,
@@ -73,6 +74,71 @@ router.post(['/ingest', '/dispatch'], async (req: Request, res: Response) => {
     return res.status(400).json({
       error: error instanceof Error ? error.message : 'Invalid webhook dispatch request',
     });
+  }
+});
+
+// GET /subscriptions - Get all subscriptions
+router.get('/subscriptions', async (req: Request, res: Response) => {
+  try {
+    const subscriptions = await prisma.webhookSubscription.findMany();
+    return res.json(subscriptions);
+  } catch (error) {
+    logger.error('Failed to get webhook subscriptions:', error);
+    return res.status(500).json({ error: 'Failed to fetch webhook subscriptions' });
+  }
+});
+
+// POST /subscriptions - Create a new subscription
+router.post('/subscriptions', async (req: Request, res: Response) => {
+  try {
+    const { url, secret, events, active } = req.body;
+
+    if (!url || typeof url !== 'string' || (!url.startsWith('http://') && !url.startsWith('https://'))) {
+      return res.status(400).json({ error: 'Invalid subscription URL' });
+    }
+
+    if (!events || !Array.isArray(events) || events.length === 0 || !events.every(e => typeof e === 'string')) {
+      return res.status(400).json({ error: 'Events must be a non-empty array of strings' });
+    }
+
+    const subscription = await prisma.webhookSubscription.create({
+      data: {
+        url,
+        secret: secret || null,
+        events: events as any,
+        active: active !== undefined ? Boolean(active) : true,
+      },
+    });
+
+    return res.status(201).json(subscription);
+  } catch (error: any) {
+    logger.error('Failed to create webhook subscription:', error);
+    if (error.code === 'P2002') {
+      return res.status(409).json({ error: 'Subscription for this URL already exists' });
+    }
+    return res.status(500).json({ error: 'Failed to create webhook subscription' });
+  }
+});
+
+// DELETE /subscriptions/:id - Delete a subscription
+router.delete('/subscriptions/:id', async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    const exists = await prisma.webhookSubscription.findUnique({
+      where: { id },
+    });
+    if (!exists) {
+      return res.status(404).json({ error: 'Subscription not found' });
+    }
+
+    await prisma.webhookSubscription.delete({
+      where: { id },
+    });
+    return res.status(204).send();
+  } catch (error) {
+    logger.error('Failed to delete webhook subscription:', error);
+    return res.status(500).json({ error: 'Failed to delete webhook subscription' });
   }
 });
 

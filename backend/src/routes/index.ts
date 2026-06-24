@@ -19,6 +19,8 @@ import studentsRouter from './students.js';
 import notificationRouter from '../notifications/notification.routes.js';
 import metricsRouter from './metrics.routes.js';
 
+import webhooksRouter from './webhooks.js';
+
 const router = Router();
 
 router.use('/health', healthRouter);
@@ -36,7 +38,7 @@ router.use('/notifications', notificationRouter);
 router.use('/security', securityRouter);
 router.use('/generator', generatorRouter);
 router.use('/export', exportRouter);
-// router.use('/webhooks', webhooksRouter);
+router.use('/webhooks', webhooksRouter);
 router.use('/user', userRouter);
 router.use('/metrics', metricsRouter);
 

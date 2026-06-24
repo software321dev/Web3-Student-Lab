@@ -94,6 +94,7 @@ router.post('/', auditAction('CREATE_STUDENT', 'Student'), async (req, res) => {
 
     res.status(201).json(student);
   } catch (error) {
+    console.error("CREATE STUDENT ERROR:", error);
     if (error instanceof Error && error.message.startsWith('Invalid DID format')) {
       res.status(400).json({ error: error.message });
       return;

@@ -12,7 +12,8 @@ members = [
     "smart_vault",
     "payment_streaming",
     "commit_reveal_rng",
-    "quadratic_funding"
+    "quadratic_funding",
+    "multisig_wallet_timelock"
 ]
 
 [lib]
